@@ -7,9 +7,12 @@ public class Personaje {
         /* ? */
         this.hacerMovimiento(bloque); /* ? */
     }
-    boolean lapizArriba() {
+    public boolean lapizArriba() {
         return true;
     }
+
+    public boolean lapizAbajo() { return false;}
+}
 
     void hacerMovimiento(Bloque bloque) { this.estado.hacerMovimiento(this, bloque); }
 
@@ -21,4 +24,3 @@ public class Personaje {
         this.estado = new LapizAbajo();
     }
 
-}
