@@ -7,7 +7,6 @@ import Modelo.tablero.Tablero;
 public class BloquePersonalizado extends Conjunto{
 
     @Override
-    public void ejecutar(Personaje personaje, Posicion posicion, Tablero tablero) {
-
+    public void ejecutar(Personaje personaje, Tablero tablero){
     }
 }

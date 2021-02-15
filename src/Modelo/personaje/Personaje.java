@@ -1,28 +1,57 @@
 package Modelo.personaje;
 
-import Modelo.bloques.Bloque;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 
 public class Personaje{
 
-    private EstadoLapiz estado = new LapizArriba();
+    private EstadoLapiz lapiz = new LapizArriba();
     protected Posicion posicion;
 
-    void hacerMovimiento(Bloque bloque, Tablero tablero) {
-        this.estado.hacerMovimiento(this, bloque, this.posicion, tablero);
+    public Personaje(int x, int y){
+        posicion = new Posicion(x, y);
+    }
+    public Personaje(){
+        posicion = new Posicion(0,0);
     }
 
     public void subirLapiz() {
-        this.estado = new LapizArriba();
+        this.lapiz = new LapizArriba();
     }
 
     public void bajarLapiz() {
-        this.estado = new LapizAbajo();
+        this.lapiz = new LapizAbajo();
     }
 
-    void setPosicion(Posicion posicion) {
+    public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
     }
 
+    public Posicion getPosicion(){
+        return posicion;
+    }
+
+    EstadoLapiz getLapiz(){
+        return lapiz;
+    }
+
+    public void moverDerecha(Tablero tablero){
+        posicion.moverDerecha();
+        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+    }
+
+    public void moverIzquierda(Tablero tablero) {
+        posicion.moverIzquierda();
+        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+    }
+
+    public void moverArriba(Tablero tablero) {
+        posicion.moverArriba();
+        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+    }
+
+    public void moverAbajo(Tablero tablero) {
+        posicion.moverAbajo();
+        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+    }
 }

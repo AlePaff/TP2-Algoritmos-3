@@ -22,18 +22,18 @@ public class Posicion {
     }
 
     private void moverUnidadConXeY(Personaje personaje, Tablero tablero, int xDeOrigen, int yDeOrigen) {
-        tablero.moverUnidadDesdeHasta(personaje, yDeOrigen, xDeOrigen, this.posY, this.posX);
+        //tablero.moverUnidadDesdeHasta(personaje, yDeOrigen, xDeOrigen, this.posY, this.posX);
     }
-    public void descolocarColocable(Tablero tablero) {
-        tablero.descolocarColocable(this.posY, this.posX);
-    }
+   // public void descolocarColocable(Tablero tablero) {
+   //     tablero.descolocarColocable(this.posY, this.posX);
+   // }
 
     public int calcularDistanciaA(Posicion posicion) {
         return posicion.calcularDistanciaConXeY(this.posX, this.posY);
     }
 
     private int calcularDistanciaConXeY(int posX, int posY) {
-        return max(abs(posX - this.posX), abs(posY - this.posY));
+        return Math.max(Math.abs(posX - this.posX), Math.abs(posY - this.posY));
     }
 
     private boolean esDistanciaValida(int distancia) {
