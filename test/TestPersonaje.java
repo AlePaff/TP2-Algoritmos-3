@@ -16,11 +16,14 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeBajaYSubeElLapiz(){
         Personaje personaje = new Personaje();
-
-        personaje.bajarLapiz();
+        Bloque bloqueBajar = new BajarLapiz();
+        Bloque bloqueSubir = new SubirLapiz();
+        Tablero tablero = new tablero;
+        
+        bloqueBajar.ejecutar(personaje, tablero);
         assertFalse(personaje.lapizLevantado());
-
-        personaje.subirLapiz();
+        
+        bloqueSubir.ejecutar(personaje, tablero);
         assertTrue(personaje.lapizLevantado());
     }
 
@@ -28,8 +31,9 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveADerecha(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
+        Bloque bloqueDerecha = new MoverDerecha();
 
-        personaje.moverDerecha(tablero);
+        bloqueDerecha.ejecutar(personaje, tablero);
         assertEquals(9, personaje.getPosicion().getPosX());
 
     }
@@ -38,8 +42,8 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveAIzquierda(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
-
-        personaje.moverIzquierda(tablero);
+        Bloque bloqueIzquierda = new MoverIzquierda();
+        bloqueIzquierda.ejecutar(personaje, tablero);
         assertEquals(7, personaje.getPosicion().getPosX());
 
     }
@@ -48,8 +52,10 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveArriba(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
-
-        personaje.moverArriba(tablero);
+        
+        Bloque bloqueArriba = new MoverArriba();
+        bloqueArriba.ejecutar(personaje, tablero);
+        
         assertEquals(9, personaje.getPosicion().getPosY());
 
     }
@@ -58,8 +64,10 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveAbajo(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
-
-        personaje.moverAbajo(tablero);
+        
+        Bloque bloqueAbajo = new MoverAbajo();
+        bloqueAbajo.ejecutar(personaje, tablero);
+        
         assertEquals(7, personaje.getPosicion().getPosY());
 
     }
