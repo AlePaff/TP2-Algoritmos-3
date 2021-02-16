@@ -31,8 +31,8 @@ public class Personaje{
         return posicion;
     }
 
-    EstadoLapiz getLapiz(){
-        return lapiz;
+    public boolean lapizLevantado(){
+        return lapiz instanceof LapizArriba;
     }
 
     public void moverDerecha(Tablero tablero){
