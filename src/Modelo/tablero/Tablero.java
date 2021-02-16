@@ -8,11 +8,9 @@ public class Tablero {
 
     private ArrayList<Bloque> bloques = new ArrayList<>();
     private ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
-    private static final int BASE_MINIMA = 12;
-    private static final int ALTURA_MINIMA = 12;
 
     public Tablero(int base, int altura) {
-        /* validar tamaño?*/
+        /* validar tamaño, excepcion si alguno es negativo*/
 
         for (int i = 0; i < base; i++) {
             ArrayList<Casillero> columna = new ArrayList<>();
@@ -21,6 +19,19 @@ public class Tablero {
                 columna.add(new Casillero());
         }
     }
+
+    public int getBase(){
+        return casilleros.size();
+    }
+
+    public int getAltura(){
+        return casilleros.get(0).size();
+    }
+
+    public Casillero getCasillero (int x, int y){
+        return casilleros.get(x).get(y);
+    }
+
     public void agregarBloque(Bloque bloque){
         bloques.add(bloque);
     }

@@ -1,5 +1,3 @@
-import Modelo.personaje.EstadoLapiz;
-import Modelo.personaje.LapizArriba;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
