@@ -8,5 +8,6 @@ public class SubirLapiz implements Bloque{
 
     @Override
     public void ejecutar(Personaje personaje, Tablero tablero){
+        personaje.subirLapiz();
     }
 }

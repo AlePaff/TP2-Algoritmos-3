@@ -1,3 +1,4 @@
+import Modelo.bloques.*;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
@@ -16,9 +17,9 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeBajaYSubeElLapiz(){
         Personaje personaje = new Personaje();
-        Bloque bloqueBajar = new BajarLapiz();
-        Bloque bloqueSubir = new SubirLapiz();
-        Tablero tablero = new tablero;
+        BajarLapiz bloqueBajar = new BajarLapiz();
+        SubirLapiz bloqueSubir = new SubirLapiz();
+        Tablero tablero = new Tablero(15, 15);
         
         bloqueBajar.ejecutar(personaje, tablero);
         assertFalse(personaje.lapizLevantado());
@@ -31,7 +32,7 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveADerecha(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
-        Bloque bloqueDerecha = new MoverDerecha();
+        MoverDerecha bloqueDerecha = new MoverDerecha();
 
         bloqueDerecha.ejecutar(personaje, tablero);
         assertEquals(9, personaje.getPosicion().getPosX());
@@ -42,7 +43,7 @@ public class TestPersonaje{
     public void TestPersonajeSeMueveAIzquierda(){
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
-        Bloque bloqueIzquierda = new MoverIzquierda();
+        MoverIzquierda bloqueIzquierda = new MoverIzquierda();
         bloqueIzquierda.ejecutar(personaje, tablero);
         assertEquals(7, personaje.getPosicion().getPosX());
 
@@ -53,7 +54,7 @@ public class TestPersonaje{
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
         
-        Bloque bloqueArriba = new MoverArriba();
+        MoverArriba bloqueArriba = new MoverArriba();
         bloqueArriba.ejecutar(personaje, tablero);
         
         assertEquals(9, personaje.getPosicion().getPosY());
@@ -65,7 +66,7 @@ public class TestPersonaje{
         Personaje personaje = new Personaje(8,8);
         Tablero tablero = new Tablero(15, 15);
         
-        Bloque bloqueAbajo = new MoverAbajo();
+        MoverAbajo bloqueAbajo = new MoverAbajo();
         bloqueAbajo.ejecutar(personaje, tablero);
         
         assertEquals(7, personaje.getPosicion().getPosY());
