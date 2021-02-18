@@ -1,74 +1,28 @@
-import Modelo.personaje.Personaje;
-import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPersonaje{
     @Test
     public void TestPersonajeSeCreaConLapizArriba(){
         Personaje personaje = new Personaje();
 
-        assertTrue(personaje.lapizLevantado());
-    }
+        assertTrue(personaje.lapizArriba());
+        }
 
 
     @Test
     public void TestPersonajeBajaYSubeElLapiz(){
         Personaje personaje = new Personaje();
-        Bloque bloqueBajar = new BajarLapiz();
-        Bloque bloqueSubir = new SubirLapiz();
-        Tablero tablero = new tablero;
+
+        personaje.bajarLapiz();
+        assertTrue(personaje.lapizAbajo());
+        assertFalse(personaje.lapizArriba());
+
+        personaje.subirLapiz();
+        assertTrue(personaje.lapizArriba());
+        assertFalse(personaje.lapizAbajo());
         
-        bloqueBajar.ejecutar(personaje, tablero);
-        assertFalse(personaje.lapizLevantado());
-        
-        bloqueSubir.ejecutar(personaje, tablero);
-        assertTrue(personaje.lapizLevantado());
-    }
-
-    @Test
-    public void TestPersonajeSeMueveADerecha(){
-        Personaje personaje = new Personaje(8,8);
-        Tablero tablero = new Tablero(15, 15);
-        Bloque bloqueDerecha = new MoverDerecha();
-
-        bloqueDerecha.ejecutar(personaje, tablero);
-        assertEquals(9, personaje.getPosicion().getPosX());
-
-    }
-
-    @Test
-    public void TestPersonajeSeMueveAIzquierda(){
-        Personaje personaje = new Personaje(8,8);
-        Tablero tablero = new Tablero(15, 15);
-        Bloque bloqueIzquierda = new MoverIzquierda();
-        bloqueIzquierda.ejecutar(personaje, tablero);
-        assertEquals(7, personaje.getPosicion().getPosX());
-
-    }
-
-    @Test
-    public void TestPersonajeSeMueveArriba(){
-        Personaje personaje = new Personaje(8,8);
-        Tablero tablero = new Tablero(15, 15);
-        
-        Bloque bloqueArriba = new MoverArriba();
-        bloqueArriba.ejecutar(personaje, tablero);
-        
-        assertEquals(9, personaje.getPosicion().getPosY());
-
-    }
-
-    @Test
-    public void TestPersonajeSeMueveAbajo(){
-        Personaje personaje = new Personaje(8,8);
-        Tablero tablero = new Tablero(15, 15);
-        
-        Bloque bloqueAbajo = new MoverAbajo();
-        bloqueAbajo.ejecutar(personaje, tablero);
-        
-        assertEquals(7, personaje.getPosicion().getPosY());
-
-    }
+        }
 }

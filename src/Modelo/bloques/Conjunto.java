@@ -1,4 +1,7 @@
 package Modelo.bloques;
+import Modelo.personaje.Personaje;
+import Modelo.tablero.Tablero;
+
 import java.util.ArrayList;
 
 public abstract class Conjunto implements Bloque {
@@ -9,8 +12,5 @@ public abstract class Conjunto implements Bloque {
         bloques.add(bloque);
     }
 
-    void ejecutar() {
-
-    }
-
+    public abstract void ejecutar(Personaje personaje, Tablero tablero);
 }
