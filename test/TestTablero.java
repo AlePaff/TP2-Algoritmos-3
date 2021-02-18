@@ -2,8 +2,11 @@ import Modelo.bloques.Conjunto;
 import Modelo.bloques.MoverDerecha;
 import Modelo.bloques.Repeticion;
 import Modelo.personaje.Personaje;
+import Modelo.tablero.Casillero;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,35 +19,31 @@ public class TestTablero {
         assertEquals(15, tablero.getBase());
     }
 
+
     @Test
-    public void PersonajeConLapizLevantadoNoDibuja() {
+    public void TableroSeCreaConTodosLosCasillerosSinPintar() {
         Tablero tablero = new Tablero(15, 15);
-        Personaje personaje = new Personaje(0, 0);
-
-        personaje.moverDerecha(tablero);
-
-        assertFalse(tablero.getCasillero(1, 0).estaPintado());
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++)
+                assertFalse(tablero.getCasillero(i, j).estaPintado());
+        }
     }
 
     @Test
-    public void PersonajeConLapizApoyadoSiDibuja() {
+    public void TableroDibujaEnElCasilleroIndicado() {
         Tablero tablero = new Tablero(15, 15);
-        Personaje personaje = new Personaje(0, 0);
-        personaje.bajarLapiz();
 
-        personaje.moverDerecha(tablero);
+        tablero.dibujar(0, 0);
+        assertTrue(tablero.getCasillero(0, 0).estaPintado());
 
-        assertTrue(tablero.getCasillero(1, 0).estaPintado()) ;
+        tablero.dibujar(1, 0);
+        assertTrue(tablero.getCasillero(1, 0).estaPintado());
+
+        tablero.dibujar(5, 2);
+        assertTrue(tablero.getCasillero(5, 2).estaPintado());
     }
 
-    @Test
-    public void BloqueDeRepeticionSeCreaCorrectamente(){
-        Tablero tablero = new Tablero(15, 15);
-        Personaje personaje = new Personaje(0, 0);
-        Repeticion bloque = new Repeticion(new MoverDerecha(), 5);
 
-        bloque.ejecutar(personaje, tablero);
 
-        assertEquals(5, personaje.getPosicion().getPosX());
-    }
 }
+

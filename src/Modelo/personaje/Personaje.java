@@ -23,16 +23,16 @@ public class Personaje{
         this.lapiz = new LapizAbajo();
     }
 
+    public boolean lapizLevantado(){
+        return lapiz instanceof LapizArriba;
+    }
+
     public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
     }
 
     public Posicion getPosicion(){
         return posicion;
-    }
-
-    public boolean lapizLevantado(){
-        return lapiz instanceof LapizArriba;
     }
 
     public void moverDerecha(Tablero tablero){
