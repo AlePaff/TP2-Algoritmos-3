@@ -3,6 +3,8 @@ package Modelo.bloques;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 
+import java.util.ArrayList;
+
 public class MovimientoSinInvertir implements Movimiento{
     public void moverseADerecha(Personaje personaje, Tablero tablero) {
 
@@ -34,9 +36,11 @@ public class MovimientoSinInvertir implements Movimiento{
         personaje.subirLapiz();
     }
 
-    public void repetirMovimiento(Bloque bloque,int repeticiones,Personaje personaje,Tablero tablero){
+    public void repetirMovimiento(ArrayList<Bloque> bloques, int repeticiones, Personaje personaje, Tablero tablero){
         for (int i = 0; i < repeticiones; i++){
-            bloque.ejecutar (this,personaje,tablero);
+            for (Bloque bloque : bloques){
+                bloque.ejecutar(this, personaje, tablero);
+            }
         }
     }
 }

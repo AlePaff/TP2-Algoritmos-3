@@ -3,19 +3,17 @@ package Modelo.bloques;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 
-public class Repeticion implements Bloque {
+public class Repeticion extends Conjunto {
     public int repeticiones;
-    Bloque bloque;
 
-    public Repeticion(Bloque bloque, int repeticiones) {
+    public Repeticion( int repeticiones) {
         this.repeticiones = repeticiones;
-        this.bloque = bloque;
     }
 
 
     @Override
     public void ejecutar(Movimiento movimiento,Personaje personaje, Tablero tablero){
-            movimiento.repetirMovimiento(bloque,repeticiones,personaje,tablero);
+            movimiento.repetirMovimiento(bloques, repeticiones, personaje,tablero);
     }
 }
 
