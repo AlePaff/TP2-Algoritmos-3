@@ -1,3 +1,5 @@
+package test;
+
 import Modelo.bloques.BajarLapiz;
 import org.junit.jupiter.api.Test;
 import Modelo.personaje.Personaje;
@@ -68,27 +70,36 @@ public class TestBloques {
 
     @Test
     public void BloqueDeRepeticionSeCreaCorrectamente() {
-        Personaje personaje = new Personaje(0, 0);
-        Repeticion bloque = new Repeticion(new MoverDerecha(), 5);
-        //Movimiento movimiento = new MovimientoInvertido();
+        Personaje personaje = new Personaje(8, 8);
+        Repeticion bloqueRepeticion = new Repeticion( 5);
+        MoverDerecha bloqueDerecha = new MoverDerecha();
+        MoverAbajo bloqueAbajo = new MoverAbajo();
 
-        bloque.ejecutar(movimiento,personaje, tablero);
+        bloqueRepeticion.agregarBloques(bloqueDerecha);
+        bloqueRepeticion.agregarBloques(bloqueAbajo);
+        bloqueRepeticion.ejecutar(movimiento, personaje, tablero);
 
-        assertEquals(5, personaje.getPosicion().getPosX());
+        assertEquals(13, personaje.getPosicion().getPosX());
+        assertEquals(3, personaje.getPosicion().getPosY());
+
     }
 
     @Test
     public void BloqueDeInvertirComportamientoSeEjecutaCorrectamente() {
-        Movimiento movimiento = new MovimientoInvertido();
-        MoverDerecha bloque = new MoverDerecha();
-        MoverAbajo bloque1 = new MoverAbajo();
+        Personaje personaje = new Personaje(8, 8);
+        InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
+        MoverDerecha bloqueDerecha = new MoverDerecha();
+        MoverAbajo bloqueAbajo = new MoverAbajo();
 
-        bloque.ejecutar(movimiento,personaje,tablero);
-        bloque1.ejecutar(movimiento,personaje,tablero);
+        bloqueInvertir.agregarBloques(bloqueDerecha);
+        bloqueInvertir.agregarBloques(bloqueAbajo);
+
+        bloqueInvertir.ejecutar(movimiento,personaje,tablero);
 
         assertEquals(7,personaje.getPosicion().getPosX());
         assertEquals(9, personaje.getPosicion().getPosY());
 
 
     }
+
 }

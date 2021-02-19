@@ -1,10 +1,11 @@
-
+package test;
 //import Modelo.bloques.Repeticion;
-import Modelo.excepciones.BaseOAlturaNegativosONulosException;
+
+import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
-        import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestTablero {
     @Test
@@ -31,15 +32,18 @@ public class TestTablero {
     @Test
     public void TableroDibujaEnElCasilleroIndicado() {
         Tablero tablero = new Tablero(15,15);
+        Posicion posicion1 = new Posicion(0,1);
+        Posicion posicion2 = new Posicion(1,0);
+        Posicion posicion3 = new Posicion(5,2);
 
 
-        tablero.dibujar(0, 0);
-        assertTrue(tablero.getCasillero(0, 0).estaPintado());
+        tablero.dibujar(posicion1);
+        assertTrue(tablero.getCasillero(0, 1).estaPintado());
 
-        tablero.dibujar(1, 0);
+        tablero.dibujar(posicion2);
         assertTrue(tablero.getCasillero(1, 0).estaPintado());
 
-        tablero.dibujar(5, 2);
+        tablero.dibujar(posicion3);
         assertTrue(tablero.getCasillero(5, 2).estaPintado());
     }
 
