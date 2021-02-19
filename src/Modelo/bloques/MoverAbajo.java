@@ -6,7 +6,7 @@ import Modelo.tablero.Tablero;
 public class MoverAbajo implements Bloque{
 
     @Override
-    public void ejecutar(Regla regla, Personaje personaje, Tablero tablero) {
-        regla.moverseHaciaAbajo(personaje,tablero);
+    public void ejecutar(Movimiento movimiento, Personaje personaje, Tablero tablero) {
+        movimiento.moverseHaciaAbajo(personaje,tablero);
     }
 }

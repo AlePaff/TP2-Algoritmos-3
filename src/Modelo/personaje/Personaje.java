@@ -11,11 +11,11 @@ public class Personaje{
     protected Tablero tablero;
 
     public Personaje(int x, int y){
-        int base = tablero.getBase();
-        int altura = tablero.getAltura();
-        if (x > base || y > altura){
-            throw new PosicionFueraDeRangoException();
-        }
+        //int base = tablero.getBase();
+        //int altura = tablero.getAltura();
+        //if (x > base || y > altura){
+          //  throw new PosicionFueraDeRangoException();
+        //}
         posicion = new Posicion(x, y);
     }
     public Personaje(){

@@ -7,7 +7,7 @@ import Modelo.tablero.Tablero;
 public class SubirLapiz implements Bloque{
 
     @Override
-    public void ejecutar(Regla regla, Personaje personaje, Tablero tablero) {
-        regla.subirElLapiz(personaje);
+    public void ejecutar(Movimiento movimiento, Personaje personaje, Tablero tablero) {
+        movimiento.subirElLapiz(personaje);
     }
 }

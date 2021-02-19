@@ -14,8 +14,8 @@ public class Repeticion implements Bloque {
 
 
     @Override
-    public void ejecutar(Regla regla,Personaje personaje, Tablero tablero){
-            regla.repetirMovimiento(bloque,repeticiones,personaje,tablero);
+    public void ejecutar(Movimiento movimiento,Personaje personaje, Tablero tablero){
+            movimiento.repetirMovimiento(bloque,repeticiones,personaje,tablero);
     }
 }
 

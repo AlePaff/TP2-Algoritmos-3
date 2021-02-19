@@ -5,6 +5,6 @@ import Modelo.tablero.Tablero;
 
 public interface Bloque {
 
-    void ejecutar(Regla regla,Personaje personaje, Tablero tablero);
+    void ejecutar(Movimiento movimiento,Personaje personaje, Tablero tablero);
 
 }
