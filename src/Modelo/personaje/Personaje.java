@@ -1,6 +1,5 @@
 package Modelo.personaje;
 
-import Modelo.excepciones.PosicionFueraDeRangoException;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 
@@ -35,31 +34,27 @@ public class Personaje{
         return lapiz instanceof LapizArriba;
     }
 
-    public void setPosicion(Posicion posicion) {
-        this.posicion = posicion;
-    }
-
     public Posicion getPosicion(){
         return posicion;
     }
 
     public void moverDerecha(Tablero tablero){
         posicion.moverDerecha();
-        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+        lapiz.dibujar(tablero, posicion);
     }
 
     public void moverIzquierda(Tablero tablero) {
         posicion.moverIzquierda();
-        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+        lapiz.dibujar(tablero, posicion);
     }
 
     public void moverArriba(Tablero tablero) {
         posicion.moverArriba();
-        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+        lapiz.dibujar(tablero, posicion);
     }
 
     public void moverAbajo(Tablero tablero) {
         posicion.moverAbajo();
-        lapiz.dibujar(tablero, posicion.getPosX(), posicion.getPosY());
+        lapiz.dibujar(tablero, posicion);
     }
 }
