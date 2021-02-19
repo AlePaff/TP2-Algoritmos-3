@@ -1,11 +1,10 @@
 package Modelo.bloques;
 
 import Modelo.personaje.Personaje;
-import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 
 public interface Bloque {
 
-    void ejecutar(Personaje personaje, Tablero tablero);
+    void ejecutar(Regla regla,Personaje personaje, Tablero tablero);
 
 }

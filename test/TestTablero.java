@@ -1,6 +1,7 @@
-import Modelo.bloques.Conjunto;
+
 import Modelo.bloques.MoverDerecha;
-import Modelo.bloques.Repeticion;
+//import Modelo.bloques.Repeticion;
+import Modelo.excepciones.CoordenadasInvalidasException;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Casillero;
 import Modelo.tablero.Tablero;
