@@ -3,7 +3,7 @@ package Modelo.bloques;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 
-public class ReglaInvertirMovimiento implements Regla{
+public class ReglaInvertirComportamiento implements Regla{
 
         public void moverseADerecha(Personaje personaje, Tablero tablero) {
 

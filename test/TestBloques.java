@@ -8,23 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestBloques {
     public Personaje personaje = new Personaje(8, 8);
-    public Tablero tablero = new Tablero(15, 15);
-    public Regla regla = new ReglaNoInvertirMovimiento();
+    public Tablero tablero = new Tablero(15,15);
+    public Regla regla = new ReglaNoInvertirComportamiento();
 
     @Test
     public void TestBloqueBajarLapizSeEjecutaCorrectamente() {
         BajarLapiz bloque = new BajarLapiz();
 
         bloque.ejecutar(regla,personaje, tablero);
+
         assertFalse(personaje.lapizLevantado());
     }
 
     @Test
     public void TestBloqueSubirLapizSeEjecutaCorrectamente() {
         SubirLapiz bloque = new SubirLapiz();
-        personaje.bajarLapiz();
 
+        personaje.bajarLapiz();
         bloque.ejecutar(regla,personaje, tablero);
+
         assertTrue(personaje.lapizLevantado());
     }
 
@@ -33,6 +35,7 @@ public class TestBloques {
         MoverAbajo bloque = new MoverAbajo();
 
         bloque.ejecutar(regla,personaje, tablero);
+
         assertEquals(7, personaje.getPosicion().getPosY());
     }
 
@@ -41,6 +44,7 @@ public class TestBloques {
         MoverArriba bloque = new MoverArriba();
 
         bloque.ejecutar(regla,personaje, tablero);
+
         assertEquals(9, personaje.getPosicion().getPosY());
     }
 
@@ -49,6 +53,7 @@ public class TestBloques {
         MoverDerecha bloque = new MoverDerecha();
 
         bloque.ejecutar(regla,personaje, tablero);
+
         assertEquals(9, personaje.getPosicion().getPosX());
     }
 
@@ -57,6 +62,7 @@ public class TestBloques {
         MoverIzquierda bloque = new MoverIzquierda();
 
         bloque.ejecutar(regla,personaje, tablero);
+
         assertEquals(7, personaje.getPosicion().getPosX());
     }
 
@@ -73,7 +79,7 @@ public class TestBloques {
 
     @Test
     public void BloqueDeInvertirComportamientoSeEjecutaCorrectamente() {
-        Regla regla = new ReglaInvertirMovimiento();
+        Regla regla = new ReglaInvertirComportamiento();
         MoverDerecha bloque = new MoverDerecha();
         MoverAbajo bloque1 = new MoverAbajo();
 

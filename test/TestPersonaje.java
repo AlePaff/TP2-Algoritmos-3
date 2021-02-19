@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPersonaje{
     public Personaje personaje = new Personaje(8,8);
-    public Tablero tablero = new Tablero(15, 15);
+    public Tablero tablero = new Tablero(15,15);
 
 
     @Test
@@ -36,7 +36,6 @@ public class TestPersonaje{
 
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
-
         personaje.moverIzquierda(tablero);
 
         assertEquals(7, personaje.getPosicion().getPosX());
@@ -44,7 +43,6 @@ public class TestPersonaje{
 
     @Test
     public void TestPersonajeSeMueveArriba(){
-
         personaje.moverArriba(tablero);
 
         assertEquals(9, personaje.getPosicion().getPosY());
@@ -52,7 +50,6 @@ public class TestPersonaje{
 
     @Test
     public void TestPersonajeSeMueveAbajo(){
-
         personaje.moverAbajo(tablero);
 
         assertEquals(7, personaje.getPosicion().getPosY());
