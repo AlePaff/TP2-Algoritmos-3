@@ -37,11 +37,9 @@ public class Tablero {
         return casilleros.get(x).get(y);
     }
 
-    public void agregarBloque(Bloque bloque){
-        bloques.add(bloque);
-    }
-
-    public void dibujar(int x, int y) {
-        casilleros.get(x).get(y).pintar();
+    public void dibujar(Posicion posicion) {
+        int x = posicion.getPosX();
+        int y = posicion.getPosY();
+        this.getCasillero(x,y).pintar();
     }
 }
