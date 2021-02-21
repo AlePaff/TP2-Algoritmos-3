@@ -1,6 +1,7 @@
 package Modelo.tablero;
 
 import Modelo.excepciones.CoordenadasInvalidasException;
+import Modelo.excepciones.PosicionFueraDeRangoException;
 import Modelo.personaje.Personaje;
 
 public class Posicion {
@@ -8,40 +9,24 @@ public class Posicion {
     private int posY;
     protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
 
-    public Posicion(int posX, int posY) {
+    public Posicion(int posX, int posY, Tablero tablero) {
 
-        if (!this.sonCoordenadasValidas(posX, posY)) {
-            throw new CoordenadasInvalidasException();
-        }
+        this.sonCoordenadasValidas(posX, posY, tablero);
         this.posX = posX;
         this.posY = posY;
-    }
-
-    public void moverPersonajeHacia(Personaje personaje, Tablero tablero, Posicion destino) {
-        destino.moverUnidadConXeY(personaje, tablero, this.posX, this.posY);
-    }
-
-    private void moverUnidadConXeY(Personaje personaje, Tablero tablero, int xDeOrigen, int yDeOrigen) {
-        //tablero.moverUnidadDesdeHasta(personaje, yDeOrigen, xDeOrigen, this.posY, this.posX);
-    }
-   // public void descolocarColocable(Tablero tablero) {
-   //     tablero.descolocarColocable(this.posY, this.posX);
-   // }
-
-    public int calcularDistanciaA(Posicion posicion) {
-        return posicion.calcularDistanciaConXeY(this.posX, this.posY);
     }
 
     private int calcularDistanciaConXeY(int posX, int posY) {
         return Math.max(Math.abs(posX - this.posX), Math.abs(posY - this.posY));
     }
 
-    private boolean esDistanciaValida(int distancia) {
-        return distancia > 0;
-    }
+    private void sonCoordenadasValidas(int posX, int posY, Tablero tablero) {
+        int base = tablero.getBase();
+        int altura = tablero.getAltura();
+        if (((posX >= base ) || (posX < 0)) || ((posY >= altura) || (posY < 0))){
+            throw new PosicionFueraDeRangoException();
+        }
 
-    private boolean sonCoordenadasValidas(int posX, int posY) {
-        return (posX >= 0 && posY >= 0);
     }
 
     public void moverAbajo() {
@@ -61,6 +46,10 @@ public class Posicion {
     }
     public int getPosY(){
         return this.posY;
+    }
+
+    public boolean sonIguales(Posicion posicion){
+        return ((this.posX == posicion.posX) && (this.posY == posicion.posY));
     }
 }
 
