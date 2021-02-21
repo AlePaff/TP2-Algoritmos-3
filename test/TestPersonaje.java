@@ -1,80 +1,97 @@
 package test;
 
+import Modelo.excepciones.*;
 import Modelo.personaje.Personaje;
+import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPersonaje{
-    public Personaje personaje = new Personaje(8,8);
     public Tablero tablero = new Tablero(15,15);
+    public Posicion posicion = new Posicion(8,8, tablero);
+    public Personaje personaje = new Personaje(posicion);
 
 
     @Test
     public void TestPersonajeSeCreaConLapizArriba(){
+    //Dijo que con una prueba de que no se dibuje bastaba
+        personaje.moverDerecha(tablero);
+        Posicion posicionActual = personaje.getPosicion();
 
-        assertTrue(personaje.lapizLevantado());
+        assertFalse(tablero.getCasillero(posicionActual).estaPintado());
+
     }
 
     @Test
-    public void TestPersonajeBajaYSubeElLapiz(){
+    public void TestPersonajeBajaElLapiz(){
+    //lo mismo que la anterior, con verificar que dibuje bastaría
 
         personaje.bajarLapiz();
-        assertFalse(personaje.lapizLevantado());
+        personaje.moverDerecha(tablero);
+        Posicion posicionActual = personaje.getPosicion();
 
-        personaje.subirLapiz();
-        assertTrue(personaje.lapizLevantado());
+        assertTrue(tablero.getCasillero(posicionActual).estaPintado()) ;
+
     }
 
     @Test
     public void TestPersonajeSeMueveADerecha(){
+        //A
+        Posicion posicionFinal = new Posicion(9,8, tablero);
 
+        //Act
         personaje.moverDerecha(tablero);
+        Posicion posicionActual = personaje.getPosicion();
 
-        assertEquals(9, personaje.getPosicion().getPosX());
-
+        //Assert
+        assertTrue(posicionActual.sonIguales(posicionFinal));
     }
+
 
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
-        personaje.moverIzquierda(tablero);
+        //A
+        Posicion posicionFinal = new Posicion(7,8, tablero);
 
-        assertEquals(7, personaje.getPosicion().getPosX());
+        //Act
+        personaje.moverIzquierda(tablero);
+        Posicion posicionActual = personaje.getPosicion();
+
+        //Assert
+        assertTrue(posicionActual.sonIguales(posicionFinal));
+
     }
 
     @Test
     public void TestPersonajeSeMueveArriba(){
-        personaje.moverArriba(tablero);
+        //A
+        Posicion posicionFinal = new Posicion(8,9, tablero);
 
-        assertEquals(9, personaje.getPosicion().getPosY());
+        //Act
+        personaje.moverArriba(tablero);
+        Posicion posicionActual = personaje.getPosicion();
+
+        //Assert
+        assertTrue(posicionActual.sonIguales(posicionFinal));
     }
 
     @Test
     public void TestPersonajeSeMueveAbajo(){
+        //A
+        Posicion posicionFinal = new Posicion(8,7, tablero);
+
+        //Act
         personaje.moverAbajo(tablero);
+        Posicion posicionActual = personaje.getPosicion();
 
-        assertEquals(7, personaje.getPosicion().getPosY());
-
-    }
-
-    @Test
-    public void PersonajeConLapizLevantadoNoDibuja() {
-        personaje.moverDerecha(tablero);
-
-        assertFalse(tablero.getCasillero(9, 8).estaPintado());
-    }
-
-    @Test
-    public void PersonajeConLapizApoyadoSiDibuja() {
-        personaje.bajarLapiz();
-        personaje.moverDerecha(tablero);
-
-        assertTrue(tablero.getCasillero(9, 8).estaPintado()) ;
+        //Assert
+        assertTrue(posicionActual.sonIguales(posicionFinal));
     }
 
 
-    @Test
+    /*@Test
     public void PersonajeSeMueveConLapizArribaYAbajoYDibujaCorrectamente(){
         personaje.moverAbajo(tablero);
         personaje.bajarLapiz();
@@ -95,4 +112,17 @@ public class TestPersonaje{
         assertTrue(tablero.getCasillero(8,8).estaPintado());
 
     }
+
+    @Test(expected = AldeanoEstaOcupadoException.class)
+    //PosicionFueraDeRangoException
+    public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
+        Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
+    }
+
+    @Test(expected = PosicionFueraDeRangoException.class)
+    //PosicionFueraDeRangoException
+    public void TestMoverAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
+        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
+        personaje.moverDerecha(tablero);
+    }*/
 }
