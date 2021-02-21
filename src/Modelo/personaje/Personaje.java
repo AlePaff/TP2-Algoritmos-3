@@ -5,33 +5,20 @@ import Modelo.tablero.Tablero;
 
 public class Personaje{
 
-    private EstadoLapiz lapiz = new LapizArriba();
+    private Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
     protected Tablero tablero;
 
-    public Personaje(int x, int y){
-        //int base = tablero.getBase();
-        //int altura = tablero.getAltura();
-        //if (x > base || y > altura){
-          //  throw new PosicionFueraDeRangoException();
-        //}
-        posicion = new Posicion(x, y);
-    }
-    public Personaje(){
-
-        posicion = new Posicion(0,0);
+    public Personaje(Posicion posicion){
+        this.posicion = posicion;
     }
 
     public void subirLapiz() {
-        this.lapiz = new LapizArriba();
+        this.lapiz.LapizArriba();
     }
 
     public void bajarLapiz() {
-        this.lapiz = new LapizAbajo();
-    }
-
-    public boolean lapizLevantado(){
-        return lapiz instanceof LapizArriba;
+        this.lapiz.LapizAbajo();
     }
 
     public Posicion getPosicion(){
