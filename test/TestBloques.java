@@ -14,7 +14,8 @@ public class TestBloques {
     protected static final int ALTURA = 15;
     protected static final int COORD_X_INICIO = 8;
     protected static final int COORD_Y_INICIO = 8;
-    protected static final int CANT_REPETICIONES = 5;
+    protected static final int CANT_REPETICIONES_1 = 5;
+    protected static final int CANT_REPETICIONES_2 = 2;
 
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
@@ -84,10 +85,13 @@ public class TestBloques {
 
     @Test
     public void BloqueDeRepeticionSeCreaCorrectamente() {
-        Repeticion bloqueRepeticion = new Repeticion(CANT_REPETICIONES);
+        Repeticion bloqueRepeticion = new Repeticion(CANT_REPETICIONES_1);
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = new Posicion(COORD_X_INICIO + CANT_REPETICIONES,COORD_Y_INICIO - CANT_REPETICIONES, tablero);
+        Posicion posicionFinal = posicion;
+        for(int i = 0; i < CANT_REPETICIONES_1; i++){
+            posicionFinal = (posicionFinal.ALaDerecha(tablero)).AAbajo(tablero);
+        }
 
         bloqueRepeticion.agregarBloques(bloqueDerecha);
         bloqueRepeticion.agregarBloques(bloqueAbajo);
@@ -103,7 +107,7 @@ public class TestBloques {
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
 
-        Posicion posicionFinal = new Posicion(7,9, tablero);
+        Posicion posicionFinal = (posicion.AArriba(tablero)).ALaIzquierda(tablero);
 
         bloqueInvertir.agregarBloques(bloqueDerecha);
         bloqueInvertir.agregarBloques(bloqueAbajo);
@@ -117,12 +121,14 @@ public class TestBloques {
     @Test
     public void BloqueInvertirComportamientoYRepeticionSeEjecutanCorrectamente(){
         //Arrange
-        Personaje personaje = new Personaje(new Posicion(8,8, tablero));
-        Repeticion bloqueRepeticion = new Repeticion( 2);
+        Repeticion bloqueRepeticion = new Repeticion(CANT_REPETICIONES_2);
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = new Posicion(6,10, tablero);
+        Posicion posicionFinal = posicion;
+        for(int i = 0; i < CANT_REPETICIONES_2; i++){
+            posicionFinal = (posicionFinal.ALaIzquierda(tablero)).AArriba(tablero);
+        }
 
         //act
         bloqueInvertir.agregarBloques(bloqueRepeticion);
