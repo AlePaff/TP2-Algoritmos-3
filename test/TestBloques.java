@@ -10,8 +10,15 @@ import Modelo.bloques.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestBloques {
-    public Tablero tablero = new Tablero(15,15);
-    public Personaje personaje = new Personaje(new Posicion(8,8, tablero));
+    protected static final int BASE = 15;
+    protected static final int ALTURA = 15;
+    protected static final int COORD_X_INICIO = 8;
+    protected static final int COORD_Y_INICIO = 8;
+    protected static final int CANT_REPETICIONES = 5;
+
+    public Tablero tablero = new Tablero(BASE,ALTURA);
+    public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
+    public Personaje personaje = new Personaje(posicion);
     public Movimiento movimiento = new MovimientoSinInvertir();
 
     @Test
@@ -36,7 +43,7 @@ public class TestBloques {
     @Test
     public void TestBloqueMoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
-        Posicion posicionFinal = new Posicion(8,7, tablero);
+        Posicion posicionFinal = posicion.AAbajo(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
         Posicion posicionActual = personaje.getPosicion();
@@ -46,7 +53,7 @@ public class TestBloques {
     @Test
     public void TestBloqueMoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
-        Posicion posicionFinal = new Posicion(8,9, tablero);
+        Posicion posicionFinal = posicion.AArriba(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
         Posicion posicionActual = personaje.getPosicion();
@@ -56,7 +63,7 @@ public class TestBloques {
     @Test
     public void TestBloqueMoverDerechaSeEjecutaCorrectamente() {
         MoverDerecha bloque = new MoverDerecha();
-        Posicion posicionFinal = new Posicion(9,8, tablero);
+        Posicion posicionFinal = posicion.ALaDerecha(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
 
@@ -67,7 +74,7 @@ public class TestBloques {
     @Test
     public void TestBloqueMoverIzquierdaSeEjecutaCorrectamente() {
         MoverIzquierda bloque = new MoverIzquierda();
-        Posicion posicionFinal = new Posicion(7,8, tablero);
+        Posicion posicionFinal = posicion.ALaIzquierda(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
 
@@ -77,11 +84,10 @@ public class TestBloques {
 
     @Test
     public void BloqueDeRepeticionSeCreaCorrectamente() {
-        Personaje personaje = new Personaje(new Posicion(8,8, tablero));
-        Repeticion bloqueRepeticion = new Repeticion( 5);
+        Repeticion bloqueRepeticion = new Repeticion(CANT_REPETICIONES);
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = new Posicion(13,3, tablero);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO + CANT_REPETICIONES,COORD_Y_INICIO - CANT_REPETICIONES, tablero);
 
         bloqueRepeticion.agregarBloques(bloqueDerecha);
         bloqueRepeticion.agregarBloques(bloqueAbajo);
@@ -93,10 +99,10 @@ public class TestBloques {
 
     @Test
     public void BloqueDeInvertirComportamientoSeEjecutaCorrectamente() {
-        Personaje personaje = new Personaje(new Posicion(8,8, tablero));
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
+
         Posicion posicionFinal = new Posicion(7,9, tablero);
 
         bloqueInvertir.agregarBloques(bloqueDerecha);

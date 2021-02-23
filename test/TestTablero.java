@@ -8,22 +8,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestTablero {
+    protected static final int BASE = 15;
+    protected static final int ALTURA = 15;
+    Tablero tablero = new Tablero(BASE,ALTURA);
+
     @Test
     public void TestTableroSeCreaCorrectamente() {
-        Tablero tablero = new Tablero(15,15);
-
-
-        assertEquals(15, tablero.getAltura());
-        assertEquals(15, tablero.getBase());
+        assertEquals(BASE, tablero.getAltura());
+        assertEquals(ALTURA, tablero.getBase());
     }
 
 
     @Test
     public void TableroSeCreaConTodosLosCasillerosSinPintar() {
-        Tablero tablero = new Tablero(15,15);
-
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++){
+        for (int i = 0; i < BASE; i++) {
+            for (int j = 0; j < ALTURA; j++){
                 Posicion posicionIJ = new Posicion(i, j, tablero);
                 assertFalse(tablero.getCasillero(posicionIJ).estaPintado());
             }
@@ -32,7 +31,6 @@ public class TestTablero {
 
     @Test
     public void TableroDibujaEnElCasilleroIndicado() {
-        Tablero tablero = new Tablero(15,15);
         Posicion posicion1 = new Posicion(0,1, tablero);
         Posicion posicion2 = new Posicion(1,0, tablero);
         Posicion posicion3 = new Posicion(5,2, tablero);

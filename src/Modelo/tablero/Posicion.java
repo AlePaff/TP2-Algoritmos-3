@@ -29,6 +29,7 @@ public class Posicion {
 
     }
 
+
     public void moverAbajo() {
         this.posY = this.posY-DISTANCIA_DE_MOVIMIENTO;
     }
@@ -50,6 +51,21 @@ public class Posicion {
 
     public boolean sonIguales(Posicion posicion){
         return ((this.posX == posicion.posX) && (this.posY == posicion.posY));
+    }
+
+    public Posicion ALaDerecha(Tablero tablero) {
+        return new Posicion(this.posX + DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
+    }
+
+    public Posicion ALaIzquierda(Tablero tablero) {
+        return new Posicion(this.posX - DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
+    }
+
+    public Posicion AArriba(Tablero tablero) {
+        return new Posicion(this.posX, this.posY + DISTANCIA_DE_MOVIMIENTO, tablero );
+    }
+    public Posicion AAbajo(Tablero tablero) {
+        return new Posicion(this.posX, this.posY - DISTANCIA_DE_MOVIMIENTO, tablero );
     }
 }
 

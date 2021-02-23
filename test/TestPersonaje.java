@@ -9,8 +9,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPersonaje{
-    public Tablero tablero = new Tablero(15,15);
-    public Posicion posicion = new Posicion(8,8, tablero);
+    protected static final int BASE = 15;
+    protected static final int ALTURA = 15;
+    protected static final int COORDENADA_EN_X_DE_INICIO = 8;
+    protected static final int COORDENADA_EN_Y_DE_INICIO = 8;
+
+    public Tablero tablero = new Tablero(BASE,ALTURA);
+    public Posicion posicion = new Posicion(COORDENADA_EN_X_DE_INICIO,COORDENADA_EN_Y_DE_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
 
 
@@ -26,7 +31,6 @@ public class TestPersonaje{
 
     @Test
     public void TestPersonajeBajaElLapiz(){
-    //lo mismo que la anterior, con verificar que dibuje bastaría
 
         personaje.bajarLapiz();
         personaje.moverDerecha(tablero);
@@ -39,7 +43,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveADerecha(){
         //A
-        Posicion posicionFinal = new Posicion(9,8, tablero);
+        Posicion posicionFinal = posicion.ALaDerecha(tablero);
 
         //Act
         personaje.moverDerecha(tablero);
@@ -53,7 +57,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
         //A
-        Posicion posicionFinal = new Posicion(7,8, tablero);
+        Posicion posicionFinal = posicion.ALaIzquierda(tablero);
 
         //Act
         personaje.moverIzquierda(tablero);
@@ -67,7 +71,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = new Posicion(8,9, tablero);
+        Posicion posicionFinal = posicion.AArriba(tablero);
 
         //Act
         personaje.moverArriba(tablero);
@@ -80,7 +84,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = new Posicion(8,7, tablero);
+        Posicion posicionFinal = posicion.AAbajo(tablero);
 
         //Act
         personaje.moverAbajo(tablero);
@@ -91,7 +95,7 @@ public class TestPersonaje{
     }
 
 
-    /*@Test
+    @Test
     public void PersonajeSeMueveConLapizArribaYAbajoYDibujaCorrectamente(){
         personaje.moverAbajo(tablero);
         personaje.bajarLapiz();
@@ -103,17 +107,25 @@ public class TestPersonaje{
         personaje.bajarLapiz();
         personaje.moverIzquierda(tablero);
 
+        assertTrue(tablero.getCasillero(posicion).estaPintado());
 
-        assertFalse(tablero.getCasillero(8,7).estaPintado());
-        assertTrue(tablero.getCasillero(8,6).estaPintado());
-        assertTrue(tablero.getCasillero(9,6).estaPintado());
-        assertFalse(tablero.getCasillero(9,7).estaPintado());
-        assertFalse(tablero.getCasillero(9,8).estaPintado());
-        assertTrue(tablero.getCasillero(8,8).estaPintado());
+        posicion = posicion.AAbajo(tablero);
+        assertFalse(tablero.getCasillero(posicion).estaPintado());
 
+        posicion = posicion.AAbajo(tablero);
+        assertTrue(tablero.getCasillero(posicion).estaPintado());
+
+        posicion = posicion.ALaDerecha(tablero);
+        assertTrue(tablero.getCasillero(posicion).estaPintado());
+
+        posicion = posicion.AArriba(tablero);
+        assertFalse(tablero.getCasillero(posicion).estaPintado());
+
+        posicion = posicion.AArriba(tablero);
+        assertFalse(tablero.getCasillero(posicion).estaPintado());
     }
 
-    @Test(expected = AldeanoEstaOcupadoException.class)
+    /*@Test(expected = AldeanoEstaOcupadoException.class)
     //PosicionFueraDeRangoException
     public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
         Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
