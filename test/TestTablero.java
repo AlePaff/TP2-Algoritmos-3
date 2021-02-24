@@ -1,6 +1,3 @@
-package test;
-//import Modelo.bloques.Repeticion;
-
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
@@ -24,7 +21,7 @@ public class TestTablero {
         for (int i = 0; i < BASE; i++) {
             for (int j = 0; j < ALTURA; j++){
                 Posicion posicionIJ = new Posicion(i, j, tablero);
-                assertFalse(tablero.getCasillero(posicionIJ).estaPintado());
+                assertFalse(tablero.estaPintado(posicionIJ));
             }
         }
     }
@@ -37,13 +34,13 @@ public class TestTablero {
 
 
         tablero.dibujar(posicion1);
-        assertTrue(tablero.getCasillero(posicion1).estaPintado());
+        assertTrue(tablero.estaPintado(posicion1));
 
         tablero.dibujar(posicion2);
-        assertTrue(tablero.getCasillero(posicion2).estaPintado());
+        assertTrue(tablero.estaPintado(posicion2));
 
         tablero.dibujar(posicion3);
-        assertTrue(tablero.getCasillero(posicion3).estaPintado());
+        assertTrue(tablero.estaPintado(posicion3));
     }
 
 

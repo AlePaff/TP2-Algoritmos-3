@@ -32,19 +32,19 @@ public class Tablero {
         return casilleros.get(0).size();
     }
 
-    public Casillero getCasillero (Posicion posicion){
+    private Casillero getCasillero(int x, int y){
+        return casilleros.get(x).get(y);
+    }
+
+    public boolean estaPintado(Posicion posicion){
         int x = posicion.getPosX();
         int y = posicion.getPosY();
-        return casilleros.get(x).get(y);
+        return this.getCasillero(x,y).estaPintado();
     }
 
     public void dibujar(Posicion posicion) {
         int x = posicion.getPosX();
         int y = posicion.getPosY();
-        this.getCasilleroAux(x,y).pintar();
-    }
-
-    private Casillero getCasilleroAux (int x, int y){
-        return casilleros.get(x).get(y);
+        this.getCasillero(x,y).pintar();
     }
 }

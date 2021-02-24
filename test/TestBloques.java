@@ -1,5 +1,3 @@
-package test;
-
 import Modelo.bloques.BajarLapiz;
 import Modelo.tablero.Posicion;
 import org.junit.jupiter.api.Test;
@@ -44,43 +42,43 @@ public class TestBloques {
     @Test
     public void TestBloqueMoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
-        Posicion posicionFinal = posicion.AAbajo(tablero);
+        Posicion posicionFinal = posicion.deAbajo(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
     public void TestBloqueMoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
-        Posicion posicionFinal = posicion.AArriba(tablero);
+        Posicion posicionFinal = posicion.deArriba(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
     public void TestBloqueMoverDerechaSeEjecutaCorrectamente() {
         MoverDerecha bloque = new MoverDerecha();
-        Posicion posicionFinal = posicion.ALaDerecha(tablero);
+        Posicion posicionFinal = posicion.aDerecha(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
 
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
     public void TestBloqueMoverIzquierdaSeEjecutaCorrectamente() {
         MoverIzquierda bloque = new MoverIzquierda();
-        Posicion posicionFinal = posicion.ALaIzquierda(tablero);
+        Posicion posicionFinal = posicion.aIzquierda(tablero);
 
         bloque.ejecutar(movimiento,personaje, tablero);
 
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
@@ -90,7 +88,7 @@ public class TestBloques {
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
         for(int i = 0; i < CANT_REPETICIONES_1; i++){
-            posicionFinal = (posicionFinal.ALaDerecha(tablero)).AAbajo(tablero);
+            posicionFinal = (posicionFinal.aDerecha(tablero)).deAbajo(tablero);
         }
 
         bloqueRepeticion.agregarBloques(bloqueDerecha);
@@ -98,7 +96,7 @@ public class TestBloques {
         bloqueRepeticion.ejecutar(movimiento, personaje, tablero);
 
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
@@ -107,7 +105,7 @@ public class TestBloques {
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
 
-        Posicion posicionFinal = (posicion.AArriba(tablero)).ALaIzquierda(tablero);
+        Posicion posicionFinal = (posicion.deArriba(tablero)).aIzquierda(tablero);
 
         bloqueInvertir.agregarBloques(bloqueDerecha);
         bloqueInvertir.agregarBloques(bloqueAbajo);
@@ -115,7 +113,7 @@ public class TestBloques {
         bloqueInvertir.ejecutar(movimiento,personaje,tablero);
 
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
@@ -127,7 +125,7 @@ public class TestBloques {
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
         for(int i = 0; i < CANT_REPETICIONES_2; i++){
-            posicionFinal = (posicionFinal.ALaIzquierda(tablero)).AArriba(tablero);
+            posicionFinal = (posicionFinal.aIzquierda(tablero)).deArriba(tablero);
         }
 
         //act
@@ -139,7 +137,7 @@ public class TestBloques {
 
         //assert
         Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
 }

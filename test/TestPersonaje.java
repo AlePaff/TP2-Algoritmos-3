@@ -1,6 +1,3 @@
-package test;
-
-import Modelo.excepciones.*;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
@@ -14,19 +11,18 @@ public class TestPersonaje{
     protected static final int COORDENADA_EN_X_DE_INICIO = 8;
     protected static final int COORDENADA_EN_Y_DE_INICIO = 8;
 
-    public Tablero tablero = new Tablero(BASE,ALTURA);
+    public Tablero tablero = new Tablero(BASE, ALTURA);
     public Posicion posicion = new Posicion(COORDENADA_EN_X_DE_INICIO,COORDENADA_EN_Y_DE_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
 
 
     @Test
     public void TestPersonajeSeCreaConLapizArriba(){
-    //Dijo que con una prueba de que no se dibuje bastaba
+
         personaje.moverDerecha(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
-        assertFalse(tablero.getCasillero(posicionActual).estaPintado());
-
+        assertFalse(tablero.estaPintado(posicionActual));
     }
 
     @Test
@@ -36,62 +32,62 @@ public class TestPersonaje{
         personaje.moverDerecha(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
-        assertTrue(tablero.getCasillero(posicionActual).estaPintado()) ;
+        assertTrue(tablero.estaPintado(posicionActual)) ;
 
     }
 
     @Test
     public void TestPersonajeSeMueveADerecha(){
         //A
-        Posicion posicionFinal = posicion.ALaDerecha(tablero);
+        Posicion posicionFinal = posicion.aDerecha(tablero);
 
         //Act
         personaje.moverDerecha(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
 
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
         //A
-        Posicion posicionFinal = posicion.ALaIzquierda(tablero);
+        Posicion posicionFinal = posicion.aIzquierda(tablero);
 
         //Act
         personaje.moverIzquierda(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
 
     }
 
     @Test
     public void TestPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = posicion.AArriba(tablero);
+        Posicion posicionFinal = posicion.deArriba(tablero);
 
         //Act
         personaje.moverArriba(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
     @Test
     public void TestPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = posicion.AAbajo(tablero);
+        Posicion posicionFinal = posicion.deAbajo(tablero);
 
         //Act
         personaje.moverAbajo(tablero);
         Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.sonIguales(posicionFinal));
+        assertTrue(posicionActual.esIgualA(posicionFinal));
     }
 
 
@@ -107,22 +103,22 @@ public class TestPersonaje{
         personaje.bajarLapiz();
         personaje.moverIzquierda(tablero);
 
-        assertTrue(tablero.getCasillero(posicion).estaPintado());
+        assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.AAbajo(tablero);
-        assertFalse(tablero.getCasillero(posicion).estaPintado());
+        posicion = posicion.deAbajo(tablero);
+        assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.AAbajo(tablero);
-        assertTrue(tablero.getCasillero(posicion).estaPintado());
+        posicion = posicion.deAbajo(tablero);
+        assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.ALaDerecha(tablero);
-        assertTrue(tablero.getCasillero(posicion).estaPintado());
+        posicion = posicion.aDerecha(tablero);
+        assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.AArriba(tablero);
-        assertFalse(tablero.getCasillero(posicion).estaPintado());
+        posicion = posicion.deArriba(tablero);
+        assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.AArriba(tablero);
-        assertFalse(tablero.getCasillero(posicion).estaPintado());
+        posicion = posicion.deArriba(tablero);
+        assertFalse(tablero.estaPintado(posicion));
     }
 
     /*@Test(expected = AldeanoEstaOcupadoException.class)
