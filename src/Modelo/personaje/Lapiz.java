@@ -5,21 +5,18 @@ import Modelo.tablero.Tablero;
 
 public class Lapiz {
 
-    private EstrategiaLapiz estado;
+    private EstrategiaLapiz estrategia;
 
     public Lapiz(){
-        this.estado = new LapizArriba();
+        this.estrategia = new LapizArriba();
     }
 
-    public void LapizAbajo(){
-        this.estado = new LapizAbajo();
-    }
-    public void LapizArriba(){
-        this.estado = new LapizArriba();
+    public void setEstrategia(EstrategiaLapiz estrategia){
+        this.estrategia = estrategia;
     }
 
     public void dibujar(Tablero tablero, Posicion posicion){
-        this.estado.dibujar(tablero, posicion);
+        this.estrategia.dibujar(tablero, posicion);
     }
 
 }

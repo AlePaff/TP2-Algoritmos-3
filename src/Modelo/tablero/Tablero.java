@@ -11,7 +11,6 @@ public class Tablero {
     private ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
 
     public Tablero(int base, int altura) {
-        /* validar tamaño, excepcion si alguno es negativo*/
         if (base <= 0 || altura <= 0) {
             throw new BaseOAlturaNegativosONulosException();
         }
@@ -32,19 +31,15 @@ public class Tablero {
         return casilleros.get(0).size();
     }
 
-    private Casillero getCasillero(int x, int y){
+    public Casillero getCasillero(int x, int y){
         return casilleros.get(x).get(y);
     }
 
     public boolean estaPintado(Posicion posicion){
-        int x = posicion.getPosX();
-        int y = posicion.getPosY();
-        return this.getCasillero(x,y).estaPintado();
+        return getCasillero(posicion.getPosX(), posicion.getPosY()).estaPintado();
     }
 
     public void dibujar(Posicion posicion) {
-        int x = posicion.getPosX();
-        int y = posicion.getPosY();
-        this.getCasillero(x,y).pintar();
+        getCasillero(posicion.getPosX(), posicion.getPosY()).pintar();
     }
 }

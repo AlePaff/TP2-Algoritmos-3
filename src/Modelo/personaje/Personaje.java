@@ -14,11 +14,11 @@ public class Personaje{
     }
 
     public void subirLapiz() {
-        this.lapiz.LapizArriba();
+        this.lapiz.setEstrategia(new LapizArriba());
     }
 
     public void bajarLapiz() {
-        this.lapiz.LapizAbajo();
+        this.lapiz.setEstrategia(new LapizAbajo());
     }
 
     public Posicion getPosicion(){
