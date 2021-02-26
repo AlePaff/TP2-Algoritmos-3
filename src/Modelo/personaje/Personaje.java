@@ -7,7 +7,6 @@ public class Personaje{
 
     private Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
-    protected Tablero tablero;
 
     public Personaje(Posicion posicion){
         this.posicion = posicion;
@@ -27,21 +26,28 @@ public class Personaje{
 
     public void moverDerecha(Tablero tablero){
         posicion.moverDerecha();
-        lapiz.dibujar(tablero, posicion);
+        dibujar(tablero);
     }
 
     public void moverIzquierda(Tablero tablero) {
         posicion.moverIzquierda();
-        lapiz.dibujar(tablero, posicion);
+        dibujar(tablero);
     }
 
     public void moverArriba(Tablero tablero) {
         posicion.moverArriba();
-        lapiz.dibujar(tablero, posicion);
+        dibujar(tablero);
     }
 
     public void moverAbajo(Tablero tablero) {
         posicion.moverAbajo();
+        dibujar(tablero);
+    }
+
+    private void dibujar(Tablero tablero){
         lapiz.dibujar(tablero, posicion);
+    }
+    public boolean estaEnEstaPosicion(Posicion posicion) {
+        return posicion.esIgualA(posicion);
     }
 }
