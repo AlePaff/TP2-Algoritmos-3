@@ -19,16 +19,16 @@ public class Repeticion extends Conjunto {
 
     @Override
     public void ejecutar(Personaje personaje, Tablero tablero){
-        for (Bloque bloque : bloques) {
-            for (int x = 0; x < repeticiones; x++) {
+        for (int x = 0; x < repeticiones; x++) {
+            for (Bloque bloque : bloques){
                 bloque.ejecutar(personaje, tablero);
             }
         }
     }
     @Override
     public void ejecutarInvertido(Personaje personaje, Tablero tablero) {
-        for (Bloque bloque : bloques) {
-            for (int x = 0; x < repeticiones; x++) {
+        for (int x = 0; x < repeticiones; x++) {
+            for (Bloque bloque : bloques) {
                 bloque.ejecutarInvertido(personaje, tablero);
             }
         }
