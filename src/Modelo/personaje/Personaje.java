@@ -5,7 +5,7 @@ import Modelo.tablero.Tablero;
 
 public class Personaje{
 
-    private Lapiz lapiz = new Lapiz();
+    private final Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
 
     public Personaje(Posicion posicion){
@@ -25,22 +25,22 @@ public class Personaje{
     }
 
     public void moverDerecha(Tablero tablero){
-        posicion.moverDerecha();
+        this.posicion = posicion.moverDerecha(tablero);
         dibujar(tablero);
     }
 
     public void moverIzquierda(Tablero tablero) {
-        posicion.moverIzquierda();
+        this.posicion = posicion.moverIzquierda(tablero);
         dibujar(tablero);
     }
 
     public void moverArriba(Tablero tablero) {
-        posicion.moverArriba();
+        this.posicion = posicion.moverArriba(tablero);
         dibujar(tablero);
     }
 
     public void moverAbajo(Tablero tablero) {
-        posicion.moverAbajo();
+        this.posicion = posicion.moverAbajo(tablero);
         dibujar(tablero);
     }
 
