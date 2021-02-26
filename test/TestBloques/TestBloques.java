@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.tablero.Posicion;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,6 @@ public class TestBloques {
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
-    public Movimiento movimiento = new MovimientoSinInvertir();
 
     @Test
     public void BloqueInvertirComportamientoYRepeticionSeEjecutanCorrectamente(){
@@ -29,8 +28,9 @@ public class TestBloques {
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
+
         for(int i = 0; i < cantRepeticiones; i++){
-            posicionFinal = (posicionFinal.aIzquierda(tablero)).deArriba(tablero);
+            posicionFinal = (posicionFinal.aIzquierda(tablero)).haciaArriba(tablero);
         }
 
         //act
@@ -38,11 +38,10 @@ public class TestBloques {
         bloqueRepeticion.agregarBloques(bloqueDerecha);
         bloqueRepeticion.agregarBloques(bloqueAbajo);
 
-        bloqueInvertir.ejecutar(movimiento,personaje,tablero);
+        bloqueInvertir.ejecutar(personaje,tablero);
 
         //assert
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
 }

@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.MoverAbajo;
 import Modelo.bloques.MoverArriba;
@@ -13,21 +13,21 @@ public class TestMover extends TestBloques {
     @Test
     public void TestBloqueMoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
-        Posicion posicionFinal = posicion.deAbajo(tablero);
+        Posicion posicionFinal = posicion.haciaAbajo(tablero);
 
-        bloque.ejecutar(movimiento,personaje, tablero);
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        bloque.ejecutar(personaje, tablero);
+
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
     @Test
     public void TestBloqueMoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
-        Posicion posicionFinal = posicion.deArriba(tablero);
+        Posicion posicionFinal = posicion.haciaArriba(tablero);
 
-        bloque.ejecutar(movimiento,personaje, tablero);
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        bloque.ejecutar(personaje, tablero);
+
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
     @Test
@@ -35,10 +35,9 @@ public class TestMover extends TestBloques {
         MoverDerecha bloque = new MoverDerecha();
         Posicion posicionFinal = posicion.aDerecha(tablero);
 
-        bloque.ejecutar(movimiento,personaje, tablero);
+        bloque.ejecutar(personaje, tablero);
 
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
     @Test
@@ -46,9 +45,8 @@ public class TestMover extends TestBloques {
         MoverIzquierda bloque = new MoverIzquierda();
         Posicion posicionFinal = posicion.aIzquierda(tablero);
 
-        bloque.ejecutar(movimiento,personaje, tablero);
+        bloque.ejecutar(personaje, tablero);
 
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 }

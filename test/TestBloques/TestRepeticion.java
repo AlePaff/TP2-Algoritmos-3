@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.MoverAbajo;
 import Modelo.bloques.MoverDerecha;
@@ -18,14 +18,13 @@ public class TestRepeticion extends TestBloques {
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
         for(int i = 0; i < cantRepeticiones; i++){
-            posicionFinal = (posicionFinal.aDerecha(tablero)).deAbajo(tablero);
+            posicionFinal = (posicionFinal.aDerecha(tablero)).haciaAbajo(tablero);
         }
 
         bloqueRepeticion.agregarBloques(bloqueDerecha);
         bloqueRepeticion.agregarBloques(bloqueAbajo);
-        bloqueRepeticion.ejecutar(movimiento, personaje, tablero);
+        bloqueRepeticion.ejecutar(personaje, tablero);
 
-        Posicion posicionActual = personaje.getPosicion();
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 }
