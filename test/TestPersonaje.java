@@ -1,3 +1,5 @@
+package test;
+
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
@@ -19,20 +21,22 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeCreaConLapizArriba(){
 
-        personaje.moverDerecha(tablero);
-        Posicion posicionActual = personaje.getPosicion();
+        personaje.moverArriba(tablero);
 
-        assertFalse(tablero.estaPintado(posicionActual));
+        Posicion posicionFinal = posicion.haciaArriba(tablero);
+
+        assertFalse(tablero.estaPintado(posicionFinal));
     }
 
     @Test
     public void TestPersonajeBajaElLapiz(){
 
         personaje.bajarLapiz();
-        personaje.moverDerecha(tablero);
-        Posicion posicionActual = personaje.getPosicion();
+        personaje.moverArriba(tablero);
 
-        assertTrue(tablero.estaPintado(posicionActual)) ;
+        Posicion posicionFinal = posicion.haciaArriba(tablero);
+
+        assertTrue(tablero.estaPintado(posicionFinal)) ;
 
     }
 
@@ -43,10 +47,9 @@ public class TestPersonaje{
 
         //Act
         personaje.moverDerecha(tablero);
-        Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
 
@@ -57,37 +60,34 @@ public class TestPersonaje{
 
         //Act
         personaje.moverIzquierda(tablero);
-        Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
 
     }
 
     @Test
     public void TestPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = posicion.deArriba(tablero);
+        Posicion posicionFinal = posicion.haciaArriba(tablero);
 
         //Act
         personaje.moverArriba(tablero);
-        Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
     @Test
     public void TestPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = posicion.deAbajo(tablero);
+        Posicion posicionFinal = posicion.haciaAbajo(tablero);
 
         //Act
         personaje.moverAbajo(tablero);
-        Posicion posicionActual = personaje.getPosicion();
 
         //Assert
-        assertTrue(posicionActual.esIgualA(posicionFinal));
+        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
     }
 
 
@@ -95,34 +95,36 @@ public class TestPersonaje{
     public void PersonajeSeMueveConLapizArribaYAbajoYDibujaCorrectamente(){
         personaje.moverAbajo(tablero);
         personaje.bajarLapiz();
+
         personaje.moverAbajo(tablero);
         personaje.moverDerecha(tablero);
         personaje.subirLapiz();
+
         personaje.moverArriba(tablero);
         personaje.moverArriba(tablero);
         personaje.bajarLapiz();
+
         personaje.moverIzquierda(tablero);
 
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.deAbajo(tablero);
+        posicion = posicion.haciaAbajo(tablero);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.deAbajo(tablero);
+        posicion = posicion.haciaAbajo(tablero);
         assertTrue(tablero.estaPintado(posicion));
 
         posicion = posicion.aDerecha(tablero);
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.deArriba(tablero);
+        posicion = posicion.haciaArriba(tablero);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.deArriba(tablero);
+        posicion = posicion.haciaArriba(tablero);
         assertFalse(tablero.estaPintado(posicion));
     }
 
-    /*@Test(expected = AldeanoEstaOcupadoException.class)
-    //PosicionFueraDeRangoException
+    /*@Test(expected = FrulaException.class)
     public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
         Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
     }
