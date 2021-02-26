@@ -34,7 +34,7 @@ public class TestPersonaje{
 
         Posicion posicionFinal = posicion.haciaArriba(tablero);
 
-        assertTrue(tablero.estaPintado(posicionFinal)) ;
+        assertFalse(tablero.estaPintado(posicionFinal)) ;
 
     }
 
