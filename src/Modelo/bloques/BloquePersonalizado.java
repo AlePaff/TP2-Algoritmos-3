@@ -10,6 +10,10 @@ public class BloquePersonalizado extends Conjunto {
         this.nombre = nombre;
     }
 
+    public String getNombre(){
+        return this.nombre;
+    }
+
     @Override
     public void ejecutar(Personaje personaje, Tablero tablero){
         for (Bloque bloque : bloques)
