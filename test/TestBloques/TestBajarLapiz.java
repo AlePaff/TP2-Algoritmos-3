@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.BajarLapiz;
 import Modelo.bloques.MoverArriba;
@@ -7,7 +7,7 @@ import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBajarLapiz {
     protected static final int BASE = 15;
@@ -25,8 +25,8 @@ public class TestBajarLapiz {
 
         bloqueBajarLapiz.ejecutar(personaje, tablero);
         bloqueArriba.ejecutar(personaje, tablero);
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
-        assertFalse(tablero.estaPintado(posicionFinal));
+        assertTrue(tablero.estaPintado(posicionFinal));
     }
 }

@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.SubirLapiz;
 import Modelo.bloques.MoverArriba;
@@ -20,12 +20,14 @@ public class TestSubirLapiz {
 
     @Test
     public void SubirLapizSeEjecutaCorrectamente() {
+        personaje.bajarLapiz();
+
         SubirLapiz bloqueSubirLapiz = new SubirLapiz();
         MoverArriba bloqueArriba = new MoverArriba();
 
         bloqueSubirLapiz.ejecutar(personaje, tablero);
         bloqueArriba.ejecutar(personaje, tablero);
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
         assertFalse(tablero.estaPintado(posicionFinal));
     }

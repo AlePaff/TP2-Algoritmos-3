@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.MoverAbajo;
 import Modelo.bloques.MoverArriba;
@@ -23,7 +23,7 @@ public class TestMover {
     @Test
     public void MoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
-        Posicion posicionFinal = posicion.haciaAbajo(tablero);
+        Posicion posicionFinal = posicion.moverAbajo(tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -33,7 +33,7 @@ public class TestMover {
     @Test
     public void MoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -43,7 +43,7 @@ public class TestMover {
     @Test
     public void MoverDerechaSeEjecutaCorrectamente() {
         MoverDerecha bloque = new MoverDerecha();
-        Posicion posicionFinal = posicion.aDerecha(tablero);
+        Posicion posicionFinal = posicion.moverDerecha(tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -53,7 +53,7 @@ public class TestMover {
     @Test
     public void MoverIzquierdaSeEjecutaCorrectamente() {
         MoverIzquierda bloque = new MoverIzquierda();
-        Posicion posicionFinal = posicion.aIzquierda(tablero);
+        Posicion posicionFinal = posicion.moverIzquierda(tablero);
 
         bloque.ejecutar(personaje, tablero);
 

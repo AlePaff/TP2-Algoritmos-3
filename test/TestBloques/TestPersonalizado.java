@@ -1,13 +1,12 @@
-package TestBloques;
+package test.TestBloques;
 
-import Modelo.bloques.BloquePersonalizado;
-import Modelo.bloques.MoverArriba;
+import Modelo.bloques.*;
 import Modelo.personaje.Personaje;
-import Modelo.tablero.Posicion;
-import Modelo.tablero.Tablero;
+import Modelo.tablero.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPersonalizado {
     protected static final int BASE = 15;
@@ -19,6 +18,32 @@ public class TestPersonalizado {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void SeEjecutaCorrectamente () {
+    public void SeEjecutaCorrectamente () { //cambiar el nombre
+        BloquePersonalizado bloque = new BloquePersonalizado();
+        MoverDerecha bloqueDerecha = new MoverDerecha();
+        Posicion posicionFinal = posicion.moverDerecha(tablero);
+        bloque.agregarBloque(bloqueDerecha);
+
+        bloque.ejecutar(personaje, tablero);
+
+        assertTrue(personaje.estaEnPosicion(posicionFinal));
+    }
+
+    @Test
+    public void SeAgreganBloquesCorrectamente () {
+        BloquePersonalizado bloque = new BloquePersonalizado();
+        MoverDerecha bloqueDerecha = new MoverDerecha();
+        bloque.agregarBloque(bloqueDerecha);
+
+        assertEquals(1, bloque.tamano());
+    }
+
+    @Test
+    public void SeAgregaElNombreCorrectamente () { //es una buena prueba?
+        BloquePersonalizado bloque = new BloquePersonalizado();
+
+        bloque.setNombre("Juanito");
+
+        assertEquals("Juanito", bloque.getNombre());
     }
 }

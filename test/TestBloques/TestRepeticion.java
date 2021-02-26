@@ -1,4 +1,4 @@
-package TestBloques;
+package test.TestBloques;
 
 import Modelo.bloques.MoverAbajo;
 import Modelo.bloques.MoverDerecha;
@@ -9,6 +9,7 @@ import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestRepeticion {
@@ -28,7 +29,7 @@ public class TestRepeticion {
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
         for (int i = 0; i < cantRepeticiones; i++)
-            posicionFinal.aDerecha(tablero).haciaAbajo(tablero);
+            posicionFinal = posicionFinal.moverDerecha(tablero).moverAbajo(tablero);
 
         bloqueRepeticion.agregarBloque(bloqueDerecha);
         bloqueRepeticion.agregarBloque(bloqueAbajo);
@@ -38,12 +39,10 @@ public class TestRepeticion {
     }
 
     @Test
-    public void NoAdmiteRepeticionesNegativas() { //COMPLETAR, NO TESTEA BIEN LA EXCEPCION
+    public void NoAdmiteRepeticionesNegativas() {
         int cantRepeticiones = -1;
 
-        try{
-            new Repeticion(cantRepeticiones);
-        } catch (RepeticionesNegativasException e){
-        }
+        assertThrows(RepeticionesNegativasException.class,
+                ()-> new Repeticion(cantRepeticiones));
     }
 }
