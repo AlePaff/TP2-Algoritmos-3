@@ -3,8 +3,8 @@ package Modelo.tablero;
 import Modelo.excepciones.PosicionFueraDeRangoException;
 
 public class Posicion {
-    private int posX;
-    private int posY;
+    private final int posX;
+    private final int posY;
     protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
 
     public Posicion(int posX, int posY, Tablero tablero) {
@@ -21,7 +21,22 @@ public class Posicion {
         }
     }
 
-    public void moverAbajo() {
+    public Posicion moverDerecha(Tablero tablero) {
+        return new Posicion(this.posX + DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
+    }
+
+    public Posicion moverIzquierda(Tablero tablero) {
+        return new Posicion(this.posX - DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
+    }
+
+    public Posicion moverArriba(Tablero tablero) {
+        return new Posicion(this.posX, this.posY + DISTANCIA_DE_MOVIMIENTO, tablero );
+    }
+    public Posicion moverAbajo(Tablero tablero) {
+        return new Posicion(this.posX, this.posY - DISTANCIA_DE_MOVIMIENTO, tablero );
+    }
+
+/*public void moverAbajo() {
         this.posY = this.posY-DISTANCIA_DE_MOVIMIENTO;
     }
     public void moverArriba() {
@@ -32,7 +47,7 @@ public class Posicion {
     }
     public void moverDerecha() {
         this.posX = this.posX+DISTANCIA_DE_MOVIMIENTO;
-    }
+    }*/
 
     public int getPosX(){
         return this.posX;
@@ -43,21 +58,6 @@ public class Posicion {
 
     public boolean esIgualA(Posicion posicion){
         return ((this.posX == posicion.posX) && (this.posY == posicion.posY));
-    }
-
-    public Posicion aDerecha(Tablero tablero) {
-        return new Posicion(this.posX + DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
-    }
-
-    public Posicion aIzquierda(Tablero tablero) {
-        return new Posicion(this.posX - DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
-    }
-
-    public Posicion haciaArriba(Tablero tablero) {
-        return new Posicion(this.posX, this.posY + DISTANCIA_DE_MOVIMIENTO, tablero );
-    }
-    public Posicion haciaAbajo(Tablero tablero) {
-        return new Posicion(this.posX, this.posY - DISTANCIA_DE_MOVIMIENTO, tablero );
     }
 }
 

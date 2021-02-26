@@ -7,6 +7,8 @@ public class Casillero {
         pintado = true;
     }
 
+    public void despintar(){ pintado = false;}
+
     public boolean estaPintado(){
         return pintado;
     }
