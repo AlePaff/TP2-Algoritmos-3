@@ -5,6 +5,8 @@ import Modelo.tablero.Tablero;
 
 public interface Bloque {
 
-    void ejecutar(Movimiento movimiento,Personaje personaje, Tablero tablero);
+    void ejecutar(Personaje personaje, Tablero tablero);
+
+    void ejecutarInvertido(Personaje personaje, Tablero tablero);
 
 }

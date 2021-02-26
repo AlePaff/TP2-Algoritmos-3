@@ -6,8 +6,12 @@ import Modelo.tablero.Tablero;
 public class MoverArriba implements Bloque{
 
     @Override
-    public void ejecutar(Movimiento movimiento, Personaje personaje, Tablero tablero) {
-       movimiento.moverseHaciaArriba(personaje,tablero);
+    public void ejecutar(Personaje personaje, Tablero tablero) {
+        personaje.moverArriba(tablero);
+    }
+
+    public void ejecutarInvertido(Personaje personaje, Tablero tablero) {
+        personaje.moverAbajo(tablero);
     }
 
 }

@@ -10,10 +10,20 @@ public class Repeticion extends Conjunto {
         this.repeticiones = repeticiones;
     }
 
-
     @Override
-    public void ejecutar(Movimiento movimiento,Personaje personaje, Tablero tablero){
-            movimiento.repetirMovimiento(bloques, repeticiones, personaje,tablero);
+    public void ejecutar(Personaje personaje, Tablero tablero){
+        ejecutarAux(personaje, tablero);
     }
+    @Override
+    public void ejecutarInvertido(Personaje personaje, Tablero tablero){
+        ejecutarAux(personaje, tablero);
+    }
+
+    private void ejecutarAux(Personaje personaje, Tablero tablero){
+        for (Bloque bloque : bloques) {
+            bloque.ejecutar(personaje, tablero);
+        }
+    }
+
 }
 

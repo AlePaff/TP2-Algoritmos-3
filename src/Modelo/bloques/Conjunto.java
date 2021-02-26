@@ -12,5 +12,7 @@ public abstract class Conjunto implements Bloque {
         bloques.add(bloque);
     }
 
-    public abstract void ejecutar(Movimiento movimiento, Personaje personaje, Tablero tablero);
+    public abstract void ejecutar(Personaje personaje, Tablero tablero);
+
+    public abstract void ejecutarInvertido(Personaje personaje, Tablero tablero);
 }
