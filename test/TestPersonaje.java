@@ -1,3 +1,6 @@
+package test;
+
+import Modelo.excepciones.PosicionFueraDeRangoException;
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
@@ -21,7 +24,7 @@ public class TestPersonaje{
 
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
         assertFalse(tablero.estaPintado(posicionFinal));
     }
@@ -32,16 +35,16 @@ public class TestPersonaje{
         personaje.bajarLapiz();
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
-        assertFalse(tablero.estaPintado(posicionFinal)) ;
+        assertTrue(tablero.estaPintado(posicionFinal)) ;
 
     }
 
     @Test
     public void TestPersonajeSeMueveADerecha(){
         //A
-        Posicion posicionFinal = posicion.aDerecha(tablero);
+        Posicion posicionFinal = posicion.moverDerecha(tablero);
 
         //Act
         personaje.moverDerecha(tablero);
@@ -54,7 +57,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
         //A
-        Posicion posicionFinal = posicion.aIzquierda(tablero);
+        Posicion posicionFinal = posicion.moverIzquierda(tablero);
 
         //Act
         personaje.moverIzquierda(tablero);
@@ -67,7 +70,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = posicion.haciaArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero);
 
         //Act
         personaje.moverArriba(tablero);
@@ -79,7 +82,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = posicion.haciaAbajo(tablero);
+        Posicion posicionFinal = posicion.moverAbajo(tablero);
 
         //Act
         personaje.moverAbajo(tablero);
@@ -106,31 +109,48 @@ public class TestPersonaje{
 
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.haciaAbajo(tablero);
+        posicion = posicion.moverAbajo(tablero);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.haciaAbajo(tablero);
+        posicion = posicion.moverAbajo(tablero);
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.aDerecha(tablero);
+        posicion = posicion.moverDerecha(tablero);
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.haciaArriba(tablero);
+        posicion = posicion.moverArriba(tablero);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.haciaArriba(tablero);
+        posicion = posicion.moverArriba(tablero);
         assertFalse(tablero.estaPintado(posicion));
     }
 
-    /*@Test(expected = FrulaException.class)
+    @Test
     public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
-        Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
+
+        assertThrows(PosicionFueraDeRangoException.class,
+                ()->{
+                    Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
+                    personajeTest.moverDerecha(tablero);
+                });
     }
 
-    @Test(expected = PosicionFueraDeRangoException.class)
-    //PosicionFueraDeRangoException
+    @Test
+    public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcionParteDos(){
+
+        assertThrows(PosicionFueraDeRangoException.class,
+                ()->{
+                    Personaje personajeTest = new Personaje( new Posicion(15,15, tablero));
+                    personajeTest.moverDerecha(tablero);
+                });
+    }
+
+    @Test
     public void TestMoverAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
         Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
-        personaje.moverDerecha(tablero);
-    }*/
+
+        assertThrows(PosicionFueraDeRangoException.class,
+                ()-> personajeTest.moverDerecha(tablero));
+
+    }
 }
