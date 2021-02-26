@@ -19,7 +19,6 @@ public class Posicion {
         if (((posX >= base ) || (posX < 0)) || ((posY >= altura) || (posY < 0))){
             throw new PosicionFueraDeRangoException();
         }
-
     }
 
     public void moverAbajo() {
@@ -54,10 +53,10 @@ public class Posicion {
         return new Posicion(this.posX - DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
     }
 
-    public Posicion deArriba(Tablero tablero) {
+    public Posicion haciaArriba(Tablero tablero) {
         return new Posicion(this.posX, this.posY + DISTANCIA_DE_MOVIMIENTO, tablero );
     }
-    public Posicion deAbajo(Tablero tablero) {
+    public Posicion haciaAbajo(Tablero tablero) {
         return new Posicion(this.posX, this.posY - DISTANCIA_DE_MOVIMIENTO, tablero );
     }
 }

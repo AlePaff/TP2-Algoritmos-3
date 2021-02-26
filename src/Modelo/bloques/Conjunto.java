@@ -8,7 +8,7 @@ public abstract class Conjunto implements Bloque {
 
     protected ArrayList<Bloque> bloques = new ArrayList<>();
 
-    public void agregarBloques(Bloque bloque){
+    public void agregarBloque(Bloque bloque){
         bloques.add(bloque);
     }
 

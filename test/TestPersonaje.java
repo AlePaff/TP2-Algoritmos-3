@@ -1,5 +1,3 @@
-package test;
-
 import Modelo.personaje.Personaje;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
@@ -49,7 +47,7 @@ public class TestPersonaje{
         personaje.moverDerecha(tablero);
 
         //Assert
-        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
+        assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
 
 
@@ -62,7 +60,7 @@ public class TestPersonaje{
         personaje.moverIzquierda(tablero);
 
         //Assert
-        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
+        assertTrue(personaje.estaEnPosicion(posicionFinal));
 
     }
 
@@ -75,7 +73,7 @@ public class TestPersonaje{
         personaje.moverArriba(tablero);
 
         //Assert
-        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
+        assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
 
     @Test
@@ -87,7 +85,7 @@ public class TestPersonaje{
         personaje.moverAbajo(tablero);
 
         //Assert
-        assertTrue(personaje.estaEnEstaPosicion(posicionFinal));
+        assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
 
 

@@ -1,17 +1,32 @@
 package TestBloques;
 
 import Modelo.bloques.SubirLapiz;
+import Modelo.bloques.MoverArriba;
+import Modelo.personaje.Personaje;
+import Modelo.tablero.Posicion;
+import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
-public class TestSubirLapiz extends TestBloques {
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+public class TestSubirLapiz {
+    protected static final int BASE = 15;
+    protected static final int ALTURA = 15;
+    protected static final int COORD_X_INICIO = 8;
+    protected static final int COORD_Y_INICIO = 8;
+    public Tablero tablero = new Tablero(BASE,ALTURA);
+    public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
+    public Personaje personaje = new Personaje(posicion);
+
     @Test
-    public void TestBloqueSubirLapizSeEjecutaCorrectamente() {
-        SubirLapiz bloque = new SubirLapiz();
+    public void SubirLapizSeEjecutaCorrectamente() {
+        SubirLapiz bloqueSubirLapiz = new SubirLapiz();
+        MoverArriba bloqueArriba = new MoverArriba();
 
-        personaje.bajarLapiz();
-        bloque.ejecutar(movimiento,personaje, tablero);
-        //idem
-        // assertTrue(personaje.lapizLevantado());
+        bloqueSubirLapiz.ejecutar(personaje, tablero);
+        bloqueArriba.ejecutar(personaje, tablero);
+        Posicion posicionFinal = posicion.haciaArriba(tablero);
+
+        assertFalse(tablero.estaPintado(posicionFinal));
     }
-
 }

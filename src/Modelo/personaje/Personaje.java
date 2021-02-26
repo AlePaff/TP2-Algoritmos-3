@@ -47,7 +47,8 @@ public class Personaje{
     private void dibujar(Tablero tablero){
         lapiz.dibujar(tablero, posicion);
     }
-    public boolean estaEnEstaPosicion(Posicion posicion) {
-        return posicion.esIgualA(posicion);
+
+    public boolean estaEnPosicion(Posicion posicion) {
+        return this.posicion.esIgualA(posicion);
     }
 }
