@@ -34,35 +34,35 @@ public class ContenedorPrincipal extends BorderPane{
     private void setBotonera(Personaje personaje){
         Button botonMoverDerecha = new Button();
         botonMoverDerecha.setText("Mover Derecha");
-        BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(vistaPersonaje,personaje,tablero);
-        botonMoverDerecha.setOnAction(moverDerechaHandler);
+        //BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(vistaPersonaje,personaje,tablero);
+        // botonMoverDerecha.setOnAction(moverDerechaHandler);
 
         Button botonMoverIzquierda = new Button();
         botonMoverIzquierda.setText("Mover Izquierda");
-        BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(vistaPersonaje,personaje,tablero);
-        botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
+        //BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(vistaPersonaje,personaje,tablero);
+        //botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
         Button botonMoverAbajo = new Button();
         botonMoverAbajo.setText("Mover Abajo");
-        BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(vistaPersonaje,personaje,tablero);
-        botonMoverAbajo.setOnAction(moverAbajoHandler);
+        //BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(vistaPersonaje,personaje,tablero);
+        //botonMoverAbajo.setOnAction(moverAbajoHandler);
 
         Button botonMoverArriba = new Button();
         botonMoverArriba.setText("Mover Arriba");
-        BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(vistaPersonaje,personaje,tablero);
-        botonMoverArriba.setOnAction(moverArribaHandler);
+        //BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(vistaPersonaje,personaje,tablero);
+        //botonMoverArriba.setOnAction(moverArribaHandler);
 
         Button botonLevantarLapiz = new Button();
         botonLevantarLapiz.setText("Levantar Lapiz");
-        BotonLevantarLapizHandler levantarLapizHandler = new BotonLevantarLapizHandler(vistaPersonaje,personaje);
-        botonLevantarLapiz.setOnAction(levantarLapizHandler);
+        //BotonLevantarLapizHandler levantarLapizHandler = new BotonLevantarLapizHandler(vistaPersonaje,personaje);
+        //botonLevantarLapiz.setOnAction(levantarLapizHandler);
 
         Button botonBajarLapiz = new Button();
         botonBajarLapiz.setText("Bajar Lapiz");
-        BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(vistaPersonaje,personaje);
-        botonBajarLapiz.setOnAction(bajarLapizHandler);
+        //BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(vistaPersonaje,personaje);
+        //botonBajarLapiz.setOnAction(bajarLapizHandler);
 
-        Button botonInvertirDireccion = new Button();
+       /* Button botonInvertirDireccion = new Button();
         botonInvertirDireccion.setText("Invertir Direccion");
         BotonInvertirDireccionHandler invertirDireccionHandler = new BotonInvertirDireccionHandler(vistaPersonaje,personaje,tablero);
         botonInvertirDireccion.setOnAction(invertirDireccionHandler);
@@ -71,7 +71,7 @@ public class ContenedorPrincipal extends BorderPane{
         botonRepetirMovimiento.setText("Repetir Movimiento");
         BotonRepetirMovimientoHandler repetirMovimientoHandler = new BotonRepetirMovimientoHandler(vistaPersonaje,personaje,tablero);
         botonRepetirMovimiento.setOnAction(repetirMovimientoHandler);
-
+        */
 
         VBox contenedorHorizontal = new VBox(botonMoverAbajo,botonBajarLapiz,botonLevantarLapiz,botonMoverArriba,botonMoverDerecha,botonMoverIzquierda);
         contenedorHorizontal.setSpacing(15);
@@ -79,12 +79,12 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorHorizontal.setStyle("-fx-background-color: red;");
         this.setBottom(contenedorHorizontal);
 
-        VBox contenedorVertical = new VBox(botonInvertirDireccion,botonRepetirMovimiento);
+      /*  VBox contenedorVertical = new VBox(botonInvertirDireccion,botonRepetirMovimiento);
         contenedorVertical.setSpacing(10);
         contenedorVertical.setPadding(new Insets(15));
         contenedorVertical.setStyle("-fx-background-color: orange;");
         this.setLeft(contenedorVertical);
-
+        */
     }
 
     private void setMenu(Stage stage){

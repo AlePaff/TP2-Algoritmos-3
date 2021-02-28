@@ -22,21 +22,22 @@ public class Aplicacion extends Application {
         Personaje personaje = crearModelo();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,personaje);
-        Scene scene = new Scene(contenedorPrincipal,700,500);
+        Scene escenaJuego = new Scene(contenedorPrincipal,700,500);
 
         HandlerApplication handlerApplication = new HandlerApplication(stage,contenedorPrincipal.getBarraDeMenu());
-        scene.setOnKeyPressed(handlerApplication);
+        escenaJuego.setOnKeyPressed(handlerApplication);
 
-        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage,scene);
-        Scene welcomeScene = new Scene(contenedorBienvenidos,700,500);
+        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage,escenaJuego);
+        Scene escenaBienvenidos = new Scene(contenedorBienvenidos,700,500);
 
-        stage.setScene(welcomeScene);
+        stage.setScene(escenaBienvenidos);
         stage.setFullScreen(false);
 
         stage.show();
     }
 
     private Personaje crearModelo(){
+        //Esto creo que deberiamos inicializarlo de otra manera dirigiendo a AlgoBlocks
         Tablero tablero = new Tablero(500,300);
         Personaje personaje = new Personaje(new Posicion(8,8,tablero));
         return personaje;
