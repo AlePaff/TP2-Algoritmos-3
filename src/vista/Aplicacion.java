@@ -16,16 +16,23 @@ public class Aplicacion extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
+
         stage.setTitle("AlgoBlocks");
+
         Personaje personaje = crearModelo();
+
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,personaje);
         Scene scene = new Scene(contenedorPrincipal,700,500);
+
         HandlerApplication handlerApplication = new HandlerApplication(stage,contenedorPrincipal.getBarraDeMenu());
         scene.setOnKeyPressed(handlerApplication);
+
         ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage,scene);
         Scene welcomeScene = new Scene(contenedorBienvenidos,700,500);
+
         stage.setScene(welcomeScene);
         stage.setFullScreen(false);
+
         stage.show();
     }
 
