@@ -1,7 +1,3 @@
-package test;
-
-import Modelo.excepciones.BaseOAlturaNegativosONulosException;
-import Modelo.excepciones.ElTableroDebeSerCuadradoException;
 import Modelo.tablero.Posicion;
 import Modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
@@ -32,48 +28,21 @@ public class TestTablero {
 
     @Test
     public void TableroDibujaEnElCasilleroIndicado() {
-        Posicion posicion1 = new Posicion(0, 1, tablero);
-
-        tablero.dibujar(posicion1);
-
-        assertTrue(tablero.estaPintado(posicion1));
-
-    }
-
-
-    @Test
-    public void TableroDibujaEnLosCasillerosIndicados() {
+        Posicion posicion1 = new Posicion(0,1, tablero);
         Posicion posicion2 = new Posicion(1,0, tablero);
         Posicion posicion3 = new Posicion(5,2, tablero);
 
-        tablero.dibujar(posicion2);
-        tablero.dibujar(posicion3);
 
+        tablero.dibujar(posicion1);
+        assertTrue(tablero.estaPintado(posicion1));
+
+        tablero.dibujar(posicion2);
         assertTrue(tablero.estaPintado(posicion2));
+
+        tablero.dibujar(posicion3);
         assertTrue(tablero.estaPintado(posicion3));
     }
 
-    @Test
-    public void NoSePuedeCrearUnTableroConCoordenadasNegativas() {
-
-        assertThrows(BaseOAlturaNegativosONulosException.class,
-                ()->{
-                    Tablero tablero = new Tablero(-1,-2);
-                    tablero.getAltura();
-                });
-
-    }
-
-    @Test
-    public void NoSePuedeCrearUnTableroNoCuadrado() {
-
-        assertThrows(ElTableroDebeSerCuadradoException.class,
-                ()->{
-                    Tablero tablero = new Tablero(15,10);
-                    tablero.getAltura();
-                });
-
-    }
 
 }
 

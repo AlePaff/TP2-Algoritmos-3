@@ -1,41 +1,34 @@
 package Modelo.tablero;
 
+import Modelo.bloques.*;
 import Modelo.excepciones.BaseOAlturaNegativosONulosException;
-import Modelo.excepciones.ElTableroDebeSerCuadradoException;
 
 import java.util.ArrayList;
 
 public class Tablero {
 
-    //private ArrayList<Bloque> bloques = new ArrayList<>();
-    private final ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
-    private final int base;
-    private final int altura;
+    private ArrayList<Bloque> bloques = new ArrayList<>();
+    private ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
 
     public Tablero(int base, int altura) {
         if (base <= 0 || altura <= 0) {
             throw new BaseOAlturaNegativosONulosException();
         }
-        if (base != altura) {
-            throw new ElTableroDebeSerCuadradoException();
-        }
-        this.base = base;
-        this.altura = altura;
-
         for (int i = 0; i < base; i++) {
             ArrayList<Casillero> columna = new ArrayList<>();
             casilleros.add(columna);
             for (int j = 0; j < altura; j++)
                 columna.add(new Casillero());
         }
+
     }
 
     public int getBase() {
-        return this.base;
+        return casilleros.size();
     }
 
     public int getAltura() {
-        return this.altura;
+        return casilleros.get(0).size();
     }
 
     public Casillero getCasillero(int x, int y){
@@ -48,13 +41,5 @@ public class Tablero {
 
     public void dibujar(Posicion posicion) {
         getCasillero(posicion.getPosX(), posicion.getPosY()).pintar();
-    }
-    public void despintarCasilleros(){
-        for (int i = 0; i < base; i++) {
-            for (int j = 0; j < altura; j++){
-                Casillero casillero = this.getCasillero(i,j);
-                casillero.despintar();
-            }
-        }
     }
 }

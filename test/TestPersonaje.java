@@ -153,41 +153,4 @@ public class TestPersonaje{
                 ()-> personajeTest.moverDerecha(tablero));
 
     }
-
-    @Test
-    public void TestCuandoSeSaleDelRangoNoDibuja(){
-        Posicion posicion = new Posicion(14,14, tablero);
-        Personaje personajeTest = new Personaje(posicion);
-        personaje.bajarLapiz();
-        try{
-            personajeTest.moverDerecha(tablero);
-        } catch (PosicionFueraDeRangoException e){
-            assertFalse(tablero.estaPintado(posicion));
-        }
-
-    }
-
-    /*@Test
-    public void TestParaAtraparExcepciones(){
-        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
-
-        try{
-            personajeTest.moverDerecha(tablero);
-        } catch (PosicionFueraDeRangoException e){
-            assertEquals(personajeTest.getPosicion().getPosX(),14);
-        }
-
-    }
-
-    @Test
-    public void TestParaAtraparExcepciones2(){
-        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
-
-        try{
-            personajeTest.moverArriba(tablero);
-        } catch (PosicionFueraDeRangoException e){
-            assertEquals(personajeTest.getPosicion().getPosY(),14);
-        }
-
-    }*/
 }
