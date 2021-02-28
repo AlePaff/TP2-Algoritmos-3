@@ -18,7 +18,7 @@ public class Aplicacion extends Application {
     public void start(Stage stage) throws Exception{
         stage.setTitle("AlgoBlocks");
         Personaje personaje = crearModelo();
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal();
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,personaje);
         Scene scene = new Scene(contenedorPrincipal,700,500);
         HandlerApplication handlerApplication = new HandlerApplication(stage,contenedorPrincipal.getBarraDeMenu());
         scene.setOnKeyPressed(handlerApplication);

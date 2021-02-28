@@ -3,9 +3,9 @@ package vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
-import javafx.scene.input.KeyEvent;
 
-public class OpcionAcercaDeEventHandler implements EventHandler<KeyEvent> {
+
+public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         Alert alert = new Alert(Alert.AlertType.WARNING);

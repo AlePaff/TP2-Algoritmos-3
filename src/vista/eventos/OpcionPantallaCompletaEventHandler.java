@@ -2,11 +2,10 @@ package vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.MenuItem;
 
-public class OpcionPantallaCompletaEventHandler implements EventHandler<KeyEvent> {
+public class OpcionPantallaCompletaEventHandler implements EventHandler<ActionEvent> {
     Stage stage;
     MenuItem opcionPantallaCompleta;
 
