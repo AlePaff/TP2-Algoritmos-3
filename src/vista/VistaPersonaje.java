@@ -17,7 +17,7 @@ public class VistaPersonaje {
     public void dibujar(){
         this.clean();
         canvas.getGraphicsContext2D().setFill(Color.RED);
-        canvas.getGraphicsContext2D().fillOval(personaje.getPosicion().getX() + 230, personaje.getPosicion().getY() + 110, robot.RADIO, robot.RADIO);
+        //canvas.getGraphicsContext2D().fillOval(personaje.getPosicion().getX() + 230, personaje.getPosicion().getY() + 110, robot.RADIO, robot.RADIO);
 
     }
 
@@ -26,5 +26,5 @@ public class VistaPersonaje {
         canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
     }
 
-    //public void update(){ this.dibujar(); }
+    public void update(){ this.dibujar(); }
 }

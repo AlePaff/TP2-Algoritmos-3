@@ -4,6 +4,7 @@ import Modelo.personaje.Personaje;
 import Modelo.tablero.Tablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import vista.VistaPersonaje;
 
 public class BotonLevantarLapizHandler implements EventHandler<ActionEvent> {
     private final VistaPersonaje vistaPersonaje;
