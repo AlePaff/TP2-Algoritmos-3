@@ -1,16 +1,18 @@
 package vista;
 
 import Modelo.personaje.Personaje;
+import Modelo.tablero.AlgoBlocks;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 
 public class VistaPersonaje {
+    //FALTA RESOLVER IMAGEN PERSONAJE
 
-    private Personaje personaje;
+    private final AlgoBlocks algoBlocks;
     Canvas canvas;
 
-    public VistaPersonaje(Personaje personaje, Canvas canvasCentral) {
-        this.personaje = personaje;
+    public VistaPersonaje(AlgoBlocks algoBlocks, Canvas canvasCentral) {
+        this.algoBlocks = algoBlocks;
         this.canvas = canvasCentral;
     }
 

@@ -1,5 +1,6 @@
 package vista;
 
+import Modelo.tablero.AlgoBlocks;
 import Modelo.tablero.Tablero;
 import Modelo.personaje.Personaje;
 import javafx.geometry.Insets;
@@ -7,7 +8,6 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -23,55 +23,60 @@ public class ContenedorPrincipal extends BorderPane{
     VistaPersonaje vistaPersonaje;
     Canvas canvasCentral;
     VBox contenedorCentral;
-    Tablero tablero;
 
-    public ContenedorPrincipal(Stage stage,Personaje personaje){
+    public ContenedorPrincipal(Stage stage, AlgoBlocks algoBlocks){
         this.setMenu(stage);
-        this.setCentro(personaje);
-        this.setBotonera(personaje);
+        this.setCentro(algoBlocks);
+        this.setBotonera(algoBlocks);
     }
 
-    private void setBotonera(Personaje personaje){
+    private void setBotonera(AlgoBlocks algoBlocks){
         Button botonMoverDerecha = new Button();
         botonMoverDerecha.setText("Mover Derecha");
-        //BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(vistaPersonaje,personaje,tablero);
-        // botonMoverDerecha.setOnAction(moverDerechaHandler);
+        BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(algoBlocks, vistaPersonaje);
+        botonMoverDerecha.setOnAction(moverDerechaHandler);
 
         Button botonMoverIzquierda = new Button();
         botonMoverIzquierda.setText("Mover Izquierda");
-        //BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(vistaPersonaje,personaje,tablero);
-        //botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
+        BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(algoBlocks, vistaPersonaje);
+        botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
         Button botonMoverAbajo = new Button();
         botonMoverAbajo.setText("Mover Abajo");
-        //BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(vistaPersonaje,personaje,tablero);
-        //botonMoverAbajo.setOnAction(moverAbajoHandler);
+        BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(algoBlocks, vistaPersonaje);
+        botonMoverAbajo.setOnAction(moverAbajoHandler);
 
         Button botonMoverArriba = new Button();
         botonMoverArriba.setText("Mover Arriba");
-        //BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(vistaPersonaje,personaje,tablero);
-        //botonMoverArriba.setOnAction(moverArribaHandler);
+        BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(algoBlocks, vistaPersonaje);
+        botonMoverArriba.setOnAction(moverArribaHandler);
 
         Button botonLevantarLapiz = new Button();
         botonLevantarLapiz.setText("Levantar Lapiz");
-        //BotonLevantarLapizHandler levantarLapizHandler = new BotonLevantarLapizHandler(vistaPersonaje,personaje);
-        //botonLevantarLapiz.setOnAction(levantarLapizHandler);
+        BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks, vistaPersonaje);
+        botonLevantarLapiz.setOnAction(subirLapizHandler);
 
         Button botonBajarLapiz = new Button();
         botonBajarLapiz.setText("Bajar Lapiz");
-        //BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(vistaPersonaje,personaje);
-        //botonBajarLapiz.setOnAction(bajarLapizHandler);
+        BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(algoBlocks, vistaPersonaje);
+        botonBajarLapiz.setOnAction(bajarLapizHandler);
 
-       /* Button botonInvertirDireccion = new Button();
-        botonInvertirDireccion.setText("Invertir Direccion");
-        BotonInvertirDireccionHandler invertirDireccionHandler = new BotonInvertirDireccionHandler(vistaPersonaje,personaje,tablero);
-        botonInvertirDireccion.setOnAction(invertirDireccionHandler);
+        Button botonInvertirComportamiento = new Button();
+        botonInvertirComportamiento.setText("Invertir Comportamiento");
+        BotonInvertirComportamientoHandler invertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaPersonaje);
+        botonInvertirComportamiento.setOnAction(invertirComportamientoHandler);
 
+        //FALTA VER CÓMO SE INDICA CUANTAS REPETICIONES SE QUIEREN HACER
         Button botonRepetirMovimiento = new Button();
         botonRepetirMovimiento.setText("Repetir Movimiento");
-        BotonRepetirMovimientoHandler repetirMovimientoHandler = new BotonRepetirMovimientoHandler(vistaPersonaje,personaje,tablero);
+        BotonRepetirMovimientoHandler repetirMovimientoHandler = new BotonRepetirMovimientoHandler(algoBlocks, vistaPersonaje);
         botonRepetirMovimiento.setOnAction(repetirMovimientoHandler);
-        */
+
+        Button botonEjecutar = new Button();
+        botonEjecutar.setText("Ejecutar");
+        BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(algoBlocks, vistaPersonaje);
+        botonEjecutar.setOnAction(ejecutarHandler);
+
 
         VBox contenedorHorizontal = new VBox(botonMoverAbajo,botonBajarLapiz,botonLevantarLapiz,botonMoverArriba,botonMoverDerecha,botonMoverIzquierda);
         contenedorHorizontal.setSpacing(15);
@@ -79,12 +84,12 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorHorizontal.setStyle("-fx-background-color: red;");
         this.setBottom(contenedorHorizontal);
 
-      /*  VBox contenedorVertical = new VBox(botonInvertirDireccion,botonRepetirMovimiento);
+        VBox contenedorVertical = new VBox(botonInvertirComportamiento,botonRepetirMovimiento);
         contenedorVertical.setSpacing(10);
         contenedorVertical.setPadding(new Insets(15));
         contenedorVertical.setStyle("-fx-background-color: orange;");
         this.setLeft(contenedorVertical);
-        */
+
     }
 
     private void setMenu(Stage stage){
@@ -92,9 +97,9 @@ public class ContenedorPrincipal extends BorderPane{
         this.setTop(barraDeMenu);
     }
 
-    private void setCentro(Personaje personaje) {
+    private void setCentro(AlgoBlocks algoBlocks) {
         canvasCentral = new Canvas(400, 300);
-        vistaPersonaje = new VistaPersonaje(personaje, canvasCentral);
+        vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral);
         vistaPersonaje.dibujar();
 
         contenedorCentral.setAlignment(Pos.CENTER);

@@ -1,6 +1,9 @@
 package vista.eventos;
 
+import Modelo.bloques.BajarLapiz;
+import Modelo.bloques.MoverDerecha;
 import Modelo.personaje.Personaje;
+import Modelo.tablero.AlgoBlocks;
 import Modelo.tablero.Tablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,16 +11,17 @@ import vista.VistaPersonaje;
 
 public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
     private final VistaPersonaje vistaPersonaje;
-    private final Personaje personaje;
+    private final AlgoBlocks algoBlocks;
 
-    public BotonBajarLapizHandler(VistaPersonaje vistaPersonaje,Personaje personaje){
+    public BotonBajarLapizHandler(AlgoBlocks algoBlocks, VistaPersonaje vistaPersonaje){
+        this.algoBlocks = algoBlocks;
         this.vistaPersonaje = vistaPersonaje;
-        this.personaje = personaje;
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        this.personaje.bajarLapiz();
+        BajarLapiz bloque = new BajarLapiz();
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaPersonaje.update();
     }
 }

@@ -19,9 +19,9 @@ public class Aplicacion extends Application {
 
         stage.setTitle("AlgoBlocks");
 
-        Personaje personaje = crearModelo();
+        AlgoBlocks algoBlocks = crearModelo();
 
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,personaje);
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, algoBlocks);
         Scene escenaJuego = new Scene(contenedorPrincipal,700,500);
 
         HandlerApplication handlerApplication = new HandlerApplication(stage,contenedorPrincipal.getBarraDeMenu());
@@ -36,10 +36,8 @@ public class Aplicacion extends Application {
         stage.show();
     }
 
-    private Personaje crearModelo(){
-        //Esto creo que deberiamos inicializarlo de otra manera dirigiendo a AlgoBlocks
-        Tablero tablero = new Tablero(500,300);
-        Personaje personaje = new Personaje(new Posicion(8,8,tablero));
-        return personaje;
+    private AlgoBlocks crearModelo(){
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+        return algoBlocks;
     }
 }
