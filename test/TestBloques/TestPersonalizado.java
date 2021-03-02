@@ -35,7 +35,7 @@ public class TestPersonalizado {
         MoverDerecha bloqueDerecha = new MoverDerecha();
         bloque.agregarBloque(bloqueDerecha);
 
-        assertEquals(1, bloque.tamano());
+        assertEquals(1, bloque.tamanio());
     }
 
     @Test

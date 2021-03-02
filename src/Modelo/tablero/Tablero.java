@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Tablero {
 
-    //private ArrayList<Bloque> bloques = new ArrayList<>();
     private final ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
     private final int base;
     private final int altura;

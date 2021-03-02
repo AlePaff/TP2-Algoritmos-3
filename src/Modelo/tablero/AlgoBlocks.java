@@ -15,12 +15,12 @@ public class AlgoBlocks {
     private static final int BASE_MAPA = 20;
     private static final int ALTURA_MAPA = 20;
 
-    public void Juego() {
+    public AlgoBlocks() {
         this.tablero = new Tablero(BASE_MAPA, ALTURA_MAPA);
         posicionInicial = new Posicion(BASE_MAPA/2, ALTURA_MAPA/2, tablero);
         this.personaje = new Personaje(posicionInicial);
-
     }
+
     public void agregarBloque(Bloque bloque){
         bloques.add(bloque);
     }
