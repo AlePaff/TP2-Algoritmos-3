@@ -1,10 +1,10 @@
 package vista;
 
 import Modelo.tablero.AlgoBlocks;
-import Modelo.tablero.Tablero;
-import Modelo.personaje.Personaje;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
@@ -66,11 +66,17 @@ public class ContenedorPrincipal extends BorderPane{
         BotonInvertirComportamientoHandler invertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaPersonaje);
         botonInvertirComportamiento.setOnAction(invertirComportamientoHandler);
 
-        //FALTA VER CÓMO SE INDICA CUANTAS REPETICIONES SE QUIEREN HACER
-        Button botonRepetirMovimiento = new Button();
-        botonRepetirMovimiento.setText("Repetir Movimiento");
-        BotonRepetirMovimientoHandler repetirMovimientoHandler = new BotonRepetirMovimientoHandler(algoBlocks, vistaPersonaje);
-        botonRepetirMovimiento.setOnAction(repetirMovimientoHandler);
+
+        Label label = new Label();
+        label.setText("RepetirMovimiento");
+        TextField campoRepetirMovimiento = new TextField("Cantidad de repeticiones"); //REVISAR EXEPCIONES DE ESTO
+        CampoRepetirMovimientoHandler repetirMovimientoHandler = new CampoRepetirMovimientoHandler(algoBlocks, vistaPersonaje, campoRepetirMovimiento);
+        campoRepetirMovimiento.setOnAction(repetirMovimientoHandler);
+        HBox bloqueRepetirMovimiento = new HBox(label, campoRepetirMovimiento);
+        bloqueRepetirMovimiento.setSpacing(10);
+        bloqueRepetirMovimiento.setPadding(new Insets(15));
+        bloqueRepetirMovimiento.setStyle("-fx-background-color: orange;");
+
 
         Button botonEjecutar = new Button();
         botonEjecutar.setText("Ejecutar");
@@ -78,13 +84,7 @@ public class ContenedorPrincipal extends BorderPane{
         botonEjecutar.setOnAction(ejecutarHandler);
 
 
-        VBox contenedorHorizontal = new VBox(botonMoverAbajo,botonBajarLapiz,botonLevantarLapiz,botonMoverArriba,botonMoverDerecha,botonMoverIzquierda);
-        contenedorHorizontal.setSpacing(15);
-        contenedorHorizontal.setPadding(new Insets(20));
-        contenedorHorizontal.setStyle("-fx-background-color: red;");
-        this.setBottom(contenedorHorizontal);
-
-        VBox contenedorVertical = new VBox(botonInvertirComportamiento,botonRepetirMovimiento);
+        VBox contenedorVertical = new VBox( botonMoverAbajo,botonBajarLapiz,botonLevantarLapiz,botonMoverArriba,botonMoverDerecha,botonMoverIzquierda, botonInvertirComportamiento,bloqueRepetirMovimiento);
         contenedorVertical.setSpacing(10);
         contenedorVertical.setPadding(new Insets(15));
         contenedorVertical.setStyle("-fx-background-color: orange;");

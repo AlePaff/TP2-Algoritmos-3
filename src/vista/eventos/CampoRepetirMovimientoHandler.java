@@ -6,22 +6,24 @@ import Modelo.bloques.Repeticion;
 import Modelo.tablero.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
 import vista.VistaPersonaje;
 
-public class BotonRepetirMovimientoHandler implements EventHandler<ActionEvent> {
+public class CampoRepetirMovimientoHandler implements EventHandler<ActionEvent> {
     private final VistaPersonaje vistaPersonaje;
     private final AlgoBlocks algoBlocks;
+    private int cantRepeticiones;
 
 
-    public BotonRepetirMovimientoHandler(AlgoBlocks algoBlocks, VistaPersonaje vistaPersonaje){
+    public CampoRepetirMovimientoHandler(AlgoBlocks algoBlocks, VistaPersonaje vistaPersonaje, TextField campoCantRepeticiones){
         this.algoBlocks = algoBlocks;
         this.vistaPersonaje = vistaPersonaje;
+        this.cantRepeticiones = Integer.parseInt(campoCantRepeticiones.getText()); //REVISAR EXCEPCIONES DE ESTO
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        int cantRepeticiones = 2; //Puse esto para que compile
-        Repeticion bloque = new Repeticion(cantRepeticiones); //FALTA TEMA CANTIDAD REPETICIONES
+        Repeticion bloque = new Repeticion(cantRepeticiones);
         this.algoBlocks.agregarBloque(bloque);
         this.vistaPersonaje.update();
     }
