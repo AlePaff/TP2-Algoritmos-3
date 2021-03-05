@@ -14,6 +14,8 @@ public class TestSubirLapiz {
     protected static final int ALTURA = 15;
     protected static final int COORD_X_INICIO = 8;
     protected static final int COORD_Y_INICIO = 8;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
@@ -27,7 +29,7 @@ public class TestSubirLapiz {
 
         bloqueSubirLapiz.ejecutar(personaje, tablero);
         bloqueArriba.ejecutar(personaje, tablero);
-        Posicion posicionFinal = posicion.moverArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         assertFalse(tablero.estaPintado(posicionFinal));
     }

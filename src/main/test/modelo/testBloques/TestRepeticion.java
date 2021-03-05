@@ -17,6 +17,8 @@ public class TestRepeticion {
     protected static final int ALTURA = 15;
     protected static final int COORD_X_INICIO = 8;
     protected static final int COORD_Y_INICIO = 8;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
@@ -29,7 +31,7 @@ public class TestRepeticion {
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = posicion;
         for (int i = 0; i < cantRepeticiones; i++)
-            posicionFinal = posicionFinal.moverDerecha(tablero).moverAbajo(tablero);
+            posicionFinal = posicionFinal.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO).moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         bloqueRepeticion.agregarBloque(bloqueDerecha);
         bloqueRepeticion.agregarBloque(bloqueAbajo);
