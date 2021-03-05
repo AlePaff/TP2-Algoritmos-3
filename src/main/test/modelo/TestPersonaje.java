@@ -13,6 +13,7 @@ public class TestPersonaje{
     protected static final int ALTURA = 15;
     protected static final int COORDENADA_EN_X_DE_INICIO = 8;
     protected static final int COORDENADA_EN_Y_DE_INICIO = 8;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
 
     public Tablero tablero = new Tablero(BASE, ALTURA);
     public Posicion posicion = new Posicion(COORDENADA_EN_X_DE_INICIO,COORDENADA_EN_Y_DE_INICIO, tablero);
@@ -24,7 +25,7 @@ public class TestPersonaje{
 
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.moverArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         assertFalse(tablero.estaPintado(posicionFinal));
     }
@@ -35,7 +36,7 @@ public class TestPersonaje{
         personaje.bajarLapiz();
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.moverArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         assertTrue(tablero.estaPintado(posicionFinal)) ;
 
@@ -44,7 +45,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveADerecha(){
         //A
-        Posicion posicionFinal = posicion.moverDerecha(tablero);
+        Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         //Act
         personaje.moverDerecha(tablero);
@@ -57,7 +58,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAIzquierda(){
         //A
-        Posicion posicionFinal = posicion.moverIzquierda(tablero);
+        Posicion posicionFinal = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         //Act
         personaje.moverIzquierda(tablero);
@@ -70,7 +71,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = posicion.moverArriba(tablero);
+        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         //Act
         personaje.moverArriba(tablero);
@@ -82,7 +83,7 @@ public class TestPersonaje{
     @Test
     public void TestPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = posicion.moverAbajo(tablero);
+        Posicion posicionFinal = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
 
         //Act
         personaje.moverAbajo(tablero);
@@ -109,19 +110,19 @@ public class TestPersonaje{
 
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.moverAbajo(tablero);
+        posicion = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.moverAbajo(tablero);
+        posicion = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.moverDerecha(tablero);
+        posicion = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
         assertTrue(tablero.estaPintado(posicion));
 
-        posicion = posicion.moverArriba(tablero);
+        posicion = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
         assertFalse(tablero.estaPintado(posicion));
 
-        posicion = posicion.moverArriba(tablero);
+        posicion = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
         assertFalse(tablero.estaPintado(posicion));
     }
 
@@ -167,27 +168,4 @@ public class TestPersonaje{
 
     }
 
-    /*@Test
-    public void TestParaAtraparExcepciones(){
-        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
-
-        try{
-            personajeTest.moverDerecha(tablero);
-        } catch (PosicionFueraDeRangoException e){
-            assertEquals(personajeTest.getPosicion().getPosX(),14);
-        }
-
-    }
-
-    @Test
-    public void TestParaAtraparExcepciones2(){
-        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
-
-        try{
-            personajeTest.moverArriba(tablero);
-        } catch (PosicionFueraDeRangoException e){
-            assertEquals(personajeTest.getPosicion().getPosY(),14);
-        }
-
-    }*/
 }
