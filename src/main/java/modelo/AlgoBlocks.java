@@ -15,8 +15,8 @@ public class AlgoBlocks {
     private Personaje personaje;
     private final ArrayList<Bloque> bloques = new ArrayList<>();
     private static Posicion posicionInicial;
-    private static final int BASE_MAPA = 250;
-    private static final int ALTURA_MAPA = 250;
+    private static final int BASE_MAPA = 500;
+    private static final int ALTURA_MAPA = 500;
 
     public AlgoBlocks() {
         this.tablero = new Tablero(BASE_MAPA, ALTURA_MAPA);

@@ -1,5 +1,8 @@
 package vista.eventos;
 
+import modelo.AlgoBlocks;
+import modelo.bloques.MoverAbajo;
+import modelo.bloques.MoverDerecha;
 import modelo.personaje.Personaje;
 import modelo.tablero.Tablero;
 import javafx.event.ActionEvent;
@@ -7,21 +10,16 @@ import javafx.event.EventHandler;
 import vista.VistaPersonaje;
 
 public class BotonMoverAbajoHandler implements EventHandler<ActionEvent> {
-    private final Personaje personaje;
-    private final VistaPersonaje vistaPersonaje;
-    private final Tablero tablero;
+    private final AlgoBlocks algoBlocks;
 
-    public BotonMoverAbajoHandler(Personaje personaje, VistaPersonaje vistaPersonaje,Tablero tablero){
-        this.personaje = personaje;
-        this.vistaPersonaje = vistaPersonaje;
-        this.tablero = tablero;
+    public BotonMoverAbajoHandler(AlgoBlocks algoBlocks){
+        this.algoBlocks = algoBlocks;
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        //MoverAbajo bloque = new MoverAbajo();
-        //this.algoBlocks.agregarBloque(bloque);
-        this.personaje.moverAbajo(tablero);
-        this.vistaPersonaje.update();
+        MoverAbajo bloque = new MoverAbajo();
+        this.algoBlocks.agregarBloque(bloque);
     }
+
 }

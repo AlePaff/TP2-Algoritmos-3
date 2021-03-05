@@ -38,8 +38,5 @@ public class Aplicacion extends Application {
     private AlgoBlocks crearModelo() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
         return algoBlocks;
-        //Tablero tablero = new Tablero(400, 400);
-        //Personaje personaje = new Personaje(new Posicion(8,8,tablero));
-        //return personaje;
     }
 }

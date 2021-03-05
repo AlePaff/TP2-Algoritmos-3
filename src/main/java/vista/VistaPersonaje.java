@@ -5,7 +5,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 
 public class VistaPersonaje {
-    //FALTA RESOLVER IMAGEN PERSONAJE
 
     private final AlgoBlocks algoBlocks;
     Canvas canvas;
@@ -23,8 +22,7 @@ public class VistaPersonaje {
 
     public void dibujar(){
         this.clean();
-        canvas.getGraphicsContext2D().setFill(Color.RED);
-        // canvas.getGraphicsContext2D().fillOval(personaje.getPosicion().getPosX() + 230, personaje.getPosicion().getPosY() + 110, personaje.RADIO, personaje.RADIO);
+        canvas.getGraphicsContext2D().setFill(Color.BLUE);
         canvas.getGraphicsContext2D().fillOval(algoBlocks.getPosicionDelPersonaje().getPosX() , algoBlocks.getPosicionDelPersonaje().getPosY() , RADIO, RADIO);
 
     }

@@ -1,26 +1,23 @@
 package vista.eventos;
 
+import modelo.AlgoBlocks;
+import modelo.bloques.SubirLapiz;
 import modelo.personaje.Personaje;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import vista.VistaPersonaje;
 
 public class BotonSubirLapizHandler implements EventHandler<ActionEvent> {
-    private final VistaPersonaje vistaPersonaje;
-    private final Personaje personaje;
+    private final AlgoBlocks algoBlocks;
 
 
-    public BotonSubirLapizHandler(Personaje personaje, VistaPersonaje vistaPersonaje) {
-        this.personaje = personaje;
-        this.vistaPersonaje = vistaPersonaje;
+    public BotonSubirLapizHandler(AlgoBlocks algoBlocks) {
+        this.algoBlocks = algoBlocks;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        //SubirLapiz bloque = new SubirLapiz();
-        //this.algoBlocks.agregarBloque(bloque);
-        this.personaje.subirLapiz();
-        this.vistaPersonaje.update();
-
+        SubirLapiz bloque = new SubirLapiz();
+        this.algoBlocks.agregarBloque(bloque);
     }
 }
