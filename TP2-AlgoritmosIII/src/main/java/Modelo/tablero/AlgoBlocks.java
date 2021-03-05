@@ -15,6 +15,7 @@ public class AlgoBlocks {
     private static final int BASE_MAPA = 250;
     private static final int ALTURA_MAPA = 250;
 
+
     public AlgoBlocks() {
         this.tablero = new Tablero(BASE_MAPA, ALTURA_MAPA);
         posicionInicial = new Posicion(BASE_MAPA/2, ALTURA_MAPA/2, tablero);
@@ -44,5 +45,9 @@ public class AlgoBlocks {
 
     public void reiniciarAlgoritmo(){
         bloques.clear();
+    }
+
+    public Posicion getPosicionDelPersonaje(){
+        return personaje.getPosicion();
     }
 }

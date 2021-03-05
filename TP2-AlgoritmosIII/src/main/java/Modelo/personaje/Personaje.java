@@ -54,4 +54,5 @@ public class Personaje{
     public boolean estaEnPosicion(Posicion posicion) {
         return this.posicion.esIgualA(posicion);
     }
+
 }

@@ -65,7 +65,7 @@ public class ContenedorPrincipal extends BorderPane{
     }
 
     private void setCentro(AlgoBlocks algoBlocks) {
-        canvasCentral = new Canvas(700, 500);
+        canvasCentral = new Canvas(250, 250);
         //canvasCentral.getGraphicsContext2D().setFill(Color.GREEN);
         vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral);
         vistaPersonaje.dibujar();
