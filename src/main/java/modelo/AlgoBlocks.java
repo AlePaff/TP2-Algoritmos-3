@@ -52,4 +52,8 @@ public class AlgoBlocks {
     public Posicion getPosicionDelPersonaje() {
         return personaje.getPosicion();
     }
+
+    public void guardarAlgoritmo() {
+    }
+
 }

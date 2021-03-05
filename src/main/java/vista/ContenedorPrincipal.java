@@ -26,6 +26,7 @@ public class ContenedorPrincipal extends BorderPane{
     VistaPersonaje vistaPersonaje;
     Canvas canvasCentral;
     VBox contenedorCentral;
+    VistaAlgoritmo vistaAlgoritmo;
 
     public ContenedorPrincipal(Stage stage,AlgoBlocks algoBlocks){
         this.setMenu(stage);
@@ -44,11 +45,11 @@ public class ContenedorPrincipal extends BorderPane{
         etiquetaBloques.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
         Button botonSubirLapiz = new Button("Subir Lapiz");
-        BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks);
+        BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks, vistaAlgoritmo);
         botonSubirLapiz.setOnAction(subirLapizHandler);
 
         Button botonBajarLapiz = new Button("Bajar Lapiz");
-        BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(algoBlocks);
+        BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(algoBlocks, vistaAlgoritmo);
         botonBajarLapiz.setOnAction(bajarLapizHandler);
 
         HBox contenedorPosicionLapiz = new HBox(botonSubirLapiz, botonBajarLapiz);
@@ -58,11 +59,11 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaMovimiento = new Label("Movimiento:");
 
         Button botonMoverDerecha = new Button("Derecha");
-        BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(algoBlocks);
+        BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverDerecha.setOnAction(moverDerechaHandler);
 
         Button botonMoverIzquierda = new Button("Izquierda");
-        BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(algoBlocks);
+        BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
         HBox contenedorIzquierdaYDerecha = new HBox(botonMoverIzquierda, botonMoverDerecha);
@@ -70,11 +71,11 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorPosicionLapiz.setPadding(new Insets(15));
 
         Button botonMoverAbajo = new Button("Abajo");
-        BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(algoBlocks);
+        BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(algoBlocks, vistaAlgoritmo);
         botonMoverAbajo.setOnAction(moverAbajoHandler);
 
         Button botonMoverArriba = new Button("Arriba");
-        BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(algoBlocks);
+        BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverArriba.setOnAction(moverArribaHandler);
 
         VBox contenedorMovimientos = new VBox(botonMoverArriba, contenedorIzquierdaYDerecha, botonMoverAbajo);
@@ -84,11 +85,11 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
         Button botonRepetirMovimientoDosVeces = new Button("Dos Veces");
-        BotonRepetirMovimientoHandler repetirMovimientoDosVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 2);
+        BotonRepetirMovimientoHandler repetirMovimientoDosVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 2, vistaAlgoritmo);
         botonRepetirMovimientoDosVeces.setOnAction(repetirMovimientoDosVecesHandler);
 
         Button botonRepetirMovimientoTresVeces = new Button("Tres Veces");
-        BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3);
+        BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3, vistaAlgoritmo);
         botonRepetirMovimientoDosVeces.setOnAction(repetirMovimientoTresVecesHandler);
 
         HBox contenedorRepeticiones = new HBox(botonRepetirMovimientoDosVeces, botonRepetirMovimientoTresVeces);
@@ -127,19 +128,32 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaAEjecutar = new Label("A EJECUTAR");
         etiquetaAEjecutar.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
+        VBox contenedorAlgoritmo = new VBox();
+        contenedorAlgoritmo.setSpacing(10);
+        contenedorAlgoritmo.setPadding(new Insets(15));
+
+        vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
+        vistaAlgoritmo.mostrarBloques();
+
         Button botonEjecutar = new Button("Ejecutar");
-        BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(vistaPersonaje, algoBlocks);
+        BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(vistaPersonaje, algoBlocks, vistaAlgoritmo);
         botonEjecutar.setOnAction(ejecutarHandler);
 
         Button botonGuardarAlgoritmo = new Button("Guardar Algoritmo");
-        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks);
+        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
 
-        VBox contenedorAlgoritmo = new VBox(etiquetaAEjecutar, botonEjecutar, botonGuardarAlgoritmo);
-        contenedorAlgoritmo.setSpacing(10);
-        contenedorAlgoritmo.setPadding(new Insets(15));
-        contenedorAlgoritmo.setStyle("-fx-background-color: white;");
-        this.setRight(contenedorAlgoritmo);
+        VBox contenedorBotones = new VBox(botonEjecutar, botonGuardarAlgoritmo);
+        contenedorBotones.setSpacing(10);
+        contenedorBotones.setPadding(new Insets(15));
+        //ver cómo hacer para que este contenedor quede abajo
+
+
+        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotones);
+        contenedorAEjecutar.setSpacing(10);
+        contenedorAEjecutar.setPadding(new Insets(15));
+        contenedorAEjecutar.setStyle("-fx-background-color: white;");
+        this.setRight(contenedorAEjecutar);
     }
 
 

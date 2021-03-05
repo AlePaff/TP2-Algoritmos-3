@@ -4,21 +4,21 @@ import modelo.bloques.InvertirComportamiento;
 import modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import vista.VistaPersonaje;
+import vista.VistaAlgoritmo;
 
 public class BotonInvertirComportamientoHandler implements EventHandler<ActionEvent> {
-    private final VistaPersonaje vistaPersonaje;
+    private final VistaAlgoritmo vistaAlgoritmo;
     private final AlgoBlocks algoBlocks;
 
-    public BotonInvertirComportamientoHandler(AlgoBlocks algoBlocks, VistaPersonaje vistaPersonaje){
+    public BotonInvertirComportamientoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
         this.algoBlocks = algoBlocks;
-        this.vistaPersonaje = vistaPersonaje;
+        this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        InvertirComportamiento bloque = new InvertirComportamiento(); //chequear que esto está bien así
+        InvertirComportamiento bloque = new InvertirComportamiento();
         this.algoBlocks.agregarBloque(bloque);
-        this.vistaPersonaje.update();
+        this.vistaAlgoritmo.update();
     }
 }
