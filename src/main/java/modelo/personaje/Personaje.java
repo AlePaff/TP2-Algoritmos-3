@@ -8,6 +8,8 @@ public class Personaje{
     private final Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
     public final int RADIO = 8;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+
 
     public Personaje(Posicion posicion){
 
@@ -27,22 +29,22 @@ public class Personaje{
     }
 
     public void moverDerecha(Tablero tablero){
-        this.posicion = posicion.moverDerecha(tablero);
+        this.posicion = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
         dibujar(tablero);
     }
 
     public void moverIzquierda(Tablero tablero) {
-        this.posicion = posicion.moverIzquierda(tablero);
+        this.posicion = posicion.moverIzquierda(tablero,DISTANCIA_DE_MOVIMIENTO);
         dibujar(tablero);
     }
 
     public void moverArriba(Tablero tablero) {
-        this.posicion = posicion.moverArriba(tablero);
+        this.posicion = posicion.moverArriba(tablero,DISTANCIA_DE_MOVIMIENTO);
         dibujar(tablero);
     }
 
     public void moverAbajo(Tablero tablero) {
-        this.posicion = posicion.moverAbajo(tablero);
+        this.posicion = posicion.moverAbajo(tablero,DISTANCIA_DE_MOVIMIENTO);
         dibujar(tablero);
     }
 
