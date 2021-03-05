@@ -128,10 +128,7 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaAEjecutar = new Label("A EJECUTAR");
         etiquetaAEjecutar.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
-        VBox contenedorAlgoritmo = new VBox();
-        contenedorAlgoritmo.setSpacing(10);
-        contenedorAlgoritmo.setPadding(new Insets(15));
-
+        Canvas contenedorAlgoritmo = new Canvas(150, 500);
         vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
         vistaAlgoritmo.mostrarBloques();
 
@@ -143,7 +140,11 @@ public class ContenedorPrincipal extends BorderPane{
         BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
 
-        VBox contenedorBotones = new VBox(botonEjecutar, botonGuardarAlgoritmo);
+        Button botonBorrarAlgoritmo = new Button("Borrar");
+        BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
+        botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
+
+        VBox contenedorBotones = new VBox(botonEjecutar, botonGuardarAlgoritmo, botonBorrarAlgoritmo);
         contenedorBotones.setSpacing(10);
         contenedorBotones.setPadding(new Insets(15));
         //ver cómo hacer para que este contenedor quede abajo

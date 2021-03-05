@@ -29,7 +29,6 @@ public class VistaPersonaje {
 
     public void clean() {
         canvas.getGraphicsContext2D().setFill(Color.BEIGE);
-        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
         canvas.getGraphicsContext2D().fillRect(0, 0, ancho, alto);
     }
 
