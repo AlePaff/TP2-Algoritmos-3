@@ -17,7 +17,9 @@ public class BotonGuardarAlgoritmoHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        this.algoBlocks.guardarAlgoritmo();
+        String nombre = "nombre";
+        //debe pedirselo al usuario
+        this.algoBlocks.guardarAlgoritmo(nombre);
         this.vistaAlgoritmo.update();
 
     }
