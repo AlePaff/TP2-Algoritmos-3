@@ -10,6 +10,9 @@ public class Tablero {
     private final ArrayList<ArrayList<Casillero>> casilleros = new ArrayList<>();
     private final int base;
     private final int altura;
+    private final ArrayList<Casillero> dibujo = new ArrayList<>();
+    private final ArrayList<Posicion> posiciones = new ArrayList<>();
+
 
     public Tablero(int base, int altura) {
         if (base <= 0 || altura <= 0) {
@@ -46,14 +49,27 @@ public class Tablero {
     }
 
     public void dibujar(Posicion posicion) {
-        getCasillero(posicion.getPosX(), posicion.getPosY()).pintar();
+        Casillero casillero = getCasillero(posicion.getPosX(), posicion.getPosY());
+        casillero.pintar();
+        dibujo.add(casillero);
+        posiciones.add(posicion);
+
     }
-    public void despintarCasilleros(){
+    private void despintarCasilleros(){
         for (int i = 0; i < base; i++) {
             for (int j = 0; j < altura; j++){
                 Casillero casillero = this.getCasillero(i,j);
                 casillero.despintar();
             }
         }
+    }
+
+    public void eliminarDibujo(){
+        this.despintarCasilleros();
+        this.eliminarPosiciones();
+        dibujo.clear();
+    }
+    public void eliminarPosiciones(){
+        posiciones.clear();
     }
 }
