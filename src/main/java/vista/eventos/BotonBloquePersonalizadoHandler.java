@@ -17,7 +17,7 @@ public class BotonBloquePersonalizadoHandler implements EventHandler<ActionEvent
 
     @Override
     public void handle(ActionEvent actionEvent){
-        BloquePersonalizado bloque = new BloquePersonalizado();
+        BloquePersonalizado bloque = algoBlocks.getAlgoritmo();
         this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
