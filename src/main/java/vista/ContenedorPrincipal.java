@@ -110,7 +110,7 @@ public class ContenedorPrincipal extends BorderPane{
     }
 
     private void setCentro(AlgoBlocks algoBlocks) {
-        canvasCentral = new Canvas(500, 500);
+        canvasCentral = new Canvas(100, 100);
         vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral);
         vistaPersonaje.dibujar();
         contenedorCentral = new VBox(canvasCentral);
