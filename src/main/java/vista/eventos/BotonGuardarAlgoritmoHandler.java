@@ -2,25 +2,27 @@ package vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
 import modelo.AlgoBlocks;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
 
 public class BotonGuardarAlgoritmoHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final VistaAlgoritmo vistaAlgoritmo;
+    private final TextField campoNombreAlgoritmo;
 
-    public BotonGuardarAlgoritmoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo) {
+
+    public BotonGuardarAlgoritmoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo,  TextField campoNombreAlgoritmo) {
         this.algoBlocks = algoBlocks;
         this.vistaAlgoritmo = vistaAlgoritmo;
+        this.campoNombreAlgoritmo = campoNombreAlgoritmo;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        String nombre = "nombre";
-        //debe pedirselo al usuario
+        String nombre = this.campoNombreAlgoritmo.getText();
         this.algoBlocks.guardarAlgoritmo(nombre);
         this.vistaAlgoritmo.update();
-
+        this.campoNombreAlgoritmo.clear();
     }
 }
