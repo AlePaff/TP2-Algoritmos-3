@@ -2,7 +2,6 @@ package vista;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -69,8 +68,8 @@ public class ContenedorPrincipal extends BorderPane{
         botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
         HBox contenedorIzquierdaYDerecha = new HBox(botonMoverIzquierda, botonMoverDerecha);
-        contenedorPosicionLapiz.setSpacing(100);
-        contenedorPosicionLapiz.setPadding(new Insets(15));
+        contenedorIzquierdaYDerecha.setSpacing(100);
+        contenedorIzquierdaYDerecha.setPadding(new Insets(15));
         contenedorIzquierdaYDerecha.setAlignment(Pos.CENTER);
 
         Button botonMoverAbajo = new Button("Abajo");
@@ -82,9 +81,9 @@ public class ContenedorPrincipal extends BorderPane{
         botonMoverArriba.setOnAction(moverArribaHandler);
 
         VBox contenedorMovimientos = new VBox(botonMoverArriba, contenedorIzquierdaYDerecha, botonMoverAbajo);
-        contenedorPosicionLapiz.setSpacing(10);
-        contenedorPosicionLapiz.setPadding(new Insets(15));
-        contenedorPosicionLapiz.setAlignment(Pos.CENTER);
+        contenedorMovimientos.setSpacing(10);
+        contenedorMovimientos.setPadding(new Insets(15));
+        contenedorMovimientos.setAlignment(Pos.CENTER);
 
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
@@ -94,15 +93,22 @@ public class ContenedorPrincipal extends BorderPane{
 
         Button botonRepetirMovimientoTresVeces = new Button("Tres Veces");
         BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3, vistaAlgoritmo);
-        botonRepetirMovimientoDosVeces.setOnAction(repetirMovimientoTresVecesHandler);
+        botonRepetirMovimientoTresVeces.setOnAction(repetirMovimientoTresVecesHandler);
 
         HBox contenedorRepeticiones = new HBox(botonRepetirMovimientoDosVeces, botonRepetirMovimientoTresVeces);
-        contenedorPosicionLapiz.setSpacing(20);
-        contenedorPosicionLapiz.setPadding(new Insets(15));
+        contenedorRepeticiones.setSpacing(20);
+        contenedorRepeticiones.setPadding(new Insets(15));
 
-        //FALTA BOTON INVERTIR COMPORTAMIENTO
+        Button botonInvertirComportamiento = new Button("Invertir Comportamiento");
+        BotonInvertirComportamientoHandler InvertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaAlgoritmo);
+        botonInvertirComportamiento.setOnAction(InvertirComportamientoHandler);
 
-        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones);
+        HBox contenedorInvertir = new HBox(botonInvertirComportamiento);
+        contenedorInvertir.setSpacing(20);
+        contenedorInvertir.setPadding(new Insets(15));
+
+
+        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir);
         contenedorBotonera.setSpacing(10);
         contenedorBotonera.setPadding(new Insets(15));
         contenedorBotonera.setStyle("-fx-background-color: white;");
@@ -140,21 +146,15 @@ public class ContenedorPrincipal extends BorderPane{
         BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(vistaPersonaje, algoBlocks, vistaAlgoritmo);
         botonEjecutar.setOnAction(ejecutarHandler);
 
-        Label etiquetaNombreAlgoritmo = new Label("Nombre:");
-        TextField campoNombreAlgoritmo = new TextField();
         Button botonGuardarAlgoritmo = new Button("Guardar Algoritmo");
-        HBox contenedorGuardarAlgoritmo = new HBox(etiquetaNombreAlgoritmo, campoNombreAlgoritmo);
-        contenedorGuardarAlgoritmo.setSpacing(10);
-        contenedorGuardarAlgoritmo.setPadding(new Insets(15));
-
-        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo, campoNombreAlgoritmo);
+        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
 
         Button botonBorrarAlgoritmo = new Button("Borrar");
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
 
-        VBox contenedorBotones = new VBox(botonEjecutar, botonBorrarAlgoritmo, contenedorGuardarAlgoritmo, botonGuardarAlgoritmo);
+        VBox contenedorBotones = new VBox(botonEjecutar, botonGuardarAlgoritmo, botonBorrarAlgoritmo);
         contenedorBotones.setSpacing(10);
         contenedorBotones.setPadding(new Insets(15));
         //ver cómo hacer para que este contenedor quede abajo
