@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.bloques.Bloque;
+import modelo.bloques.BloquePersonalizado;
 import modelo.excepciones.PosicionFueraDeRangoException;
 import modelo.personaje.Personaje;
 import modelo.tablero.Posicion;
@@ -11,12 +12,13 @@ import java.util.ArrayList;
 
 public class AlgoBlocks {
 
-    private Tablero tablero;
+    private final Tablero tablero;
     private Personaje personaje;
     private final ArrayList<Bloque> bloques = new ArrayList<>();
+    private final ArrayList<Bloque> bloquesPersonalizados = new ArrayList<>();
     private static Posicion posicionInicial;
-    private static final int BASE_MAPA = 500;
-    private static final int ALTURA_MAPA = 500;
+    private static final int BASE_MAPA = 50;
+    private static final int ALTURA_MAPA = 50;
 
     public AlgoBlocks() {
         this.tablero = new Tablero(BASE_MAPA, ALTURA_MAPA);
@@ -53,7 +55,11 @@ public class AlgoBlocks {
         return personaje.getPosicion();
     }
 
-    public void guardarAlgoritmo() {
+    public void guardarAlgoritmo(String nombre) {
+        BloquePersonalizado bloque = new BloquePersonalizado();
+        bloque.setNombre(nombre);
+        bloque.agregarAlgoritmo(this.bloques);
+        bloquesPersonalizados.add(bloque);
     }
 
 }
