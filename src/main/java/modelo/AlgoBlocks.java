@@ -15,7 +15,7 @@ public class AlgoBlocks {
     private final Tablero tablero;
     private Personaje personaje;
     private final ArrayList<Bloque> bloques = new ArrayList<>();
-    private final ArrayList<Bloque> bloquesPersonalizados = new ArrayList<>();
+    private BloquePersonalizado algoritmo = new BloquePersonalizado();
     private static Posicion posicionInicial;
     private static final int BASE_MAPA = 50;
     private static final int ALTURA_MAPA = 50;
@@ -42,7 +42,7 @@ public class AlgoBlocks {
     }
 
     public void reiniciarTablero() {
-        tablero.despintarCasilleros();
+        tablero.eliminarDibujo();
         //personaje.setPosicion( new Posicion(BASE_MAPA/2, ALTURA_MAPA/2, tablero));
         this.personaje = new Personaje(posicionInicial);
     }
@@ -51,15 +51,23 @@ public class AlgoBlocks {
         bloques.clear();
     }
 
-    public Posicion getPosicionDelPersonaje() {
-        return personaje.getPosicion();
-    }
-
     public void guardarAlgoritmo(String nombre) {
         BloquePersonalizado bloque = new BloquePersonalizado();
         bloque.setNombre(nombre);
         bloque.agregarAlgoritmo(this.bloques);
-        bloquesPersonalizados.add(bloque);
+        this.algoritmo = bloque;
+    }
+
+    public ArrayList<Bloque> getBloques() {
+        return this.bloques;
+    }
+
+    public Posicion getPosicionDelPersonaje() {
+        return personaje.getPosicion();
+    }
+
+    public BloquePersonalizado getAlgoritmo(){
+        return this.algoritmo;
     }
 
 }
