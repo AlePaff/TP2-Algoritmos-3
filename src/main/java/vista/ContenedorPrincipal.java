@@ -1,5 +1,6 @@
 package vista;
 
+import javafx.geometry.HPos;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -67,8 +68,9 @@ public class ContenedorPrincipal extends BorderPane{
         botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
         HBox contenedorIzquierdaYDerecha = new HBox(botonMoverIzquierda, botonMoverDerecha);
-        contenedorPosicionLapiz.setSpacing(10);
+        contenedorPosicionLapiz.setSpacing(100);
         contenedorPosicionLapiz.setPadding(new Insets(15));
+        contenedorIzquierdaYDerecha.setAlignment(Pos.CENTER);
 
         Button botonMoverAbajo = new Button("Abajo");
         BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(algoBlocks, vistaAlgoritmo);
@@ -81,6 +83,7 @@ public class ContenedorPrincipal extends BorderPane{
         VBox contenedorMovimientos = new VBox(botonMoverArriba, contenedorIzquierdaYDerecha, botonMoverAbajo);
         contenedorPosicionLapiz.setSpacing(10);
         contenedorPosicionLapiz.setPadding(new Insets(15));
+        contenedorPosicionLapiz.setAlignment(Pos.CENTER);
 
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
