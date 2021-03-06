@@ -2,6 +2,7 @@ package vista;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -138,7 +139,7 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaAEjecutar = new Label("A EJECUTAR");
         etiquetaAEjecutar.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
-        Canvas contenedorAlgoritmo = new Canvas(150, 500);
+        Canvas contenedorAlgoritmo = new Canvas(210, 460);
         vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
         vistaAlgoritmo.mostrarBloques();
 
@@ -146,21 +147,31 @@ public class ContenedorPrincipal extends BorderPane{
         BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(vistaPersonaje, algoBlocks, vistaAlgoritmo);
         botonEjecutar.setOnAction(ejecutarHandler);
 
-        Button botonGuardarAlgoritmo = new Button("Guardar Algoritmo");
-        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
-        botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
-
         Button botonBorrarAlgoritmo = new Button("Borrar");
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
 
-        VBox contenedorBotones = new VBox(botonEjecutar, botonGuardarAlgoritmo, botonBorrarAlgoritmo);
-        contenedorBotones.setSpacing(10);
-        contenedorBotones.setPadding(new Insets(15));
-        //ver cómo hacer para que este contenedor quede abajo
+        Label etiquetaGuardarAlgoritmo = new Label("Guardar Algoritmo:");
+        TextField campoNombreAlgoritmo = new TextField("Ingresar nombre");
+        campoNombreAlgoritmo.setPrefWidth(110);
+        Button botonGuardarAlgoritmo = new Button("Guardar");
+        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo, campoNombreAlgoritmo);
+        botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
+
+        HBox hBoxGuardarAlgoritmo = new HBox(campoNombreAlgoritmo, botonGuardarAlgoritmo);
+        hBoxGuardarAlgoritmo.setSpacing(10);
+        hBoxGuardarAlgoritmo.setPadding(new Insets(15));
+        VBox contenedorGuardarAlgoritmo = new VBox(etiquetaGuardarAlgoritmo, hBoxGuardarAlgoritmo);
+        hBoxGuardarAlgoritmo.setSpacing(10);
+        hBoxGuardarAlgoritmo.setPadding(new Insets(15));
+
+        VBox contenedorBotonesAlgoritmo = new VBox(botonEjecutar, botonBorrarAlgoritmo, contenedorGuardarAlgoritmo);
+        contenedorBotonesAlgoritmo.setSpacing(10);
+        contenedorBotonesAlgoritmo.setPadding(new Insets(15));
+        contenedorBotonesAlgoritmo.setAlignment(Pos.CENTER);
 
 
-        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotones);
+        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo);
         contenedorAEjecutar.setSpacing(10);
         contenedorAEjecutar.setPadding(new Insets(15));
         contenedorAEjecutar.setStyle("-fx-background-color: white;");
