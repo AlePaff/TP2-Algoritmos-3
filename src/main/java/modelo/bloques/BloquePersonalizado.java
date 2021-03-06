@@ -3,6 +3,8 @@ package modelo.bloques;
 import modelo.personaje.Personaje;
 import modelo.tablero.Tablero;
 
+import java.util.ArrayList;
+
 public class BloquePersonalizado extends Conjunto {
     private String nombre;
 
@@ -12,6 +14,10 @@ public class BloquePersonalizado extends Conjunto {
 
     public String getNombre(){
         return this.nombre;
+    }
+
+    public void agregarAlgoritmo(ArrayList<Bloque> bloques){
+        this.bloques = bloques;
     }
 
     @Override
