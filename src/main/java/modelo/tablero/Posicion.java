@@ -29,10 +29,10 @@ public class Posicion {
     }
 
     public Posicion moverArriba(Tablero tablero, int distancia) {
-        return new Posicion(this.posX, this.posY + distancia, tablero );
+        return new Posicion(this.posX, this.posY - distancia, tablero );
     }
     public Posicion moverAbajo(Tablero tablero, int distancia) {
-        return new Posicion(this.posX, this.posY - distancia, tablero );
+        return new Posicion(this.posX, this.posY + distancia, tablero );
     }
 
     public int getPosX(){
