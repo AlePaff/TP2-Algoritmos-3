@@ -90,8 +90,8 @@ public class ContenedorPrincipal extends BorderPane{
         vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
         vistaAlgoritmo.mostrarBloques();
 
-        Button botonEjecutar = new Button("Ejecutar");
         BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(algoBlocks, vistaAlgoritmo, vistaTablero);
+        Boton botonEjecutar = new Boton("Ejecutar", new Image("file:src/main/java/vista/imagenes/ejecutar.png",20,20,false,false), ejecutarHandler);
         botonEjecutar.setOnAction(ejecutarHandler);
 
         Button botonBorrarAlgoritmo = new Button("Borrar");
@@ -100,6 +100,9 @@ public class ContenedorPrincipal extends BorderPane{
         botonBorrarAlgoritmo.setGraphic(imagenBorrar);
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
+
+        BotonReiniciarJuegoHandler reiniciarJuegoHandler = new BotonReiniciarJuegoHandler(algoBlocks, vistaAlgoritmo, vistaTablero);
+        Boton botonReiniciarJuego = new Boton("Reiniciar Juego", new Image("file:src/main/java/vista/imagenes/juego.png",20,20,false,false),reiniciarJuegoHandler);
 
         TextField campoNombreAlgoritmo = new TextField("Ingresar nombre del Algoritmo");
         campoNombreAlgoritmo.setPrefWidth(180);
@@ -120,7 +123,7 @@ public class ContenedorPrincipal extends BorderPane{
 
 
 
-        VBox contenedorBotonesAlgoritmo = new VBox(botonEjecutar, botonBorrarAlgoritmo, contenedorGuardarAlgoritmo);
+        VBox contenedorBotonesAlgoritmo = new VBox(botonEjecutar, botonBorrarAlgoritmo, botonReiniciarJuego, contenedorGuardarAlgoritmo);
         contenedorBotonesAlgoritmo.setSpacing(10);
         contenedorBotonesAlgoritmo.setPadding(new Insets(15));
         contenedorBotonesAlgoritmo.setAlignment(Pos.CENTER);

@@ -78,6 +78,11 @@ public class AlgoBlocks {
 
     }
 
+    public void reiniciarJuego(){
+        reiniciarTablero();
+        reiniciarAlgoritmo();
+    }
+
     public BloquePersonalizado guardarAlgoritmo(String nombre) {
         BloquePersonalizado bloque = new BloquePersonalizado();
         bloque.setNombre(nombre);
