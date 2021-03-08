@@ -29,27 +29,34 @@ public class Personaje{
     }
 
     public void moverDerecha(Tablero tablero){
-        this.posicion = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
-        dibujar(tablero);
+        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverDerecha(tablero, 1);
+            dibujar(tablero);
+        }
     }
 
     public void moverIzquierda(Tablero tablero) {
-        this.posicion = posicion.moverIzquierda(tablero,DISTANCIA_DE_MOVIMIENTO);
-        dibujar(tablero);
+        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverIzquierda(tablero, 1);
+            dibujar(tablero);
+        }
     }
 
     public void moverArriba(Tablero tablero) {
-        this.posicion = posicion.moverArriba(tablero,DISTANCIA_DE_MOVIMIENTO);
-        dibujar(tablero);
+        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverArriba(tablero, 1);
+            dibujar(tablero);
+        }
     }
 
     public void moverAbajo(Tablero tablero) {
-        this.posicion = posicion.moverAbajo(tablero,DISTANCIA_DE_MOVIMIENTO);
-        dibujar(tablero);
+        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverAbajo(tablero, 1);
+            dibujar(tablero);
+        }
     }
 
     private void dibujar(Tablero tablero){
-
         lapiz.dibujar(tablero, posicion);
     }
 

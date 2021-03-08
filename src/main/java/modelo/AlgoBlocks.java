@@ -25,6 +25,7 @@ public class AlgoBlocks {
         posicionInicial = new Posicion(BASE_MAPA / 2, ALTURA_MAPA / 2, tablero);
         this.personaje = new Personaje(posicionInicial);
     }
+
     public int getAltura(){
         return ALTURA_MAPA;
     }
@@ -41,7 +42,7 @@ public class AlgoBlocks {
             try {
                 bloque.ejecutar(personaje, tablero);
             } catch (PosicionFueraDeRangoException e) {
-                //no habría que hacer nada en particular, solo seguir con el algoritmo
+                //bloque no se ejecuta
             }
         }
         bloques.clear();
@@ -49,7 +50,6 @@ public class AlgoBlocks {
 
     public void reiniciarTablero() {
         tablero.eliminarDibujo();
-        //personaje.setPosicion( new Posicion(BASE_MAPA/2, ALTURA_MAPA/2, tablero));
         this.personaje = new Personaje(posicionInicial);
     }
 
