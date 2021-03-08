@@ -72,4 +72,8 @@ public class Tablero {
     public void eliminarPosiciones(){
         posiciones.clear();
     }
+
+    public ArrayList<Posicion> getPosicionesDibujadas() {
+        return this.posiciones;
+    }
 }
