@@ -68,6 +68,7 @@ public class ContenedorPrincipal extends BorderPane{
         HBox contenedorPosicionLapiz = new HBox(botonSubirLapiz, botonBajarLapiz);
         contenedorPosicionLapiz.setSpacing(10);
         contenedorPosicionLapiz.setPadding(new Insets(15));
+        contenedorPosicionLapiz.setAlignment(Pos.CENTER);
 
         Label etiquetaMovimiento = new Label("Movimiento:");
 
@@ -128,6 +129,7 @@ public class ContenedorPrincipal extends BorderPane{
         HBox contenedorRepeticiones = new HBox(botonRepetirMovimientoDosVeces, botonRepetirMovimientoTresVeces);
         contenedorRepeticiones.setSpacing(20);
         contenedorRepeticiones.setPadding(new Insets(15));
+        contenedorRepeticiones.setAlignment(Pos.CENTER);
 
         Button botonInvertirComportamiento = new Button("Invertir Comportamiento");
         ImageView imagenInvertir = new ImageView();
@@ -136,22 +138,12 @@ public class ContenedorPrincipal extends BorderPane{
         BotonInvertirComportamientoHandler InvertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaAlgoritmo);
         botonInvertirComportamiento.setOnAction(InvertirComportamientoHandler);
 
-        HBox contenedorInvertir = new HBox(botonInvertirComportamiento);
-        contenedorInvertir.setSpacing(20);
-        contenedorInvertir.setPadding(new Insets(15));
-
-        /*Button botonBloquePersonalizado = new Button("Bloque Personalizado");
-        BotonBloquePersonalizadoHandler BloquePersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo);
-        botonBloquePersonalizado.setOnAction(BloquePersonalizadoHandler);
-
-        HBox contenedorBloquePersonalizado = new HBox(botonBloquePersonalizado);
-        contenedorBloquePersonalizado.setSpacing(20);
-        contenedorBloquePersonalizado.setPadding(new Insets(15));*/
 
 
-        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir);
+        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento);
         contenedorBotonera.setSpacing(10);
         contenedorBotonera.setPadding(new Insets(15));
+        contenedorBotonera.setAlignment(Pos.TOP_CENTER);
         contenedorBotonera.setStyle("-fx-background-color: white;");
         this.setLeft(contenedorBotonera);
 
@@ -181,7 +173,7 @@ public class ContenedorPrincipal extends BorderPane{
         etiquetaAEjecutar.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
         VBox contenedorAlgoritmo = new VBox();
-        contenedorAlgoritmo.setPrefSize(210, 460);
+        contenedorAlgoritmo.setPrefSize(160, 460);
         contenedorAlgoritmo.setStyle("-fx-background-color: grey;");
         contenedorAlgoritmo.setSpacing(10);
         contenedorAlgoritmo.setAlignment(Pos.TOP_CENTER);
@@ -202,7 +194,7 @@ public class ContenedorPrincipal extends BorderPane{
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
 
         TextField campoNombreAlgoritmo = new TextField("Ingresar nombre del Algoritmo");
-        campoNombreAlgoritmo.setPrefWidth(200);
+        campoNombreAlgoritmo.setPrefWidth(180);
         Button botonGuardarAlgoritmo = new Button("Guardar");
         ImageView imagenGuardar = new ImageView();
         imagenGuardar.setImage(new Image("file:src/main/java/vista/imagenes/guardar.png",20,20,false,false));
@@ -229,6 +221,7 @@ public class ContenedorPrincipal extends BorderPane{
         VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo);
         contenedorAEjecutar.setSpacing(10);
         contenedorAEjecutar.setPadding(new Insets(15));
+        contenedorAEjecutar.setAlignment(Pos.TOP_CENTER);
         contenedorAEjecutar.setStyle("-fx-background-color: white;");
         this.setRight(contenedorAEjecutar);
     }
