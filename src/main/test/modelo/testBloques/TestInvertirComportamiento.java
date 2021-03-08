@@ -21,7 +21,7 @@ public class TestInvertirComportamiento {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void InvierteBloqueMoverDerecha() {
+    public void testInvierteBloqueMoverDerecha() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         Posicion posicionFinal = (posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO));
@@ -33,7 +33,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteBloqueMoverIzquierda() {
+    public void testInvierteBloqueMoverIzquierda() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverIzquierda bloqueIzquierda = new MoverIzquierda();
         Posicion posicionFinal = (posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO));
@@ -44,7 +44,7 @@ public class TestInvertirComportamiento {
         assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
     @Test
-    public void InvierteBloqueMoverArriba() {
+    public void testInvierteBloqueMoverArriba() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverArriba bloqueArriba = new MoverArriba();
         Posicion posicionFinal = (posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO));
@@ -55,7 +55,7 @@ public class TestInvertirComportamiento {
         assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
     @Test
-    public void InvierteBloqueMoverAbajo() {
+    public void testInvierteBloqueMoverAbajo() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverAbajo bloqueAbajo = new MoverAbajo();
         Posicion posicionFinal = (posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO));
@@ -66,7 +66,7 @@ public class TestInvertirComportamiento {
         assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
     @Test
-    public void InvierteBloqueSubirLapiz() {
+    public void testInvierteBloqueSubirLapiz() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         SubirLapiz bloqueSubirLapiz = new SubirLapiz();
         MoverArriba bloqueArriba = new MoverArriba();
@@ -80,7 +80,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteBloqueBajarLapiz() {
+    public void testInvierteBloqueBajarLapiz() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         BajarLapiz bloqueBajarLapiz = new BajarLapiz();
         MoverArriba bloqueArriba = new MoverArriba();
@@ -95,7 +95,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteVariosBloquesAlMismoTiempo() {
+    public void testInvierteVariosBloquesAlMismoTiempo() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         MoverAbajo bloqueAbajo = new MoverAbajo();
@@ -109,7 +109,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteBloqueRepeticionConUnSoloBloqueAdentro() {
+    public void testInvierteBloqueRepeticionConUnSoloBloqueAdentro() {
         int cantRepeticiones = 5;
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
@@ -126,7 +126,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteBloqueRepeticionConVariosBloquesAdentro() {
+    public void testInvierteBloqueRepeticionConVariosBloquesAdentro() {
         int cantRepeticiones = 5;
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
@@ -145,7 +145,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteAlBloqueInvertirComportamiento() {
+    public void testInvierteAlBloqueInvertirComportamiento() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         InvertirComportamiento bloqueInvertirAux = new InvertirComportamiento();
         MoverAbajo bloqueAbajo = new MoverAbajo();
@@ -159,7 +159,7 @@ public class TestInvertirComportamiento {
     }
 
     @Test
-    public void InvierteAlBloquePersonalizado() {
+    public void testInvierteAlBloquePersonalizado() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         BloquePersonalizado bloquePersonalizado= new BloquePersonalizado();
         Posicion posicionFinal = (posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO));

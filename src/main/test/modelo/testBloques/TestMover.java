@@ -23,7 +23,7 @@ public class TestMover {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void MoverAbajoSeEjecutaCorrectamente() {
+    public void testMoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
         Posicion posicionFinal = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -33,7 +33,7 @@ public class TestMover {
     }
 
     @Test
-    public void MoverArribaSeEjecutaCorrectamente() {
+    public void testMoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
         Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -43,7 +43,7 @@ public class TestMover {
     }
 
     @Test
-    public void MoverDerechaSeEjecutaCorrectamente() {
+    public void testMoverDerechaSeEjecutaCorrectamente() {
         MoverDerecha bloque = new MoverDerecha();
         Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -53,7 +53,7 @@ public class TestMover {
     }
 
     @Test
-    public void MoverIzquierdaSeEjecutaCorrectamente() {
+    public void testMoverIzquierdaSeEjecutaCorrectamente() {
         MoverIzquierda bloque = new MoverIzquierda();
         Posicion posicionFinal = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
 

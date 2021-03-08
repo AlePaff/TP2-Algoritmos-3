@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestCasillero {
 
     @Test
-    public void TestCasilleroSeCreaSinPintar(){
+    public void testCasilleroSeCreaSinPintar(){
 
         Casillero casillero = new Casillero();
 
@@ -15,7 +15,7 @@ public class TestCasillero {
     }
 
     @Test
-    public void TestCasilleroSePintaCorrectamente(){
+    public void testCasilleroSePintaCorrectamente(){
 
         Casillero casillero = new Casillero();
         casillero.pintar();
@@ -24,7 +24,7 @@ public class TestCasillero {
     }
 
     @Test
-    public void TestCasilleroSeDespintaCorrectamente(){
+    public void testCasilleroSeDespintaCorrectamente(){
 
         Casillero casillero = new Casillero();
         casillero.pintar();

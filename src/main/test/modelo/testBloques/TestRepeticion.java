@@ -24,7 +24,7 @@ public class TestRepeticion {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void RepeticionSeEjecutaCorrectamente() {
+    public void testRepeticionSeEjecutaCorrectamente() {
         int cantRepeticiones = 5;
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
         MoverDerecha bloqueDerecha = new MoverDerecha();
@@ -41,7 +41,7 @@ public class TestRepeticion {
     }
 
     @Test
-    public void NoAdmiteRepeticionesNegativas() {
+    public void testNoAdmiteRepeticionesNegativas() {
         int cantRepeticiones = -1;
 
         assertThrows(RepeticionesNegativasException.class,

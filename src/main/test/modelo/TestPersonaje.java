@@ -21,7 +21,7 @@ public class TestPersonaje{
 
 
     @Test
-    public void TestPersonajeSeCreaConLapizArriba(){
+    public void testPersonajeSeCreaConLapizArriba(){
 
         personaje.moverArriba(tablero);
 
@@ -31,7 +31,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestPersonajeBajaElLapiz(){
+    public void testPersonajeBajaElLapiz(){
 
         personaje.bajarLapiz();
         personaje.moverArriba(tablero);
@@ -43,7 +43,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestPersonajeSeMueveADerecha(){
+    public void testPersonajeSeMueveADerecha(){
         //A
         Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -56,7 +56,7 @@ public class TestPersonaje{
 
 
     @Test
-    public void TestPersonajeSeMueveAIzquierda(){
+    public void testPersonajeSeMueveAIzquierda(){
         //A
         Posicion posicionFinal = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -69,7 +69,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestPersonajeSeMueveArriba(){
+    public void testPersonajeSeMueveArriba(){
         //A
         Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -81,7 +81,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestPersonajeSeMueveAbajo(){
+    public void testPersonajeSeMueveAbajo(){
         //A
         Posicion posicionFinal = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
 
@@ -127,7 +127,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
+    public void testCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
 
         assertThrows(PosicionFueraDeRangoException.class,
                 ()->{
@@ -137,7 +137,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestCrearAlPersonajeFueraDeRangoLanzaUnaExcepcionParteDos(){
+    public void testCrearAlPersonajeFueraDeRangoLanzaUnaExcepcionParteDos(){
 
         assertThrows(PosicionFueraDeRangoException.class,
                 ()->{
@@ -147,7 +147,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestMoverAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
+    public void testMoverAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
         Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
 
         assertThrows(PosicionFueraDeRangoException.class,
@@ -156,7 +156,7 @@ public class TestPersonaje{
     }
 
     @Test
-    public void TestCuandoSeSaleDelRangoNoDibuja(){
+    public void testCuandoSeSaleDelRangoNoDibuja(){
         Posicion posicion = new Posicion(14,14, tablero);
         Personaje personajeTest = new Personaje(posicion);
         personaje.bajarLapiz();

@@ -1,7 +1,6 @@
 package modelo;
 
 import modelo.excepciones.BaseOAlturaNegativosONulosException;
-import modelo.excepciones.ElTableroDebeSerCuadradoException;
 import modelo.tablero.Posicion;
 import modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
@@ -14,65 +13,64 @@ public class TestTablero {
     Tablero tablero = new Tablero(BASE,ALTURA);
 
     @Test
-    public void TestTableroSeCreaCorrectamente() {
+    public void testTableroSeCreaCorrectamente() {
         assertEquals(BASE, tablero.getAltura());
         assertEquals(ALTURA, tablero.getBase());
     }
 
-
     @Test
-    public void TableroSeCreaConTodosLosCasillerosSinPintar() {
+    public void testTableroSeCreaSinDibujo() {
+        Posicion posicion;
         for (int i = 0; i < BASE; i++) {
             for (int j = 0; j < ALTURA; j++){
-                Posicion posicionIJ = new Posicion(i, j, tablero);
-                assertFalse(tablero.estaPintado(posicionIJ));
+                posicion = new Posicion(i, j, tablero);
+                assertFalse(tablero.estaPintado(posicion));
             }
         }
     }
 
     @Test
-    public void TableroDibujaEnElCasilleroIndicado() {
-        Posicion posicion1 = new Posicion(0, 1, tablero);
+    public void testTableroDibujaEnPosicionIndicada() {
+        Posicion posicion = new Posicion(0, 1, tablero);
+
+        tablero.dibujar(posicion);
+
+        assertTrue(tablero.estaPintado(posicion));
+
+    }
+
+    @Test
+    public void testTableroDibujaEnPosicionesIndicadas() {
+        Posicion posicion1 = new Posicion(1,0, tablero);
+        Posicion posicion2 = new Posicion(5,2, tablero);
 
         tablero.dibujar(posicion1);
+        tablero.dibujar(posicion2);
 
         assertTrue(tablero.estaPintado(posicion1));
-
-    }
-
-
-    @Test
-    public void TableroDibujaEnLosCasillerosIndicados() {
-        Posicion posicion2 = new Posicion(1,0, tablero);
-        Posicion posicion3 = new Posicion(5,2, tablero);
-
-        tablero.dibujar(posicion2);
-        tablero.dibujar(posicion3);
-
         assertTrue(tablero.estaPintado(posicion2));
-        assertTrue(tablero.estaPintado(posicion3));
     }
 
     @Test
-    public void NoSePuedeCrearUnTableroConCoordenadasNegativas() {
+    public void testDibujoSeBorraCorrectamente() {
+        Posicion posicion1 = new Posicion(1,0, tablero);
+        Posicion posicion2 = new Posicion(5,2, tablero);
+
+        tablero.dibujar(posicion1);
+        tablero.dibujar(posicion2);
+
+        tablero.eliminarDibujo();
+
+        assertFalse(tablero.estaPintado(posicion1));
+        assertFalse(tablero.estaPintado(posicion2));
+    }
+
+    @Test
+    public void testNoSePuedeCrearUnTableroConCoordenadasNegativas() {
 
         assertThrows(BaseOAlturaNegativosONulosException.class,
                 ()->{
                     Tablero tablero = new Tablero(-1,-2);
-                    tablero.getAltura();
                 });
-
     }
-
-    @Test
-    public void NoSePuedeCrearUnTableroNoCuadrado() {
-
-        assertThrows(ElTableroDebeSerCuadradoException.class,
-                ()->{
-                    Tablero tablero = new Tablero(15,10);
-                    tablero.getAltura();
-                });
-
-    }
-
 }

@@ -20,7 +20,7 @@ public class TestPersonalizado {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void SeEjecutaCorrectamente () { //cambiar el nombre
+    public void testSeEjecutaCorrectamente () { //cambiar el nombre
         BloquePersonalizado bloque = new BloquePersonalizado();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
@@ -32,7 +32,7 @@ public class TestPersonalizado {
     }
 
     @Test
-    public void SeAgreganBloquesCorrectamente () {
+    public void testSeAgreganBloquesCorrectamente () {
         BloquePersonalizado bloque = new BloquePersonalizado();
         MoverDerecha bloqueDerecha = new MoverDerecha();
         bloque.agregarBloque(bloqueDerecha);
@@ -41,7 +41,7 @@ public class TestPersonalizado {
     }
 
     @Test
-    public void SeAgregaElNombreCorrectamente () { //es una buena prueba?
+    public void testSeAgregaElNombreCorrectamente () { //es una buena prueba?
         BloquePersonalizado bloque = new BloquePersonalizado();
 
         bloque.setNombre("Juanito");

@@ -21,7 +21,7 @@ public class TestSubirLapiz {
     public Personaje personaje = new Personaje(posicion);
 
     @Test
-    public void SubirLapizSeEjecutaCorrectamente() {
+    public void testSubirLapizSeEjecutaCorrectamente() {
         personaje.bajarLapiz();
 
         SubirLapiz bloqueSubirLapiz = new SubirLapiz();
