@@ -30,8 +30,12 @@ public class Tablero {
         return this.altura;
     }
 
-    public boolean estaPintado(Posicion posicion){
-        return posicionesDibujadas.contains(posicion);
+    public boolean estaPintado(Posicion posicion) {
+        for (Posicion posicionDibujada : posicionesDibujadas) {
+            if (posicionDibujada.esIgualA(posicion))
+                return true;
+        }
+        return false;
     }
 
     public void dibujar(Posicion posicion) {
