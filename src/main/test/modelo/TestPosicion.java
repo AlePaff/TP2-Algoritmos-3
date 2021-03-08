@@ -24,7 +24,7 @@ public class TestPosicion {
     public void testPosicionSeMueveParaArriba(){
         Posicion posicionFinal =  new Posicion(COORDENADA_X_INICIO, COORDENADA_Y_INICIO - DISTANCIA_DE_MOVIMIENTO, tablero);
 
-        posicion = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
+        posicion = posicion.moverArriba(tablero);
 
         assertTrue(posicion.esIgualA(posicionFinal));
     }
@@ -33,7 +33,7 @@ public class TestPosicion {
     public void testPosicionSeMueveParaAbajo(){
         Posicion posicionFinal =  new Posicion(COORDENADA_X_INICIO, COORDENADA_Y_INICIO + DISTANCIA_DE_MOVIMIENTO, tablero);
 
-        posicion = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
+        posicion = posicion.moverAbajo(tablero);
 
         assertTrue(posicion.esIgualA(posicionFinal));
     }
@@ -42,7 +42,7 @@ public class TestPosicion {
     public void testPosicionSeMueveParaLaIzquierda(){
         Posicion posicionFinal =  new Posicion(COORDENADA_X_INICIO - DISTANCIA_DE_MOVIMIENTO, COORDENADA_Y_INICIO, tablero);
 
-        posicion = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
+        posicion = posicion.moverIzquierda(tablero);
 
         assertTrue(posicion.esIgualA(posicionFinal));
     }
@@ -51,7 +51,7 @@ public class TestPosicion {
     public void testPosicionSeMueveParaLaDerecha(){
         Posicion posicionFinal =  new Posicion(COORDENADA_X_INICIO + DISTANCIA_DE_MOVIMIENTO, COORDENADA_Y_INICIO, tablero);
 
-        posicion = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
+        posicion = posicion.moverDerecha(tablero);
 
         assertTrue(posicion.esIgualA(posicionFinal));
     }
@@ -61,7 +61,7 @@ public class TestPosicion {
         assertThrows(PosicionFueraDeRangoException.class,
                 ()->{
                     Posicion posicion = new Posicion(COORDENADA_FUERA_DE_RANGO,COORDENADA_FUERA_DE_RANGO, tablero);
-                    posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
+                    posicion.moverAbajo(tablero);
                 });
     }
 
@@ -71,7 +71,7 @@ public class TestPosicion {
         Posicion posicion = new Posicion(COORDENADA_BORDE,COORDENADA_BORDE, tablero);
 
         assertThrows(PosicionFueraDeRangoException.class,
-                ()-> posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO));
+                ()-> posicion.moverDerecha(tablero));
 
     }
 

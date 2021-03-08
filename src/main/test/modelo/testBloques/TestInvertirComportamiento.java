@@ -18,11 +18,12 @@ public class TestInvertirComportamiento {
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
+    protected final int RANGO_DE_MOVIMIENTO = personaje.RANGO_DE_MOVIMIENTO;
 
     @Test
     public void testInvierteBloqueMoverDerecha() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        Posicion posicionFinal = (posicion.moverIzquierda(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO - RANGO_DE_MOVIMIENTO, COORD_Y_INICIO, tablero);
 
         bloqueInvertir.agregarBloque(new MoverDerecha());
         bloqueInvertir.ejecutar(personaje,tablero);
@@ -33,7 +34,7 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteBloqueMoverIzquierda() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        Posicion posicionFinal = (posicion.moverDerecha(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO + RANGO_DE_MOVIMIENTO, COORD_Y_INICIO, tablero);
 
         bloqueInvertir.agregarBloque(new MoverIzquierda());
         bloqueInvertir.ejecutar(personaje,tablero);
@@ -43,7 +44,7 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteBloqueMoverArriba() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        Posicion posicionFinal = (posicion.moverAbajo(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO + RANGO_DE_MOVIMIENTO, tablero);
 
         bloqueInvertir.agregarBloque(new MoverArriba());
         bloqueInvertir.ejecutar(personaje,tablero);
@@ -53,7 +54,7 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteBloqueMoverAbajo() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        Posicion posicionFinal = (posicion.moverArriba(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
         bloqueInvertir.agregarBloque(new MoverAbajo());
         bloqueInvertir.ejecutar(personaje,tablero);
@@ -63,7 +64,7 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteBloqueSubirLapiz() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        Posicion posicionFinal = (posicion.moverArriba(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
         bloqueInvertir.agregarBloque(new SubirLapiz());
         bloqueInvertir.ejecutar(personaje,tablero);
@@ -75,11 +76,10 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteBloqueBajarLapiz() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        BajarLapiz bloqueBajarLapiz = new BajarLapiz();
         MoverArriba bloqueArriba = new MoverArriba();
-        Posicion posicionFinal = (posicion.moverArriba(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
-        bloqueInvertir.agregarBloque(bloqueBajarLapiz);
+        bloqueInvertir.agregarBloque(new BajarLapiz());
         bloqueInvertir.ejecutar(personaje,tablero);
         bloqueArriba.ejecutar(personaje,tablero);
 
@@ -90,12 +90,10 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteVariosBloquesAlMismoTiempo() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        MoverDerecha bloqueDerecha = new MoverDerecha();
-        MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = (posicion.moverArriba(tablero)).moverIzquierda(tablero);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO - RANGO_DE_MOVIMIENTO, COORD_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
-        bloqueInvertir.agregarBloque(bloqueDerecha);
-        bloqueInvertir.agregarBloque(bloqueAbajo);
+        bloqueInvertir.agregarBloque(new MoverDerecha());
+        bloqueInvertir.agregarBloque(new MoverAbajo());
         bloqueInvertir.ejecutar(personaje,tablero);
 
         assertTrue(personaje.estaEnPosicion(posicionFinal));
@@ -103,15 +101,12 @@ public class TestInvertirComportamiento {
 
     @Test
     public void testInvierteBloqueRepeticionConUnSoloBloqueAdentro() {
-        int cantRepeticiones = 5;
+        int cantRepeticiones = 3;
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
-        MoverDerecha bloqueDerecha = new MoverDerecha();
-        Posicion posicionFinal = posicion;
-        for (int i = 0; i < cantRepeticiones; i++) {
-            posicionFinal = posicionFinal.moverIzquierda(tablero);
-        }
-        bloqueRepeticion.agregarBloque(bloqueDerecha);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO - cantRepeticiones*RANGO_DE_MOVIMIENTO, COORD_Y_INICIO, tablero);
+
+        bloqueRepeticion.agregarBloque(new MoverDerecha());
         bloqueInvertir.agregarBloque(bloqueRepeticion);
         bloqueInvertir.ejecutar(personaje,tablero);
 
@@ -120,17 +115,13 @@ public class TestInvertirComportamiento {
 
     @Test
     public void testInvierteBloqueRepeticionConVariosBloquesAdentro() {
-        int cantRepeticiones = 5;
+        int cantRepeticiones = 3;
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
-        MoverIzquierda bloqueIzquierda = new MoverIzquierda();
-        MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = posicion;
-        for (int i = 0; i < cantRepeticiones; i++) {
-            posicionFinal = posicionFinal.moverDerecha(tablero).moverArriba(tablero);
-        }
-        bloqueRepeticion.agregarBloque(bloqueIzquierda);
-        bloqueRepeticion.agregarBloque(bloqueAbajo);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO + cantRepeticiones*RANGO_DE_MOVIMIENTO, COORD_Y_INICIO - cantRepeticiones*RANGO_DE_MOVIMIENTO, tablero);
+
+        bloqueRepeticion.agregarBloque(new MoverIzquierda());
+        bloqueRepeticion.agregarBloque(new MoverAbajo());
         bloqueInvertir.agregarBloque(bloqueRepeticion);
         bloqueInvertir.ejecutar(personaje,tablero);
 
@@ -140,12 +131,11 @@ public class TestInvertirComportamiento {
     @Test
     public void testInvierteAlBloqueInvertirComportamiento() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
-        InvertirComportamiento bloqueInvertirAux = new InvertirComportamiento();
-        MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = (posicion.moverAbajo(tablero));
+        InvertirComportamiento bloqueInvertirInterior = new InvertirComportamiento();
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO + RANGO_DE_MOVIMIENTO, tablero);
 
-        bloqueInvertirAux.agregarBloque(bloqueAbajo);
-        bloqueInvertir.agregarBloque(bloqueInvertirAux);
+        bloqueInvertirInterior.agregarBloque(new MoverAbajo());
+        bloqueInvertir.agregarBloque(bloqueInvertirInterior);
         bloqueInvertir.ejecutar(personaje,tablero);
 
         assertTrue(personaje.estaEnPosicion(posicionFinal));
@@ -155,13 +145,8 @@ public class TestInvertirComportamiento {
     public void testInvierteAlBloquePersonalizado() {
         InvertirComportamiento bloqueInvertir = new InvertirComportamiento();
         BloquePersonalizado bloquePersonalizado= new BloquePersonalizado();
-        Posicion posicionFinal = (posicion.moverArriba(tablero));
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO - 3*RANGO_DE_MOVIMIENTO, tablero);
         MoverAbajo bloqueAbajo = new MoverAbajo();
-        for(int x = 0; x < 3 ; x++){
-            posicionFinal = (posicionFinal.moverArriba(tablero));
-        }
-
-        bloquePersonalizado.agregarBloque(bloqueAbajo);
         bloquePersonalizado.agregarBloque(bloqueAbajo);
         bloquePersonalizado.agregarBloque(bloqueAbajo);
         bloquePersonalizado.agregarBloque(bloqueAbajo);
