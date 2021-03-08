@@ -23,7 +23,7 @@ public class VistaPersonaje {
     public void dibujar(){
         this.clean();
         canvas.getGraphicsContext2D().setFill(Color.BLUE);
-        canvas.getGraphicsContext2D().fillOval(algoBlocks.getPosicionDelPersonaje().getPosX() * 2 , algoBlocks.getPosicionDelPersonaje().getPosY() * 2, RADIO, RADIO);
+        canvas.getGraphicsContext2D().fillOval(algoBlocks.getPosicionDelPersonaje().getPosX() * 12 , algoBlocks.getPosicionDelPersonaje().getPosY() * 12, RADIO, RADIO);
 
     }
 

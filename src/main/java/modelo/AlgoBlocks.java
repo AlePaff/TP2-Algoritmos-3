@@ -39,6 +39,7 @@ public class AlgoBlocks {
                 //no habría que hacer nada en particular, solo seguir con el algoritmo
             }
         }
+        bloques.clear();
     }
 
     public void reiniciarTablero() {
