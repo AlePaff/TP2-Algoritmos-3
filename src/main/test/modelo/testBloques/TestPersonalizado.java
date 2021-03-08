@@ -20,11 +20,11 @@ public class TestPersonalizado {
     protected final int DISTANCIA_DE_MOVIMIENTO = personaje.DISTANCIA_DE_MOVIMIENTO;
 
     @Test
-    public void testSeEjecutaCorrectamente () { //cambiar el nombre
+    public void testSeEjecutaCorrectamente () {
         BloquePersonalizado bloquePersonalizado = new BloquePersonalizado();
         Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
-        bloquePersonalizado.agregarBloque(new MoverDerecha());
 
+        bloquePersonalizado.agregarBloque(new MoverDerecha());
         bloquePersonalizado.ejecutar(personaje, tablero);
 
         assertTrue(personaje.estaEnPosicion(posicionFinal));

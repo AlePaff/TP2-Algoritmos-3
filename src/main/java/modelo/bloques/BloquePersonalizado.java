@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class BloquePersonalizado extends Conjunto {
     private String nombre;
-    private ArrayList<Bloque> bloques = new ArrayList<>();
 
     public void setNombre(String nombre){
         this.nombre = nombre;
@@ -18,7 +17,7 @@ public class BloquePersonalizado extends Conjunto {
     }
 
     public void agregarAlgoritmo(ArrayList<Bloque> algoritmo){
-        this.bloques.addAll(algoritmo);
+        bloques.addAll(algoritmo);
     }
 
     @Override

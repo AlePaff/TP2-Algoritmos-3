@@ -30,8 +30,8 @@ public class BotonGuardarAlgoritmoHandler implements EventHandler<ActionEvent> {
         BloquePersonalizado bloquePersonalizado = this.algoBlocks.guardarAlgoritmo(nombre);
 
         Button botonBloquePersonalizado = new Button(nombre);
-        BotonBloquePersonalizadoHandler algortimoPersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo, bloquePersonalizado);
-        botonBloquePersonalizado.setOnAction(algortimoPersonalizadoHandler);
+        BotonBloquePersonalizadoHandler algoritmoPersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo, bloquePersonalizado);
+        botonBloquePersonalizado.setOnAction(algoritmoPersonalizadoHandler);
 
         contenedor.getChildren().add(botonBloquePersonalizado);
 
