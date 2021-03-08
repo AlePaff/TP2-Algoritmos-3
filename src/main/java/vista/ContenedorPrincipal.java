@@ -108,8 +108,16 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorInvertir.setSpacing(20);
         contenedorInvertir.setPadding(new Insets(15));
 
+        Button botonBloquePersonalizado = new Button("Bloque Personalizado");
+        BotonBloquePersonalizadoHandler BloquePersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo);
+        botonBloquePersonalizado.setOnAction(BloquePersonalizadoHandler);
 
-        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir);
+        HBox contenedorBloquePersonalizado = new HBox(botonBloquePersonalizado);
+        contenedorBloquePersonalizado.setSpacing(20);
+        contenedorBloquePersonalizado.setPadding(new Insets(15));
+
+
+        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir,contenedorBloquePersonalizado);
         contenedorBotonera.setSpacing(10);
         contenedorBotonera.setPadding(new Insets(15));
         contenedorBotonera.setStyle("-fx-background-color: white;");
