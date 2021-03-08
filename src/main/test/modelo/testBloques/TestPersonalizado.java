@@ -9,24 +9,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPersonalizado {
-    protected static final int BASE = 15;
-    protected static final int ALTURA = 15;
+    protected static final int BASE = 25;
+    protected static final int ALTURA = 25;
     protected static final int COORD_X_INICIO = 8;
     protected static final int COORD_Y_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
 
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
+    protected final int DISTANCIA_DE_MOVIMIENTO = personaje.DISTANCIA_DE_MOVIMIENTO;
 
     @Test
     public void testSeEjecutaCorrectamente () { //cambiar el nombre
-        BloquePersonalizado bloque = new BloquePersonalizado();
-        MoverDerecha bloqueDerecha = new MoverDerecha();
+        BloquePersonalizado bloquePersonalizado = new BloquePersonalizado();
         Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
-        bloque.agregarBloque(bloqueDerecha);
+        bloquePersonalizado.agregarBloque(new MoverDerecha());
 
-        bloque.ejecutar(personaje, tablero);
+        bloquePersonalizado.ejecutar(personaje, tablero);
 
         assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
