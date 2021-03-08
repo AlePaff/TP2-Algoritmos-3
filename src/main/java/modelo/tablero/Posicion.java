@@ -2,6 +2,8 @@ package modelo.tablero;
 
 import modelo.excepciones.PosicionFueraDeRangoException;
 
+import java.util.Objects;
+
 public class Posicion {
     private final int posX;
     private final int posY;
@@ -46,6 +48,14 @@ public class Posicion {
 
     public boolean esIgualA(Posicion posicion){
         return ((this.posX == posicion.posX) && (this.posY == posicion.posY));
+    }
+
+   @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Posicion posicion = (Posicion) o;
+        return posX == posicion.posX && posY == posicion.posY;
     }
 }
 

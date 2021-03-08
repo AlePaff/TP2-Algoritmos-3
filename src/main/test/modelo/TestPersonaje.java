@@ -6,46 +6,46 @@ import modelo.tablero.Posicion;
 import modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPersonaje{
-    protected static final int BASE = 15;
-    protected static final int ALTURA = 15;
-    protected static final int COORDENADA_EN_X_DE_INICIO = 8;
-    protected static final int COORDENADA_EN_Y_DE_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1; //personaje.getDISTANCIAMOVIMIENTO()
+    protected static final int BASE = 100;
+    protected static final int ALTURA = 100;
+    protected static final int COORDENADA_X_INICIO = 50;
+    protected static final int COORDENADA_Y_INICIO = 50;
 
     public Tablero tablero = new Tablero(BASE, ALTURA);
-    public Posicion posicion = new Posicion(COORDENADA_EN_X_DE_INICIO,COORDENADA_EN_Y_DE_INICIO, tablero);
-    public Personaje personaje = new Personaje(posicion);
-
+    public Posicion posicionInicial = new Posicion(COORDENADA_X_INICIO,COORDENADA_Y_INICIO, tablero);
+    public Personaje personaje = new Personaje(posicionInicial);
+    protected final int RANGO_DE_MOVIMIENTO = personaje.RANGO_DE_MOVIMIENTO;
 
     @Test
     public void testPersonajeSeCreaConLapizArriba(){
 
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
-
-        assertFalse(tablero.estaPintado(posicionFinal));
+        assertFalse(tablero.estaPintado(personaje.getPosicion()));
     }
 
     @Test
-    public void testPersonajeBajaElLapiz(){
+    public void testPersonajeDibujaTodasLasPosicionesIntermedias(){
 
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        for (int i = 1; i <= RANGO_DE_MOVIMIENTO; i++) {
+            posiciones.add(new Posicion(COORDENADA_X_INICIO, COORDENADA_Y_INICIO - i, tablero));
+        }
         personaje.bajarLapiz();
         personaje.moverArriba(tablero);
 
-        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
-
-        assertTrue(tablero.estaPintado(posicionFinal)) ;
-
+        assertEquals(tablero.getPosicionesDibujadas(), posiciones) ;
     }
 
     @Test
     public void testPersonajeSeMueveADerecha(){
         //A
-        Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORDENADA_X_INICIO + RANGO_DE_MOVIMIENTO, COORDENADA_Y_INICIO, tablero);
 
         //Act
         personaje.moverDerecha(tablero);
@@ -58,7 +58,7 @@ public class TestPersonaje{
     @Test
     public void testPersonajeSeMueveAIzquierda(){
         //A
-        Posicion posicionFinal = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORDENADA_X_INICIO - RANGO_DE_MOVIMIENTO, COORDENADA_Y_INICIO, tablero);
 
         //Act
         personaje.moverIzquierda(tablero);
@@ -71,7 +71,7 @@ public class TestPersonaje{
     @Test
     public void testPersonajeSeMueveArriba(){
         //A
-        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORDENADA_X_INICIO, COORDENADA_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
         //Act
         personaje.moverArriba(tablero);
@@ -83,7 +83,7 @@ public class TestPersonaje{
     @Test
     public void testPersonajeSeMueveAbajo(){
         //A
-        Posicion posicionFinal = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORDENADA_X_INICIO, COORDENADA_Y_INICIO + RANGO_DE_MOVIMIENTO, tablero);
 
         //Act
         personaje.moverAbajo(tablero);
@@ -92,80 +92,42 @@ public class TestPersonaje{
         assertTrue(personaje.estaEnPosicion(posicionFinal));
     }
 
-
     @Test
-    public void PersonajeSeMueveConLapizArribaYAbajoYDibujaCorrectamente(){
-        personaje.moverAbajo(tablero);
-        personaje.bajarLapiz();
-
-        personaje.moverAbajo(tablero);
-        personaje.moverDerecha(tablero);
-        personaje.subirLapiz();
-
-        personaje.moverArriba(tablero);
-        personaje.moverArriba(tablero);
-        personaje.bajarLapiz();
-
-        personaje.moverIzquierda(tablero);
-
-        assertTrue(tablero.estaPintado(posicion));
-
-        posicion = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
-        assertFalse(tablero.estaPintado(posicion));
-
-        posicion = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
-        assertTrue(tablero.estaPintado(posicion));
-
-        posicion = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
-        assertTrue(tablero.estaPintado(posicion));
-
-        posicion = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
-        assertFalse(tablero.estaPintado(posicion));
-
-        posicion = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
-        assertFalse(tablero.estaPintado(posicion));
-    }
-
-    @Test
-    public void testCrearAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
+    public void testCrearAlPersonajeConCoordenadaNegativaLanzaUnaExcepcion(){
 
         assertThrows(PosicionFueraDeRangoException.class,
                 ()->{
-                    Personaje personajeTest = new Personaje( new Posicion(-1,5, tablero));
-                    personajeTest.moverDerecha(tablero);
+                    new Personaje( new Posicion(-1,5, tablero));
                 });
     }
 
     @Test
-    public void testCrearAlPersonajeFueraDeRangoLanzaUnaExcepcionParteDos(){
+    public void testCrearAlPersonajeEnCoordenadaLimiteLanzaUnaExcepcion(){
 
         assertThrows(PosicionFueraDeRangoException.class,
                 ()->{
-                    Personaje personajeTest = new Personaje( new Posicion(15,15, tablero));
-                    personajeTest.moverDerecha(tablero);
+                    new Personaje( new Posicion(15,ALTURA, tablero));
                 });
     }
 
     @Test
     public void testMoverAlPersonajeFueraDeRangoLanzaUnaExcepcion(){
-        Personaje personajeTest = new Personaje( new Posicion(14,14, tablero));
+        Personaje personajeTest = new Personaje( new Posicion(0,COORDENADA_Y_INICIO, tablero));
 
         assertThrows(PosicionFueraDeRangoException.class,
-                ()-> personajeTest.moverDerecha(tablero));
+                ()-> personajeTest.moverIzquierda(tablero));
 
     }
 
     @Test
-    public void testCuandoSeSaleDelRangoNoDibuja(){
-        Posicion posicion = new Posicion(14,14, tablero);
+    public void testCuandoSeSaleDelTableroNoDibuja(){
+        Posicion posicion = new Posicion(0,COORDENADA_Y_INICIO, tablero);
         Personaje personajeTest = new Personaje(posicion);
         personaje.bajarLapiz();
         try{
-            personajeTest.moverDerecha(tablero);
+            personajeTest.moverIzquierda(tablero);
         } catch (PosicionFueraDeRangoException e){
             assertFalse(tablero.estaPintado(posicion));
         }
-
     }
-
 }
