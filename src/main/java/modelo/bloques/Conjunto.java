@@ -4,7 +4,7 @@ import modelo.tablero.Tablero;
 
 import java.util.ArrayList;
 
-public abstract class Conjunto implements Bloque {
+public abstract class Conjunto extends Bloque {
 
     protected ArrayList<Bloque> bloques = new ArrayList<>();
 
@@ -12,11 +12,12 @@ public abstract class Conjunto implements Bloque {
         bloques.add(bloque);
     }
 
+    public int tamanio(){
+        return bloques.size();
+    }
+
     public abstract void ejecutar(Personaje personaje, Tablero tablero);
 
     public abstract void ejecutarInvertido(Personaje personaje, Tablero tablero);
 
-    public int tamanio(){
-        return bloques.size();
-    }
 }

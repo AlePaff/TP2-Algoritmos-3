@@ -6,10 +6,6 @@ import modelo.tablero.Tablero;
 
 public class Repeticion extends Conjunto {
     public int repeticiones;
-    private String nombre;
-
-    public void setNombre(String nombre){ this.nombre = nombre; }
-    public String getNombre(){ return nombre; }
 
     public Repeticion( int repeticiones) {
         setRepeticiones(repeticiones);

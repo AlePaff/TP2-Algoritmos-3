@@ -3,11 +3,7 @@ package modelo.bloques;
 import modelo.personaje.Personaje;
 import modelo.tablero.Tablero;
 
-public class MoverAbajo implements Bloque{
-    private String nombre;
-
-    public void setNombre(String nombre){ this.nombre = nombre; }
-    public String getNombre(){ return nombre; }
+public class MoverAbajo extends Bloque{
 
     @Override
     public void ejecutar(Personaje personaje, Tablero tablero) {
