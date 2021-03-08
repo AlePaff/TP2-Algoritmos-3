@@ -14,8 +14,7 @@ public class AlgoBlocks {
 
     private final Tablero tablero;
     private Personaje personaje;
-    private final ArrayList<Bloque> bloques = new ArrayList<>();
-    private BloquePersonalizado algoritmo = new BloquePersonalizado();
+    private final ArrayList<Bloque> algoritmo = new ArrayList<>();
     private static Posicion posicionInicial;
     private static final int BASE_MAPA = 50;
     private static final int ALTURA_MAPA = 50;
@@ -29,23 +28,36 @@ public class AlgoBlocks {
     public int getAltura(){
         return ALTURA_MAPA;
     }
+
     public int getBase(){
         return BASE_MAPA;
     }
 
+    public ArrayList<Bloque> getAlgoritmo() {
+        return this.algoritmo;
+    }
+
+    public Posicion getPosicionDelPersonaje() {
+        return personaje.getPosicion();
+    }
+
+    public ArrayList<Posicion> getPosicionesDibujadas(){
+        return tablero.getPosicionesDibujadas();
+    }
+
     public void agregarBloque(Bloque bloque) {
-        bloques.add(bloque);
+        algoritmo.add(bloque);
     }
 
     public void ejecutarAlgoritmo() {
-        for (Bloque bloque : bloques) {
+        for (Bloque bloque : algoritmo) {
             try {
                 bloque.ejecutar(personaje, tablero);
             } catch (PosicionFueraDeRangoException e) {
                 //bloque no se ejecuta
             }
         }
-        bloques.clear();
+        algoritmo.clear();
     }
 
     public void reiniciarTablero() {
@@ -54,29 +66,13 @@ public class AlgoBlocks {
     }
 
     public void reiniciarAlgoritmo() {
-        bloques.clear();
+        algoritmo.clear();
     }
 
-    public void guardarAlgoritmo(String nombre) {
+    public BloquePersonalizado guardarAlgoritmo(String nombre) {
         BloquePersonalizado bloque = new BloquePersonalizado();
         bloque.setNombre(nombre);
-        bloque.agregarAlgoritmo(this.bloques);
-        this.algoritmo = bloque;
-    }
-
-    public ArrayList<Bloque> getBloques() {
-        return this.bloques;
-    }
-
-    public Posicion getPosicionDelPersonaje() {
-        return personaje.getPosicion();
-    }
-
-    public BloquePersonalizado getAlgoritmo(){
-        return this.algoritmo;
-    }
-
-    public ArrayList<Posicion> getPosicionesDibujadas(){
-        return tablero.getPosicionesDibujadas();
+        bloque.agregarAlgoritmo(this.algoritmo);
+        return bloque;
     }
 }

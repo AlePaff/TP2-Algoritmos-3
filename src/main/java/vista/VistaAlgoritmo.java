@@ -1,11 +1,7 @@
 package vista;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
 
@@ -23,7 +19,7 @@ public class VistaAlgoritmo {
 
     public void mostrarBloques() {
         this.clean();
-        for (Bloque bloque : this.algoBlocks.getBloques()){
+        for (Bloque bloque : this.algoBlocks.getAlgoritmo()){
             this.contenedor.getChildren().add(new Button());
         }
     }
