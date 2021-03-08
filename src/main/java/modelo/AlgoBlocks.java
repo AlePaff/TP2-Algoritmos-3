@@ -74,6 +74,8 @@ public class AlgoBlocks {
 
     public void reiniciarAlgoritmo() {
         algoritmo.clear();
+        nombresBloques.clear();
+
     }
 
     public BloquePersonalizado guardarAlgoritmo(String nombre) {
