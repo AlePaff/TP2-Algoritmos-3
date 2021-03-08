@@ -1,10 +1,15 @@
 package vista;
 
+import javafx.geometry.HPos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
+import modelo.tablero.Tablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
@@ -47,10 +52,16 @@ public class ContenedorPrincipal extends BorderPane{
         etiquetaBloques.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
         Button botonSubirLapiz = new Button("Subir Lapiz");
+        ImageView imagenSubirLapiz = new ImageView();
+        imagenSubirLapiz.setImage(new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false));
+        botonSubirLapiz.setGraphic(imagenSubirLapiz);
         BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks, vistaAlgoritmo);
         botonSubirLapiz.setOnAction(subirLapizHandler);
 
         Button botonBajarLapiz = new Button("Bajar Lapiz");
+        ImageView imagenBajarLapiz = new ImageView();
+        imagenBajarLapiz.setImage(new Image("file:src/main/java/vista/imagenes/lapizAbajo.png",20,20,false,false));
+        botonBajarLapiz.setGraphic(imagenBajarLapiz);
         BotonBajarLapizHandler bajarLapizHandler = new BotonBajarLapizHandler(algoBlocks, vistaAlgoritmo);
         botonBajarLapiz.setOnAction(bajarLapizHandler);
 
@@ -61,10 +72,16 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaMovimiento = new Label("Movimiento:");
 
         Button botonMoverDerecha = new Button("Derecha");
+        ImageView imagenMoverDerecha = new ImageView();
+        imagenMoverDerecha.setImage(new Image("file:src/main/java/vista/imagenes/derecha.png",20,20,false,false));
+        botonMoverDerecha.setGraphic(imagenMoverDerecha);
         BotonMoverDerechaHandler moverDerechaHandler = new BotonMoverDerechaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverDerecha.setOnAction(moverDerechaHandler);
 
         Button botonMoverIzquierda = new Button("Izquierda");
+        ImageView imagenMoverIzquierda = new ImageView();
+        imagenMoverIzquierda.setImage(new Image("file:src/main/java/vista/imagenes/izquierda.png",20,20,false,false));
+        botonMoverIzquierda.setGraphic(imagenMoverIzquierda);
         BotonMoverIzquierdaHandler moverIzquierdaHandler = new BotonMoverIzquierdaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverIzquierda.setOnAction(moverIzquierdaHandler);
 
@@ -74,10 +91,16 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorIzquierdaYDerecha.setAlignment(Pos.CENTER);
 
         Button botonMoverAbajo = new Button("Abajo");
+        ImageView imagenMoverAbajo = new ImageView();
+        imagenMoverAbajo.setImage(new Image("file:src/main/java/vista/imagenes/abajo.png",20,20,false,false));
+        botonMoverAbajo.setGraphic(imagenMoverAbajo);
         BotonMoverAbajoHandler moverAbajoHandler = new BotonMoverAbajoHandler(algoBlocks, vistaAlgoritmo);
         botonMoverAbajo.setOnAction(moverAbajoHandler);
 
         Button botonMoverArriba = new Button("Arriba");
+        ImageView imagenMoverArriba = new ImageView();
+        imagenMoverArriba.setImage(new Image("file:src/main/java/vista/imagenes/arriba.png",20,20,false,false));
+        botonMoverArriba.setGraphic(imagenMoverArriba);
         BotonMoverArribaHandler moverArribaHandler = new BotonMoverArribaHandler(algoBlocks, vistaAlgoritmo);
         botonMoverArriba.setOnAction(moverArribaHandler);
 
@@ -89,10 +112,16 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
         Button botonRepetirMovimientoDosVeces = new Button("Dos Veces");
+        ImageView imagenRepetirDosVeces = new ImageView();
+        imagenRepetirDosVeces.setImage(new Image("file:src/main/java/vista/imagenes/repetir.png",20,20,false,false));
+        botonRepetirMovimientoDosVeces.setGraphic(imagenRepetirDosVeces);
         BotonRepetirMovimientoHandler repetirMovimientoDosVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 2, vistaAlgoritmo);
         botonRepetirMovimientoDosVeces.setOnAction(repetirMovimientoDosVecesHandler);
 
         Button botonRepetirMovimientoTresVeces = new Button("Tres Veces");
+        ImageView imagenRepetirTresVeces = new ImageView();
+        imagenRepetirTresVeces.setImage(new Image("file:src/main/java/vista/imagenes/repetir.png",20,20,false,false));
+        botonRepetirMovimientoTresVeces.setGraphic(imagenRepetirTresVeces);
         BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3, vistaAlgoritmo);
         botonRepetirMovimientoTresVeces.setOnAction(repetirMovimientoTresVecesHandler);
 
@@ -101,6 +130,9 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorRepeticiones.setPadding(new Insets(15));
 
         Button botonInvertirComportamiento = new Button("Invertir Comportamiento");
+        ImageView imagenInvertir = new ImageView();
+        imagenInvertir.setImage(new Image("file:src/main/java/vista/imagenes/invertir.png",20,20,false,false));
+        botonInvertirComportamiento.setGraphic(imagenInvertir);
         BotonInvertirComportamientoHandler InvertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaAlgoritmo);
         botonInvertirComportamiento.setOnAction(InvertirComportamientoHandler);
 
@@ -131,13 +163,14 @@ public class ContenedorPrincipal extends BorderPane{
         vistaTablero.dibujar();
 
         contenedorCentral = new VBox(canvasCentral);
+
         contenedorCentral.setAlignment(Pos.CENTER);
         contenedorCentral.setSpacing(30);
         contenedorCentral.setPadding(new Insets(35));
 
-        Image image = new Image("file:src/main/java/vista/imagenes/fondo.jpg"/*,1200,800,false,false*/);
+        Image image = new Image("file:src/main/java/vista/imagenes/imagen-de-fondo.jpg"/*,1200,800,false,false*/);
         BackgroundImage imagenDeFondo = new BackgroundImage(image, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,BackgroundSize.DEFAULT);
-        
+
         contenedorCentral.setBackground(new Background(imagenDeFondo));
         this.setCenter(contenedorCentral);
     }
@@ -162,12 +195,18 @@ public class ContenedorPrincipal extends BorderPane{
         botonEjecutar.setOnAction(ejecutarHandler);
 
         Button botonBorrarAlgoritmo = new Button("Borrar");
+        ImageView imagenBorrar = new ImageView();
+        imagenBorrar.setImage(new Image("file:src/main/java/vista/imagenes/eliminar.png",20,20,false,false));
+        botonBorrarAlgoritmo.setGraphic(imagenBorrar);
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
 
         TextField campoNombreAlgoritmo = new TextField("Ingresar nombre del Algoritmo");
         campoNombreAlgoritmo.setPrefWidth(200);
         Button botonGuardarAlgoritmo = new Button("Guardar");
+        ImageView imagenGuardar = new ImageView();
+        imagenGuardar.setImage(new Image("file:src/main/java/vista/imagenes/guardar.png",20,20,false,false));
+        botonGuardarAlgoritmo.setGraphic(imagenGuardar);
 
         HBox hBoxGuardarAlgoritmo = new HBox(campoNombreAlgoritmo, botonGuardarAlgoritmo);
         hBoxGuardarAlgoritmo.setSpacing(10);
