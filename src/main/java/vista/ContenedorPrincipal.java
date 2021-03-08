@@ -22,13 +22,13 @@ import vista.eventos.*;
 
 public class ContenedorPrincipal extends BorderPane{
     BarraDeMenu barraDeMenu;
-    VistaPersonaje vistaPersonaje;
     Canvas canvasCentral;
     VBox contenedorCentral;
     VistaAlgoritmo vistaAlgoritmo;
 
     public int ANCHO_CANVAS = 600;
     public int ALTO_CANVAS = 600;
+    private VistaTablero vistaTablero;
 
     public ContenedorPrincipal(Stage stage,AlgoBlocks algoBlocks){
         this.setMenu(stage);
@@ -127,10 +127,10 @@ public class ContenedorPrincipal extends BorderPane{
 
     private void setCentro(AlgoBlocks algoBlocks) {
         canvasCentral = new Canvas(ANCHO_CANVAS, ALTO_CANVAS);
-        vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral, ANCHO_CANVAS/algoBlocks.getBase(), ALTO_CANVAS/algoBlocks.getAltura());
-        vistaPersonaje.dibujarAvatar();
-        contenedorCentral = new VBox(canvasCentral);
+        vistaTablero = new VistaTablero(algoBlocks, canvasCentral,ANCHO_CANVAS/algoBlocks.getBase(), ALTO_CANVAS/algoBlocks.getAltura());
+        vistaTablero.dibujar();
 
+        contenedorCentral = new VBox(canvasCentral);
         contenedorCentral.setAlignment(Pos.CENTER);
         contenedorCentral.setSpacing(30);
         contenedorCentral.setPadding(new Insets(35));
@@ -158,7 +158,7 @@ public class ContenedorPrincipal extends BorderPane{
         vistaAlgoritmo.mostrarBloques();
 
         Button botonEjecutar = new Button("Ejecutar");
-        BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(vistaPersonaje, algoBlocks, vistaAlgoritmo);
+        BotonEjecutarHandler ejecutarHandler= new BotonEjecutarHandler(algoBlocks, vistaAlgoritmo, vistaTablero);
         botonEjecutar.setOnAction(ejecutarHandler);
 
         Button botonBorrarAlgoritmo = new Button("Borrar");
