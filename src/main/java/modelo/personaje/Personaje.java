@@ -8,7 +8,7 @@ public class Personaje{
     private final Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
     public final int RADIO = 8;
-    public static final int DISTANCIA_DE_MOVIMIENTO = 10;
+    public final int RANGO_DE_MOVIMIENTO = 10;
 
 
     public Personaje(Posicion posicion){
@@ -29,29 +29,29 @@ public class Personaje{
     }
 
     public void moverDerecha(Tablero tablero){
-        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
-            this.posicion = posicion.moverDerecha(tablero, 1);
+        for (int i = 1; i <= RANGO_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverDerecha(tablero);
             dibujar(tablero);
         }
     }
 
     public void moverIzquierda(Tablero tablero) {
-        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
-            this.posicion = posicion.moverIzquierda(tablero, 1);
+        for (int i = 1; i <= RANGO_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverIzquierda(tablero);
             dibujar(tablero);
         }
     }
 
     public void moverArriba(Tablero tablero) {
-        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
-            this.posicion = posicion.moverArriba(tablero, 1);
+        for (int i = 1; i <= RANGO_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverArriba(tablero);
             dibujar(tablero);
         }
     }
 
     public void moverAbajo(Tablero tablero) {
-        for (int i = 1; i <= DISTANCIA_DE_MOVIMIENTO; i++) {
-            this.posicion = posicion.moverAbajo(tablero, 1);
+        for (int i = 1; i <= RANGO_DE_MOVIMIENTO; i++) {
+            this.posicion = posicion.moverAbajo(tablero);
             dibujar(tablero);
         }
     }

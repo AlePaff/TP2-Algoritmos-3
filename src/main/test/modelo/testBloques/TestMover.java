@@ -12,20 +12,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestMover {
-    protected static final int BASE = 15;
-    protected static final int ALTURA = 15;
-    protected static final int COORD_X_INICIO = 8;
-    protected static final int COORD_Y_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+    protected static final int BASE = 100;
+    protected static final int ALTURA = 100;
+    protected static final int COORD_X_INICIO = 50;
+    protected static final int COORD_Y_INICIO = 50;
 
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
+    protected final int RANGO_DE_MOVIMIENTO = personaje.RANGO_DE_MOVIMIENTO;
 
     @Test
     public void testMoverAbajoSeEjecutaCorrectamente() {
         MoverAbajo bloque = new MoverAbajo();
-        Posicion posicionFinal = posicion.moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO + RANGO_DE_MOVIMIENTO, tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -35,7 +35,7 @@ public class TestMover {
     @Test
     public void testMoverArribaSeEjecutaCorrectamente() {
         MoverArriba bloque = new MoverArriba();
-        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO, COORD_Y_INICIO - RANGO_DE_MOVIMIENTO, tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -45,7 +45,7 @@ public class TestMover {
     @Test
     public void testMoverDerechaSeEjecutaCorrectamente() {
         MoverDerecha bloque = new MoverDerecha();
-        Posicion posicionFinal = posicion.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO + RANGO_DE_MOVIMIENTO, COORD_Y_INICIO, tablero);
 
         bloque.ejecutar(personaje, tablero);
 
@@ -55,7 +55,7 @@ public class TestMover {
     @Test
     public void testMoverIzquierdaSeEjecutaCorrectamente() {
         MoverIzquierda bloque = new MoverIzquierda();
-        Posicion posicionFinal = posicion.moverIzquierda(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO - RANGO_DE_MOVIMIENTO, COORD_Y_INICIO, tablero);
 
         bloque.ejecutar(personaje, tablero);
 

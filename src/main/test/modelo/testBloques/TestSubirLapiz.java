@@ -1,5 +1,7 @@
 package modelo.testBloques;
 
+import modelo.bloques.BajarLapiz;
+import modelo.bloques.MoverDerecha;
 import modelo.bloques.SubirLapiz;
 import modelo.bloques.MoverArriba;
 import modelo.personaje.Personaje;
@@ -8,13 +10,13 @@ import modelo.tablero.Tablero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestSubirLapiz {
-    protected static final int BASE = 15;
-    protected static final int ALTURA = 15;
-    protected static final int COORD_X_INICIO = 8;
-    protected static final int COORD_Y_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+    protected static final int BASE = 100;
+    protected static final int ALTURA = 100;
+    protected static final int COORD_X_INICIO = 50;
+    protected static final int COORD_Y_INICIO = 50;
 
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
@@ -22,15 +24,13 @@ public class TestSubirLapiz {
 
     @Test
     public void testSubirLapizSeEjecutaCorrectamente() {
-        personaje.bajarLapiz();
-
         SubirLapiz bloqueSubirLapiz = new SubirLapiz();
-        MoverArriba bloqueArriba = new MoverArriba();
+        MoverDerecha bloqueMoverDerecha = new MoverDerecha();
 
         bloqueSubirLapiz.ejecutar(personaje, tablero);
-        bloqueArriba.ejecutar(personaje, tablero);
-        Posicion posicionFinal = posicion.moverArriba(tablero, DISTANCIA_DE_MOVIMIENTO);
+        bloqueMoverDerecha.ejecutar(personaje, tablero);
 
-        assertFalse(tablero.estaPintado(posicionFinal));
+        assertFalse(tablero.estaPintado(personaje.getPosicion()));
+
     }
 }

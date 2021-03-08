@@ -5,6 +5,7 @@ import modelo.excepciones.PosicionFueraDeRangoException;
 public class Posicion {
     private final int posX;
     private final int posY;
+    private static final int DISTANCIA_DE_MOVIMIENTO = 1;
 
     public Posicion(int posX, int posY, Tablero tablero) {
         this.sonCoordenadasValidas(posX, posY, tablero);
@@ -20,19 +21,20 @@ public class Posicion {
         }
     }
 
-    public Posicion moverDerecha(Tablero tablero, int distancia) {
-        return new Posicion(this.posX + distancia, this.posY, tablero );
+    public Posicion moverDerecha(Tablero tablero) {
+        return new Posicion(this.posX + DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
     }
 
-    public Posicion moverIzquierda(Tablero tablero, int distancia) {
-        return new Posicion(this.posX - distancia, this.posY, tablero );
+    public Posicion moverIzquierda(Tablero tablero) {
+        return new Posicion(this.posX - DISTANCIA_DE_MOVIMIENTO, this.posY, tablero );
     }
 
-    public Posicion moverArriba(Tablero tablero, int distancia) {
-        return new Posicion(this.posX, this.posY - distancia, tablero );
+    public Posicion moverArriba(Tablero tablero) {
+        return new Posicion(this.posX, this.posY - DISTANCIA_DE_MOVIMIENTO, tablero );
     }
-    public Posicion moverAbajo(Tablero tablero, int distancia) {
-        return new Posicion(this.posX, this.posY + distancia, tablero );
+
+    public Posicion moverAbajo(Tablero tablero) {
+        return new Posicion(this.posX, this.posY + DISTANCIA_DE_MOVIMIENTO, tablero );
     }
 
     public int getPosX(){

@@ -13,28 +13,24 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestRepeticion {
-    protected static final int BASE = 15;
-    protected static final int ALTURA = 15;
-    protected static final int COORD_X_INICIO = 8;
-    protected static final int COORD_Y_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+    protected static final int BASE = 100;
+    protected static final int ALTURA = 100;
+    protected static final int COORD_X_INICIO = 50;
+    protected static final int COORD_Y_INICIO = 50;
 
     public Tablero tablero = new Tablero(BASE,ALTURA);
     public Posicion posicion = new Posicion(COORD_X_INICIO,COORD_Y_INICIO, tablero);
     public Personaje personaje = new Personaje(posicion);
+    protected final int RANGO_DE_MOVIMIENTO = personaje.RANGO_DE_MOVIMIENTO;
 
     @Test
     public void testRepeticionSeEjecutaCorrectamente() {
-        int cantRepeticiones = 5;
+        int cantRepeticiones = 3;
         Repeticion bloqueRepeticion = new Repeticion(cantRepeticiones);
-        MoverDerecha bloqueDerecha = new MoverDerecha();
-        MoverAbajo bloqueAbajo = new MoverAbajo();
-        Posicion posicionFinal = posicion;
-        for (int i = 0; i < cantRepeticiones; i++)
-            posicionFinal = posicionFinal.moverDerecha(tablero, DISTANCIA_DE_MOVIMIENTO).moverAbajo(tablero, DISTANCIA_DE_MOVIMIENTO);
+        Posicion posicionFinal = new Posicion(COORD_X_INICIO + cantRepeticiones*RANGO_DE_MOVIMIENTO, COORD_Y_INICIO + cantRepeticiones*RANGO_DE_MOVIMIENTO, tablero);
 
-        bloqueRepeticion.agregarBloque(bloqueDerecha);
-        bloqueRepeticion.agregarBloque(bloqueAbajo);
+        bloqueRepeticion.agregarBloque(new MoverDerecha());
+        bloqueRepeticion.agregarBloque(new MoverAbajo());
         bloqueRepeticion.ejecutar(personaje, tablero);
 
         assertTrue(personaje.estaEnPosicion(posicionFinal));
