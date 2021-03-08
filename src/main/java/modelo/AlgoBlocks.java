@@ -26,7 +26,6 @@ public class AlgoBlocks {
         this.personaje = new Personaje(posicionInicial);
     }
 
-
     public void agregarBloque(Bloque bloque) {
         bloques.add(bloque);
     }
@@ -71,4 +70,7 @@ public class AlgoBlocks {
         return this.algoritmo;
     }
 
+    public ArrayList<Posicion> getPosicionesDibujadas(){
+        return tablero.getPosicionesDibujadas();
+    }
 }
