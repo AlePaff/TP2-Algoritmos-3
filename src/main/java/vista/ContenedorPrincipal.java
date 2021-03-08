@@ -124,8 +124,14 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorBotonesAlgoritmo.setPadding(new Insets(15));
         contenedorBotonesAlgoritmo.setAlignment(Pos.CENTER);
 
+        ScrollPane scrollHorizontal = new ScrollPane();
+        scrollHorizontal.setContent(contenedorBotonesAlgoritmo);
+        scrollHorizontal.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollHorizontal.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollHorizontal.setPannable(true);
 
-        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo,root);
+
+        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo,root,scrollHorizontal);
         contenedorAEjecutar.setSpacing(10);
         contenedorAEjecutar.setPadding(new Insets(15));
         contenedorAEjecutar.setAlignment(Pos.TOP_CENTER);
