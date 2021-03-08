@@ -1,7 +1,6 @@
 package vista;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import modelo.AlgoBlocks;
 import modelo.tablero.Posicion;
@@ -13,7 +12,7 @@ public class VistaTablero {
     double alto;
     int relacion_horizontal;
     int relacion_vertical;
-    int RADIO = 20;
+    int GROSOR = 12;
     VistaPersonaje vistaPersonaje;
 
 
@@ -32,7 +31,7 @@ public class VistaTablero {
         clean();
         canvas.getGraphicsContext2D().setFill(Color.BLACK);
         for (Posicion posicion : algoBlocks.getPosicionesDibujadas()){
-            canvas.getGraphicsContext2D().fillOval(posicion.getPosX() * relacion_horizontal, posicion.getPosY() * relacion_vertical, RADIO, RADIO);
+            canvas.getGraphicsContext2D().fillRect(posicion.getPosX() * relacion_horizontal, posicion.getPosY() * relacion_vertical, GROSOR, GROSOR);
         }
         this.vistaPersonaje.dibujarAvatar();
     }

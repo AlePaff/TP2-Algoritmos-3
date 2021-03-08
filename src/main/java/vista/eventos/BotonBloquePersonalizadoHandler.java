@@ -9,15 +9,16 @@ import vista.VistaAlgoritmo;
 public class BotonBloquePersonalizadoHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
     private final VistaAlgoritmo vistaAlgoritmo;
+    private final BloquePersonalizado bloque;
 
-    public BotonBloquePersonalizadoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
+    public BotonBloquePersonalizadoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, BloquePersonalizado bloque){
         this.algoBlocks = algoBlocks;
         this.vistaAlgoritmo = vistaAlgoritmo;
+        this.bloque = bloque;
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        BloquePersonalizado bloque = algoBlocks.getAlgoritmo();
         this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }

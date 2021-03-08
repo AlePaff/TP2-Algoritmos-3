@@ -108,16 +108,16 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorInvertir.setSpacing(20);
         contenedorInvertir.setPadding(new Insets(15));
 
-        Button botonBloquePersonalizado = new Button("Bloque Personalizado");
+        /*Button botonBloquePersonalizado = new Button("Bloque Personalizado");
         BotonBloquePersonalizadoHandler BloquePersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo);
         botonBloquePersonalizado.setOnAction(BloquePersonalizadoHandler);
 
         HBox contenedorBloquePersonalizado = new HBox(botonBloquePersonalizado);
         contenedorBloquePersonalizado.setSpacing(20);
-        contenedorBloquePersonalizado.setPadding(new Insets(15));
+        contenedorBloquePersonalizado.setPadding(new Insets(15));*/
 
 
-        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir,contenedorBloquePersonalizado);
+        VBox contenedorBotonera = new VBox(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,contenedorInvertir);
         contenedorBotonera.setSpacing(10);
         contenedorBotonera.setPadding(new Insets(15));
         contenedorBotonera.setStyle("-fx-background-color: white;");
@@ -165,19 +165,21 @@ public class ContenedorPrincipal extends BorderPane{
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         botonBorrarAlgoritmo.setOnAction(borrarAlgoritmoHandler);
 
-        Label etiquetaGuardarAlgoritmo = new Label("Guardar Algoritmo:");
-        TextField campoNombreAlgoritmo = new TextField("Ingresar nombre");
-        campoNombreAlgoritmo.setPrefWidth(110);
+        TextField campoNombreAlgoritmo = new TextField("Ingresar nombre del Algoritmo");
+        campoNombreAlgoritmo.setPrefWidth(200);
         Button botonGuardarAlgoritmo = new Button("Guardar");
-        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo, campoNombreAlgoritmo);
-        botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
 
         HBox hBoxGuardarAlgoritmo = new HBox(campoNombreAlgoritmo, botonGuardarAlgoritmo);
         hBoxGuardarAlgoritmo.setSpacing(10);
         hBoxGuardarAlgoritmo.setPadding(new Insets(15));
-        VBox contenedorGuardarAlgoritmo = new VBox(etiquetaGuardarAlgoritmo, hBoxGuardarAlgoritmo);
+        VBox contenedorGuardarAlgoritmo = new VBox(hBoxGuardarAlgoritmo);
         hBoxGuardarAlgoritmo.setSpacing(10);
         hBoxGuardarAlgoritmo.setPadding(new Insets(15));
+
+        BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo, campoNombreAlgoritmo, contenedorGuardarAlgoritmo);
+        botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
+
+
 
         VBox contenedorBotonesAlgoritmo = new VBox(botonEjecutar, botonBorrarAlgoritmo, contenedorGuardarAlgoritmo);
         contenedorBotonesAlgoritmo.setSpacing(10);
