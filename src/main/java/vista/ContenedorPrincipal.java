@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
@@ -79,6 +80,11 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorAlgoritmo.setSpacing(10);
         contenedorAlgoritmo.setAlignment(Pos.TOP_CENTER);
         contenedorAlgoritmo.setPadding(new Insets(15));
+        ScrollPane root = new ScrollPane();
+        root.setContent(contenedorAlgoritmo);
+        root.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        root.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        root.setPannable(true);
 
         vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
         vistaAlgoritmo.mostrarBloques();
@@ -119,7 +125,7 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorBotonesAlgoritmo.setAlignment(Pos.CENTER);
 
 
-        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo);
+        VBox contenedorAEjecutar = new VBox(etiquetaAEjecutar, contenedorAlgoritmo, contenedorBotonesAlgoritmo,root);
         contenedorAEjecutar.setSpacing(10);
         contenedorAEjecutar.setPadding(new Insets(15));
         contenedorAEjecutar.setAlignment(Pos.TOP_CENTER);
