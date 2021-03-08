@@ -1,33 +1,35 @@
 package vista;
 
-import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
 
 public class VistaAlgoritmo {
 
     private final AlgoBlocks algoBlocks;
-    private final Canvas canvas;
-    private final double ancho;
-    private final double alto;
+    private final VBox contenedor;
 
 
-    public VistaAlgoritmo(AlgoBlocks algoBlocks, Canvas canvas) {
+    public VistaAlgoritmo(AlgoBlocks algoBlocks, VBox contenedor) {
         this.algoBlocks = algoBlocks;
-        this.canvas = canvas;
-        this.ancho = canvas.getWidth();
-        this.alto = canvas.getHeight();
+        this.contenedor = contenedor;
     }
 
 
     public void mostrarBloques() {
         this.clean();
-
+        for (Bloque bloque : this.algoBlocks.getBloques()){
+            this.contenedor.getChildren().add(new Button());
+        }
     }
 
     public void clean(){
-        canvas.getGraphicsContext2D().setFill(Color.LIGHTGRAY);
-        canvas.getGraphicsContext2D().fillRect(0, 0, ancho, alto);
+        this.contenedor.getChildren().clear();
     }
 
     public void update(){

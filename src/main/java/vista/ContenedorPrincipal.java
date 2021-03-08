@@ -139,7 +139,13 @@ public class ContenedorPrincipal extends BorderPane{
         Label etiquetaAEjecutar = new Label("A EJECUTAR");
         etiquetaAEjecutar.setFont(Font.font("Italic", FontWeight.BLACK, 20));
 
-        Canvas contenedorAlgoritmo = new Canvas(210, 460);
+        VBox contenedorAlgoritmo = new VBox();
+        contenedorAlgoritmo.setPrefSize(210, 460);
+        contenedorAlgoritmo.setStyle("-fx-background-color: grey;");
+        contenedorAlgoritmo.setSpacing(10);
+        contenedorAlgoritmo.setAlignment(Pos.TOP_CENTER);
+        contenedorAlgoritmo.setPadding(new Insets(15));
+
         vistaAlgoritmo = new VistaAlgoritmo(algoBlocks,contenedorAlgoritmo);
         vistaAlgoritmo.mostrarBloques();
 
