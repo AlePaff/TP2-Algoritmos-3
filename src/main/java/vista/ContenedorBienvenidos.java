@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import vista.eventos.BotonEntrarHandler;
+import javafx.scene.control.ScrollPane;
 
 public class ContenedorBienvenidos extends VBox {
     Stage stage;
@@ -35,6 +36,7 @@ public class ContenedorBienvenidos extends VBox {
         etiquetaDeBienvenida.setFont(Font.font("Comic Sans MS", FontWeight.BLACK, 30));
 
         etiquetaDeBienvenida.setText("Bienvenidos al juego AlgoBlocks!!");
+
 
         BotonEntrarHandler botonEntrarHandler = new BotonEntrarHandler(stage,proximaEscena);
         botonEntrar.setOnAction(botonEntrarHandler);

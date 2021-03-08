@@ -80,6 +80,7 @@ public class ContenedorPrincipal extends BorderPane{
         contenedorAlgoritmo.setSpacing(10);
         contenedorAlgoritmo.setAlignment(Pos.TOP_CENTER);
         contenedorAlgoritmo.setPadding(new Insets(15));
+
         ScrollPane root = new ScrollPane();
         root.setContent(contenedorAlgoritmo);
         root.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);

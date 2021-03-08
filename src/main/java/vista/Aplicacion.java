@@ -2,6 +2,8 @@ package vista;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import modelo.AlgoBlocks;
 import vista.eventos.HandlerApplication;
@@ -21,7 +23,11 @@ public class Aplicacion extends Application {
         AlgoBlocks algoBlocks = crearModelo();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,algoBlocks);
-        Scene escenaJuego = new Scene(contenedorPrincipal,700,500);
+        ScrollPane scrollPrincipal = new ScrollPane();
+        scrollPrincipal.setContent(contenedorPrincipal);
+        scrollPrincipal.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPrincipal.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        Scene escenaJuego = new Scene(scrollPrincipal,700,500);
 
         HandlerApplication handlerApplication = new HandlerApplication(stage,contenedorPrincipal.getBarraDeMenu());
         escenaJuego.setOnKeyPressed(handlerApplication);
