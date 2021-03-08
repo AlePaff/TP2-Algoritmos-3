@@ -8,7 +8,7 @@ public class Personaje{
     private final Lapiz lapiz = new Lapiz();
     protected Posicion posicion;
     public final int RADIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 10;
 
 
     public Personaje(Posicion posicion){
