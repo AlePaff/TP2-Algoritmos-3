@@ -33,8 +33,8 @@ public class ContenedorPrincipal extends BorderPane{
     public ContenedorPrincipal(Stage stage,AlgoBlocks algoBlocks){
         this.setMenu(stage);
         this.setCentro(algoBlocks);
-        this.setBotonera(algoBlocks);
         this.setAlgoritmo(algoBlocks);
+        this.setBotonera(algoBlocks);
     }
 
     private void setMenu(Stage stage){
