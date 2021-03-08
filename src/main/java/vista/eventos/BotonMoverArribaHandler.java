@@ -18,9 +18,8 @@ public class BotonMoverArribaHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         MoverArriba bloque = new MoverArriba();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("arriba");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
 
     }

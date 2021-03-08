@@ -19,9 +19,8 @@ public class BotonMoverDerechaHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         MoverDerecha bloque = new MoverDerecha();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("derecha");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

@@ -18,9 +18,8 @@ public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         BajarLapiz bloque = new BajarLapiz();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("lapizAbajo");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

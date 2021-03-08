@@ -18,9 +18,8 @@ public class BotonMoverAbajoHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         MoverAbajo bloque = new MoverAbajo();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("abajo");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 

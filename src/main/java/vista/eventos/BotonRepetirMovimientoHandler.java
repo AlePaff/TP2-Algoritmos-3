@@ -25,7 +25,6 @@ public class BotonRepetirMovimientoHandler implements EventHandler<ActionEvent> 
         Repeticion bloque = new Repeticion(cantRepeticiones);
         bloque.setNombre("repetir");
         this.algoBlocks.agregarBloque(bloque);
-        this.algoBlocks.agregarNombreBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

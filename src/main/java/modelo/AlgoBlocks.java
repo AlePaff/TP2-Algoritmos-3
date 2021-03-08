@@ -52,9 +52,6 @@ public class AlgoBlocks {
 
     public void agregarBloque(Bloque bloque) {
         algoritmo.add(bloque);
-    }
-
-    public void agregarNombreBloque(Bloque bloque){
         nombresBloques.add(bloque.getNombre());
     }
 

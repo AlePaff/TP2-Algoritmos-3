@@ -21,7 +21,6 @@ public class VistaAlgoritmo {
 
     public void mostrarBloques() {
         this.clean();
-        //for (Bloque bloque : this.algoBlocks.getAlgoritmo()){
         for (String nombreBloque : this.algoBlocks.getNombresBloques()) {
             Image image = new Image("file:src/main/java/vista/imagenes/" + nombreBloque + ".png", 40, 40, false, false);
             this.contenedor.getChildren().add(new ImageView(image));

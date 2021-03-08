@@ -18,9 +18,8 @@ public class BotonMoverIzquierdaHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         MoverIzquierda bloque = new MoverIzquierda();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("izquierda");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

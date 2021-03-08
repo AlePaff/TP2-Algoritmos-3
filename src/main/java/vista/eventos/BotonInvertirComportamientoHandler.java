@@ -18,9 +18,8 @@ public class BotonInvertirComportamientoHandler implements EventHandler<ActionEv
     @Override
     public void handle(ActionEvent actionEvent){
         InvertirComportamiento bloque = new InvertirComportamiento();
-        this.algoBlocks.agregarBloque(bloque);
         bloque.setNombre("invertir");
-        this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }
