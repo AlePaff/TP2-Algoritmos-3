@@ -25,6 +25,12 @@ public class AlgoBlocks {
         posicionInicial = new Posicion(BASE_MAPA / 2, ALTURA_MAPA / 2, tablero);
         this.personaje = new Personaje(posicionInicial);
     }
+    public int getAltura(){
+        return ALTURA_MAPA;
+    }
+    public int getBase(){
+        return BASE_MAPA;
+    }
 
     public void agregarBloque(Bloque bloque) {
         bloques.add(bloque);

@@ -13,7 +13,7 @@ public class TestPersonaje{
     protected static final int ALTURA = 15;
     protected static final int COORDENADA_EN_X_DE_INICIO = 8;
     protected static final int COORDENADA_EN_Y_DE_INICIO = 8;
-    protected static final int DISTANCIA_DE_MOVIMIENTO = 1;
+    protected static final int DISTANCIA_DE_MOVIMIENTO = 1; //personaje.getDISTANCIAMOVIMIENTO()
 
     public Tablero tablero = new Tablero(BASE, ALTURA);
     public Posicion posicion = new Posicion(COORDENADA_EN_X_DE_INICIO,COORDENADA_EN_Y_DE_INICIO, tablero);

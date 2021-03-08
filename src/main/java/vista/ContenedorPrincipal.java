@@ -1,13 +1,10 @@
 package vista;
 
-import javafx.geometry.HPos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoBlocks;
-import modelo.tablero.Tablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
@@ -29,6 +26,9 @@ public class ContenedorPrincipal extends BorderPane{
     Canvas canvasCentral;
     VBox contenedorCentral;
     VistaAlgoritmo vistaAlgoritmo;
+
+    public int ANCHO_CANVAS = 600;
+    public int ALTO_CANVAS = 600;
 
     public ContenedorPrincipal(Stage stage,AlgoBlocks algoBlocks){
         this.setMenu(stage);
@@ -126,9 +126,9 @@ public class ContenedorPrincipal extends BorderPane{
     }
 
     private void setCentro(AlgoBlocks algoBlocks) {
-        canvasCentral = new Canvas(600, 600);
-        vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral);
-        vistaPersonaje.dibujar();
+        canvasCentral = new Canvas(ANCHO_CANVAS, ALTO_CANVAS);
+        vistaPersonaje = new VistaPersonaje(algoBlocks, canvasCentral, ANCHO_CANVAS/algoBlocks.getBase(), ALTO_CANVAS/algoBlocks.getAltura());
+        vistaPersonaje.dibujarAvatar();
         contenedorCentral = new VBox(canvasCentral);
 
         contenedorCentral.setAlignment(Pos.CENTER);
