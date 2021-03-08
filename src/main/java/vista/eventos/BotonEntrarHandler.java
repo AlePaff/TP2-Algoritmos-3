@@ -21,12 +21,6 @@ public class BotonEntrarHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent){
-       // boton.setPrefSize(300,400);
-       // ScrollPane scrollPrincipal = new ScrollPane();
-       // scrollPrincipal.setContent(boton);
-       // scrollPrincipal.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-       // scrollPrincipal.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-       // Scene escena = new Scene(scrollPrincipal,700,500);
         stage.setScene(escena);
         stage.setFullScreenExitHint("");
         stage.setFullScreen(true);

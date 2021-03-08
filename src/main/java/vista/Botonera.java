@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoBlocks;
 import vista.eventos.*;
@@ -27,6 +28,11 @@ public class Botonera{
 
         Label etiquetaBloques = new Label("BLOQUES");
         etiquetaBloques.setFont(Font.font("Italic", FontWeight.BLACK, 20));
+
+        Label etiquetaLapiz = new Label("El juego inicia con el Lapiz arriba, para poder dibujar debe bajarlo");
+        etiquetaLapiz.setFont(Font.font("Italic",FontWeight.EXTRA_LIGHT, FontPosture.ITALIC,15));
+        etiquetaLapiz.setLineSpacing(15);
+        Label etiquetaPunteada = new Label("~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~");
 
 
         BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks, vistaAlgoritmo);
@@ -83,7 +89,7 @@ public class Botonera{
         Boton botonInvertirComportamiento = new Boton("Invertir Comportamiento", IMAGEN_INVERTIR, invertirComportamientoHandler);
 
 
-        contenedorBotonera.getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento);
+        contenedorBotonera.getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz);
         contenedorBotonera.setSpacing(10);
         contenedorBotonera.setPadding(new Insets(15));
         contenedorBotonera.setAlignment(Pos.TOP_CENTER);
