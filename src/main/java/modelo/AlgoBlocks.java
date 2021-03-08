@@ -64,6 +64,7 @@ public class AlgoBlocks {
             }
         }
         algoritmo.clear();
+        nombresBloques.clear();
     }
 
     public void reiniciarTablero() {
