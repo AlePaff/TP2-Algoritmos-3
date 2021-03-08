@@ -1,11 +1,9 @@
 package vista.eventos;
 
-import modelo.AlgoBlocks;
-import modelo.personaje.Personaje;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import modelo.AlgoBlocks;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
 import vista.VistaTablero;
 
 public class BotonEjecutarHandler implements EventHandler<ActionEvent> {

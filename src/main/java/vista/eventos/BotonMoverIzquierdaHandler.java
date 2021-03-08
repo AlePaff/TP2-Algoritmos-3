@@ -1,11 +1,10 @@
 package vista.eventos;
 
-import modelo.bloques.MoverIzquierda;
-import modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import modelo.AlgoBlocks;
+import modelo.bloques.MoverIzquierda;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
 
 public class BotonMoverIzquierdaHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
@@ -20,6 +19,8 @@ public class BotonMoverIzquierdaHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         MoverIzquierda bloque = new MoverIzquierda();
         this.algoBlocks.agregarBloque(bloque);
+        bloque.setNombre("izquierda");
+        this.algoBlocks.agregarNombreBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

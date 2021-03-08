@@ -29,7 +29,7 @@ public class VistaTablero {
 
     public void dibujar(){
         clean();
-        canvas.getGraphicsContext2D().setFill(Color.BLACK);
+        canvas.getGraphicsContext2D().setFill(Color.DARKRED);
         for (Posicion posicion : algoBlocks.getPosicionesDibujadas()){
             canvas.getGraphicsContext2D().fillRect(posicion.getPosX() * relacion_horizontal, posicion.getPosY() * relacion_vertical, GROSOR, GROSOR);
         }
@@ -37,7 +37,7 @@ public class VistaTablero {
     }
 
     public void clean() {
-        canvas.getGraphicsContext2D().setFill(Color.BEIGE);
+        canvas.getGraphicsContext2D().setFill(Color.SKYBLUE);
         canvas.getGraphicsContext2D().fillRect(0, 0, ancho, alto);
     }
 

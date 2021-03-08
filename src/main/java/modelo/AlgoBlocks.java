@@ -15,6 +15,7 @@ public class AlgoBlocks {
     private final Tablero tablero;
     private Personaje personaje;
     private final ArrayList<Bloque> algoritmo = new ArrayList<>();
+    private final ArrayList<String> nombresBloques = new ArrayList<>();
     private static Posicion posicionInicial;
     private static final int BASE_MAPA = 50;
     private static final int ALTURA_MAPA = 50;
@@ -37,6 +38,10 @@ public class AlgoBlocks {
         return this.algoritmo;
     }
 
+    public ArrayList<String> getNombresBloques() {
+        return this.nombresBloques;
+    }
+
     public Posicion getPosicionDelPersonaje() {
         return personaje.getPosicion();
     }
@@ -47,6 +52,10 @@ public class AlgoBlocks {
 
     public void agregarBloque(Bloque bloque) {
         algoritmo.add(bloque);
+    }
+
+    public void agregarNombreBloque(Bloque bloque){
+        nombresBloques.add(bloque.getNombre());
     }
 
     public void ejecutarAlgoritmo() {

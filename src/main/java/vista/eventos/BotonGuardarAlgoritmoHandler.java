@@ -2,14 +2,12 @@ package vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import modelo.AlgoBlocks;
 import modelo.bloques.BloquePersonalizado;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
-
-import javafx.scene.control.Button;
 
 public class BotonGuardarAlgoritmoHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;

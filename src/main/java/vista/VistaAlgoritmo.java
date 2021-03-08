@@ -1,6 +1,8 @@
 package vista;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
@@ -19,8 +21,10 @@ public class VistaAlgoritmo {
 
     public void mostrarBloques() {
         this.clean();
-        for (Bloque bloque : this.algoBlocks.getAlgoritmo()){
-            this.contenedor.getChildren().add(new Button());
+        //for (Bloque bloque : this.algoBlocks.getAlgoritmo()){
+        for (String nombreBloque : this.algoBlocks.getNombresBloques()) {
+            Image image = new Image("file:src/main/java/vista/imagenes/" + nombreBloque + ".png", 40, 40, false, false);
+            this.contenedor.getChildren().add(new ImageView(image));
         }
     }
 

@@ -1,14 +1,10 @@
 package vista.eventos;
 
-import modelo.AlgoBlocks;
-import modelo.bloques.MoverArriba;
-import modelo.bloques.MoverDerecha;
-import modelo.personaje.Personaje;
-import modelo.tablero.Tablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import modelo.AlgoBlocks;
+import modelo.bloques.MoverArriba;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
 
 public class BotonMoverArribaHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
@@ -23,6 +19,8 @@ public class BotonMoverArribaHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         MoverArriba bloque = new MoverArriba();
         this.algoBlocks.agregarBloque(bloque);
+        bloque.setNombre("arriba");
+        this.algoBlocks.agregarNombreBloque(bloque);
         this.vistaAlgoritmo.update();
 
     }

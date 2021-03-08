@@ -1,12 +1,10 @@
 package vista.eventos;
 
-import modelo.AlgoBlocks;
-import modelo.bloques.BajarLapiz;
-import modelo.personaje.Personaje;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import modelo.AlgoBlocks;
+import modelo.bloques.BajarLapiz;
 import vista.VistaAlgoritmo;
-import vista.VistaPersonaje;
 
 public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
@@ -21,6 +19,8 @@ public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         BajarLapiz bloque = new BajarLapiz();
         this.algoBlocks.agregarBloque(bloque);
+        bloque.setNombre("lapizAbajo");
+        this.algoBlocks.agregarNombreBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

@@ -1,9 +1,9 @@
 package vista.eventos;
 
-import modelo.bloques.InvertirComportamiento;
-import modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import modelo.AlgoBlocks;
+import modelo.bloques.InvertirComportamiento;
 import vista.VistaAlgoritmo;
 
 public class BotonInvertirComportamientoHandler implements EventHandler<ActionEvent> {
@@ -19,6 +19,8 @@ public class BotonInvertirComportamientoHandler implements EventHandler<ActionEv
     public void handle(ActionEvent actionEvent){
         InvertirComportamiento bloque = new InvertirComportamiento();
         this.algoBlocks.agregarBloque(bloque);
+        bloque.setNombre("invertir");
+        this.algoBlocks.agregarNombreBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 }

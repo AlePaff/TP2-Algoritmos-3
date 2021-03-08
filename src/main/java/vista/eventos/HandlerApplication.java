@@ -5,6 +5,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import vista.BarraDeMenu;
+
 public class HandlerApplication implements EventHandler<KeyEvent> {
     private Stage stage;
     private BarraDeMenu barraDeMenu;
