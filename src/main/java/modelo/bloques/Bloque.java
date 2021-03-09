@@ -3,19 +3,13 @@ package modelo.bloques;
 import modelo.personaje.Personaje;
 import modelo.tablero.Tablero;
 
-public abstract class Bloque {
-    private String nombre;
+public interface Bloque {
+    void setNombre(String nombre);
 
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
+    String getNombre();
 
-    public String getNombre(){
-        return nombre;
-    }
+    void ejecutar(Personaje personaje, Tablero tablero);
 
-    public abstract void ejecutar(Personaje personaje, Tablero tablero);
-
-    public abstract void ejecutarInvertido(Personaje personaje, Tablero tablero);
+    void ejecutarInvertido(Personaje personaje, Tablero tablero);
 
 }

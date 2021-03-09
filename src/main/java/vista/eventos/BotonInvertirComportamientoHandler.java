@@ -17,7 +17,6 @@ public class BotonInvertirComportamientoHandler extends BotonBloqueHandler {
     @Override
     public void handle(ActionEvent actionEvent){
         InvertirComportamiento bloque = new InvertirComportamiento();
-        bloque.setNombre("invertir");
         estrategia.agregarADestino(bloque);
 
         setEstrategia( new EstrategiaHandleConjunto(bloque));

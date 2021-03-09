@@ -4,7 +4,7 @@ import modelo.tablero.Tablero;
 
 import java.util.ArrayList;
 
-public abstract class Conjunto extends Bloque {
+public abstract class Conjunto implements Bloque {
 
     protected ArrayList<Bloque> bloques = new ArrayList<>();
 

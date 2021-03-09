@@ -17,7 +17,6 @@ public class BotonMoverAbajoHandler extends BotonBloqueHandler {
     @Override
     public void handle(ActionEvent actionEvent){
         MoverAbajo bloque = new MoverAbajo();
-        bloque.setNombre("abajo");
         estrategia.agregarADestino(bloque);
         this.vistaAlgoritmo.update();
     }

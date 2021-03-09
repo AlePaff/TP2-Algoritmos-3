@@ -17,7 +17,6 @@ public class BotonBajarLapizHandler extends BotonBloqueHandler {
     @Override
     public void handle(ActionEvent actionEvent){
         BajarLapiz bloque = new BajarLapiz();
-        bloque.setNombre("lapizAbajo");
         estrategia.agregarADestino(bloque);
         this.vistaAlgoritmo.update();
     }

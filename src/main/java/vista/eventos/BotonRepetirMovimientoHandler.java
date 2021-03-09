@@ -22,7 +22,6 @@ public class BotonRepetirMovimientoHandler extends BotonBloqueHandler {
     @Override
     public void handle(ActionEvent actionEvent){
         Repeticion bloque = new Repeticion(cantRepeticiones);
-        bloque.setNombre("repetir");
         estrategia.agregarADestino(bloque);
 
         setEstrategia(new EstrategiaHandleConjunto(bloque));
