@@ -8,8 +8,8 @@ import modelo.bloques.SubirLapiz;
 import vista.VistaAlgoritmo;
 
 public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHandler {
-    private AlgoBlocks algoBlocks;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final AlgoBlocks algoBlocks;
+    private final VistaAlgoritmo vistaAlgoritmo;
 
     public BotonTerminarAgregarBloquesAConjuntoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
         super(algoBlocks, vistaAlgoritmo);
@@ -18,6 +18,7 @@ public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHand
     }
     @Override
     public void handle(ActionEvent actionEvent) {
+        this.vistaAlgoritmo.mostrarFinDeCiclo();
         setEstrategia( new EstrategiaHandleAlgoritmo(algoBlocks));
         this.vistaAlgoritmo.update();
     }

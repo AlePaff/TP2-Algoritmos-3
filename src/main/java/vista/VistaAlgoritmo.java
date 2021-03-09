@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -14,7 +15,6 @@ public class VistaAlgoritmo {
 
     private final AlgoBlocks algoBlocks;
     private final VBox contenedor;
-    Conjunto conjunto;
 
     public VistaAlgoritmo(AlgoBlocks algoBlocks, VBox contenedor) {
         this.algoBlocks = algoBlocks;
@@ -28,6 +28,12 @@ public class VistaAlgoritmo {
             Image image = new Image("file:src/main/java/vista/imagenes/" + bloque.getNombre() + ".png", 40, 40, false, false);
             this.contenedor.getChildren().add(new ImageView(image));
         }
+    }
+
+    public void mostrarFinDeCiclo(){
+        Label etiquetaFin = new Label("Fin de la eleccion de bloques" + "\n" + "para invertir su comportamiento");
+        this.contenedor.getChildren().add(etiquetaFin);
+        //Image image = new Image("")
     }
 
 //    public void mostrarImagen(Conjunto conjunto){
