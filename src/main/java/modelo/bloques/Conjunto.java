@@ -8,6 +8,10 @@ public abstract class Conjunto extends Bloque {
 
     protected ArrayList<Bloque> bloques = new ArrayList<>();
 
+    public ArrayList<Bloque> getBloques() {
+        return bloques;
+    }
+
     public void agregarBloque(Bloque bloque){
         bloques.add(bloque);
     }

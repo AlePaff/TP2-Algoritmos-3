@@ -41,6 +41,10 @@ public class AlgoBlocks {
         return personaje.getPosicion();
     }
 
+    public String getNombreEstrategiaLapiz(){
+
+    }
+
     public ArrayList<Posicion> getPosicionesDibujadas(){
         return tablero.getPosicionesDibujadas();
     }

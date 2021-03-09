@@ -1,16 +1,9 @@
 package vista;
 
 import modelo.AlgoBlocks;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.VBox;
 
 

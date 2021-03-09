@@ -7,14 +7,13 @@ import modelo.AlgoBlocks;
 import modelo.bloques.Repeticion;
 import vista.VistaAlgoritmo;
 
-public class BotonRepetirMovimientoHandler implements EventHandler<ActionEvent> {
-    private final AlgoBlocks algoBlocks;
+public class BotonRepetirMovimientoHandler extends BotonBloqueHandler {
     private final int cantRepeticiones;
     private VistaAlgoritmo vistaAlgoritmo;
 
 
     public BotonRepetirMovimientoHandler(AlgoBlocks algoBlocks, int cantRepeticiones, VistaAlgoritmo vistaAlgoritmo){
-        this.algoBlocks = algoBlocks;
+        super(algoBlocks);
         this.cantRepeticiones = cantRepeticiones;
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
@@ -24,7 +23,10 @@ public class BotonRepetirMovimientoHandler implements EventHandler<ActionEvent> 
     public void handle(ActionEvent actionEvent){
         Repeticion bloque = new Repeticion(cantRepeticiones);
         bloque.setNombre("repetir");
-        this.algoBlocks.agregarBloque(bloque);
+        estrategia.agregarADestino(bloque);
+
+        setEstrategia(new EstrategiaHandleConjunto(bloque));
+
         this.vistaAlgoritmo.update();
     }
 }

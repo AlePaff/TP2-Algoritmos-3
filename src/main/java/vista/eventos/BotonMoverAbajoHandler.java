@@ -6,12 +6,11 @@ import modelo.AlgoBlocks;
 import modelo.bloques.MoverAbajo;
 import vista.VistaAlgoritmo;
 
-public class BotonMoverAbajoHandler implements EventHandler<ActionEvent> {
-    private final AlgoBlocks algoBlocks;
+public class BotonMoverAbajoHandler extends BotonBloqueHandler {
     private VistaAlgoritmo vistaAlgoritmo;
 
     public BotonMoverAbajoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        this.algoBlocks = algoBlocks;
+        super(algoBlocks);
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
@@ -19,7 +18,7 @@ public class BotonMoverAbajoHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         MoverAbajo bloque = new MoverAbajo();
         bloque.setNombre("abajo");
-        this.algoBlocks.agregarBloque(bloque);
+        estrategia.agregarADestino(bloque);
         this.vistaAlgoritmo.update();
     }
 

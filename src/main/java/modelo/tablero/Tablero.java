@@ -1,7 +1,6 @@
 package modelo.tablero;
 
 import modelo.excepciones.BaseOAlturaNegativosONulosException;
-import modelo.excepciones.ElTableroDebeSerCuadradoException;
 
 import java.util.ArrayList;
 
@@ -14,9 +13,6 @@ public class Tablero {
     public Tablero(int base, int altura) {
         if (base <= 0 || altura <= 0) {
             throw new BaseOAlturaNegativosONulosException();
-        }
-        if (base != altura) {
-            throw new ElTableroDebeSerCuadradoException();
         }
         this.base = base;
         this.altura = altura;

@@ -6,13 +6,12 @@ import modelo.AlgoBlocks;
 import modelo.bloques.MoverDerecha;
 import vista.VistaAlgoritmo;
 
-public class BotonMoverDerechaHandler implements EventHandler<ActionEvent> {
-    private final AlgoBlocks algoBlocks;
+public class BotonMoverDerechaHandler extends BotonBloqueHandler {
     private VistaAlgoritmo vistaAlgoritmo;
 
 
     public BotonMoverDerechaHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        this.algoBlocks = algoBlocks;
+        super(algoBlocks);
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
@@ -20,7 +19,7 @@ public class BotonMoverDerechaHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         MoverDerecha bloque = new MoverDerecha();
         bloque.setNombre("derecha");
-        this.algoBlocks.agregarBloque(bloque);
+        estrategia.agregarADestino(bloque);
         this.vistaAlgoritmo.update();
     }
 }

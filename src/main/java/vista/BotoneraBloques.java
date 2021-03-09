@@ -14,6 +14,7 @@ import vista.eventos.*;
 
 public class BotoneraBloques extends VBox{
     public final Image IMAGEN_SUBIR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
+    public Image IMAGEN_TERMINAR = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
     public Image IMAGEN_BAJAR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizAbajo.png",20,20,false,false);
     public Image IMAGEN_DERECHA = new Image("file:src/main/java/vista/imagenes/derecha.png",20,20,false,false);
     public Image IMAGEN_IZQUIERDA = new Image("file:src/main/java/vista/imagenes/izquierda.png",20,20,false,false);
@@ -91,8 +92,10 @@ public class BotoneraBloques extends VBox{
         BotonInvertirComportamientoHandler invertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonInvertirComportamiento = new Boton("Invertir Comportamiento", IMAGEN_INVERTIR, invertirComportamientoHandler);
 
+        BotonTerminarAgregarBloquesAConjuntoHandler terminarAgregarBloquesAConjuntoHandler = new BotonTerminarAgregarBloquesAConjuntoHandler(algoBlocks, vistaAlgoritmo);
+        Boton botonTerminarAgregarBloquesAConjunto = new Boton("Terminar", IMAGEN_TERMINAR, terminarAgregarBloquesAConjuntoHandler);
 
-        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz);
+        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz, botonTerminarAgregarBloquesAConjunto);
         setSpacing(10);
         setPadding(new Insets(5));
         setAlignment(Pos.TOP_CENTER);

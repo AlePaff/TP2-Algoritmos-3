@@ -11,7 +11,8 @@ public class VistaPersonaje {
     int relacion_horizontal;
     int relacion_vertical;
     int TAMANIO = 40;
-    String rutaImagen = "file:src/main/java/vista/imagenes/avatar.jpg";
+    static final String RUTA_IMAGEN_LAPIZ_ARRIBA = "file:src/main/java/vista/imagenes/avatar.jpg";
+    static final String RUTA_IMAGEN_LAPIZ_ABAJO = "file:src/main/java/vista/imagenes/avatar.jpg";
 
     public VistaPersonaje(AlgoBlocks algoBlocks, Canvas canvasCentral, int relacion_horizontal, int relacion_vertical) {
         this.algoBlocks = algoBlocks;
@@ -21,8 +22,17 @@ public class VistaPersonaje {
     }
 
     public void dibujarAvatar(){
-        Image image = new Image(rutaImagen, TAMANIO, TAMANIO,false,false);
+        String ruta_imagen = imagenAvatar();
+
+        Image image = new Image(ruta_imagen, TAMANIO, TAMANIO,false,false);
         canvas.getGraphicsContext2D().drawImage(image,algoBlocks.getPosicionDelPersonaje().getPosX() * relacion_horizontal,algoBlocks.getPosicionDelPersonaje().getPosY() * relacion_vertical );
+    }
+
+    private String imagenAvatar() {
+        if (algoBlocks.LapizLevantado()){
+            return RUTA_IMAGEN_LAPIZ_ARRIBA;
+        }
+        return RUTA_IMAGEN_LAPIZ_ABAJO;
     }
 
 }

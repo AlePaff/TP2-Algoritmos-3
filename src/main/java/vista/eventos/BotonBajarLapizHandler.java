@@ -6,12 +6,11 @@ import modelo.AlgoBlocks;
 import modelo.bloques.BajarLapiz;
 import vista.VistaAlgoritmo;
 
-public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
-    private final AlgoBlocks algoBlocks;
+public class BotonBajarLapizHandler extends BotonBloqueHandler {
     private VistaAlgoritmo vistaAlgoritmo;
 
     public BotonBajarLapizHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        this.algoBlocks = algoBlocks;
+        super(algoBlocks);
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
@@ -19,7 +18,7 @@ public class BotonBajarLapizHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         BajarLapiz bloque = new BajarLapiz();
         bloque.setNombre("lapizAbajo");
-        this.algoBlocks.agregarBloque(bloque);
+        estrategia.agregarADestino(bloque);
         this.vistaAlgoritmo.update();
     }
 }

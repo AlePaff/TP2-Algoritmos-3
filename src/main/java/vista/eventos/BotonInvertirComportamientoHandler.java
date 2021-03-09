@@ -6,12 +6,11 @@ import modelo.AlgoBlocks;
 import modelo.bloques.InvertirComportamiento;
 import vista.VistaAlgoritmo;
 
-public class BotonInvertirComportamientoHandler implements EventHandler<ActionEvent> {
+public class BotonInvertirComportamientoHandler extends BotonBloqueHandler {
     private final VistaAlgoritmo vistaAlgoritmo;
-    private final AlgoBlocks algoBlocks;
 
     public BotonInvertirComportamientoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        this.algoBlocks = algoBlocks;
+        super(algoBlocks);
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
@@ -19,7 +18,10 @@ public class BotonInvertirComportamientoHandler implements EventHandler<ActionEv
     public void handle(ActionEvent actionEvent){
         InvertirComportamiento bloque = new InvertirComportamiento();
         bloque.setNombre("invertir");
-        this.algoBlocks.agregarBloque(bloque);
+        estrategia.agregarADestino(bloque);
+
+        setEstrategia( new EstrategiaHandleConjunto(bloque));
+
         this.vistaAlgoritmo.update();
     }
 }
