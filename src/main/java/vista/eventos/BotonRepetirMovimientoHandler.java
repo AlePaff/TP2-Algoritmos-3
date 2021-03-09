@@ -2,17 +2,15 @@ package vista.eventos;
 
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
 import modelo.bloques.Conjunto;
-import modelo.bloques.InvertirComportamiento;
 import modelo.bloques.Repeticion;
 import vista.VistaAlgoritmo;
 
 public class BotonRepetirMovimientoHandler extends BotonBloqueHandler {
     private final int cantRepeticiones;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final VistaAlgoritmo vistaAlgoritmo;
 
 
     public BotonRepetirMovimientoHandler(AlgoBlocks algoBlocks, int cantRepeticiones, VistaAlgoritmo vistaAlgoritmo){

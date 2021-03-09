@@ -24,17 +24,17 @@ public class BotoneraBloques extends VBox{
     public Image IMAGEN_INVERTIR = new Image("file:src/main/java/vista/imagenes/invertir.png",20,20,false,false);
     public String FONDO_CONTENEDOR = "-fx-background-color: white;";
     private final String TIPOGRAFIA = "Italic";
-    private final double TAMAÑO_TITULO = 20;
-    private final double TAMAÑO_COMENTARIO = 15;
+    private final double TAMANIO_TITULO = 20;
+    private final double TAMANIO_COMENTARIO = 15;
 
 
     public BotoneraBloques(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
 
         Label etiquetaBloques = new Label("BOTONES");
-        etiquetaBloques.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMAÑO_TITULO));
+        etiquetaBloques.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMANIO_TITULO));
 
         Label etiquetaLapiz = new Label("El juego inicia con el Lapiz arriba," + "\n" + "para poder dibujar debe bajarlo");
-        etiquetaLapiz.setFont(Font.font(TIPOGRAFIA,FontWeight.EXTRA_LIGHT, FontPosture.ITALIC,TAMAÑO_COMENTARIO));
+        etiquetaLapiz.setFont(Font.font(TIPOGRAFIA,FontWeight.EXTRA_LIGHT, FontPosture.ITALIC,TAMANIO_COMENTARIO));
         etiquetaLapiz.setLineSpacing(15);
         Label etiquetaPunteada = new Label("~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ ");
 
@@ -96,7 +96,7 @@ public class BotoneraBloques extends VBox{
         BotonTerminarAgregarBloquesAConjuntoHandler terminarAgregarBloquesAConjuntoHandler = new BotonTerminarAgregarBloquesAConjuntoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonTerminarAgregarBloquesAConjunto = new Boton("Terminar", IMAGEN_TERMINAR, terminarAgregarBloquesAConjuntoHandler);
 
-        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, contenedorRepeticiones,botonInvertirComportamiento, botonTerminarAgregarBloquesAConjunto,etiquetaPunteada,etiquetaLapiz);
+        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos,etiquetaRepeticiones,contenedorRepeticiones,botonInvertirComportamiento, botonTerminarAgregarBloquesAConjunto,etiquetaPunteada,etiquetaLapiz);
         setSpacing(10);
         setPadding(new Insets(5));
         setAlignment(Pos.TOP_CENTER);

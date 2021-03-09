@@ -5,8 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import modelo.AlgoBlocks;
-
 public class Centro extends VBox{
     public Image FONDO = new Image("file:src/main/java/vista/imagenes/imagen-de-fondo.jpg"/*,1200,800,false,false*/);
 

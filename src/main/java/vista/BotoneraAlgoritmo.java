@@ -23,7 +23,7 @@ public class BotoneraAlgoritmo extends VBox{
     private static final String FONDO_CONTENEDOR_ALGORITMO = "-fx-background-color: grey;";
     private static final String FONDO_CONTENEDOR_A_EJECUTAR = "-fx-background-color: white;";
     private static final String TIPOGRAFIA = "Italic";
-    private static final double TAMAÑO_ETIQUETA = 20;
+    private static final double TAMANIO_ETIQUETA = 20;
     public static final Image IMAGEN_EJECUTAR =  new Image("file:src/main/java/vista/imagenes/ejecutar.png",20,20,false,false);
     public static final Image IMAGEN_BORRAR = new Image("file:src/main/java/vista/imagenes/eliminar.png",20,20,false,false);
     public static final Image IMAGEN_REINICIAR = new Image("file:src/main/java/vista/imagenes/juego.png",20,20,false,false);
@@ -34,7 +34,7 @@ public class BotoneraAlgoritmo extends VBox{
     public BotoneraAlgoritmo(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VistaTablero vistaTablero, VBox contenedorAlgoritmo) {
 
         Label etiquetaBotonera = new Label("A EJECUTAR");
-        etiquetaBotonera.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMAÑO_ETIQUETA));
+        etiquetaBotonera.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMANIO_ETIQUETA));
 
         //set contenedor del Algoritmo
         contenedorAlgoritmo.setPrefSize(340, 460);

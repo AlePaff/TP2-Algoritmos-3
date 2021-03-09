@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
 import modelo.bloques.BloquePersonalizado;
-import modelo.bloques.SubirLapiz;
 import vista.VistaAlgoritmo;
 
 public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHandler {

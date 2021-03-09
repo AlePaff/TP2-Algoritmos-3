@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 import vista.BarraDeMenu;
 
 public class HandlerApplication implements EventHandler<KeyEvent> {
-    private Stage stage;
-    private BarraDeMenu barraDeMenu;
+    private final Stage stage;
+    private final BarraDeMenu barraDeMenu;
 
     public HandlerApplication(Stage stage,BarraDeMenu barraDeMenu){
         this.barraDeMenu = barraDeMenu;

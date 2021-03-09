@@ -1,7 +1,6 @@
 package vista.eventos;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
 

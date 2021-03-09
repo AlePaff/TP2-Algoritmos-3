@@ -1,15 +1,13 @@
 package vista;
 
-import javafx.scene.control.Button;
+
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
-import modelo.bloques.Conjunto;
-import modelo.personaje.Personaje;
-import modelo.tablero.Tablero;
+
 
 public class VistaAlgoritmo {
 

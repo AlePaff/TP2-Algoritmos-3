@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import vista.eventos.BotonEntrarHandler;
-import javafx.scene.control.ScrollPane;
 
 public class ContenedorBienvenidos extends VBox {
     Stage stage;

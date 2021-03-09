@@ -1,11 +1,9 @@
 package vista.eventos;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
 import modelo.bloques.MoverArriba;
-import modelo.bloques.SubirLapiz;
 import vista.VistaAlgoritmo;
 
 public class BotonMoverArribaHandler extends BotonBloqueHandler {

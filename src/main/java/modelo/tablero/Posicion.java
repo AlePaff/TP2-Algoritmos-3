@@ -2,7 +2,6 @@ package modelo.tablero;
 
 import modelo.excepciones.PosicionFueraDeRangoException;
 
-import java.util.Objects;
 
 public class Posicion {
     private final int posX;

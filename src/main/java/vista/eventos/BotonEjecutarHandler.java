@@ -8,8 +8,8 @@ import vista.VistaTablero;
 
 public class BotonEjecutarHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
-    private VistaAlgoritmo vistaAlgoritmo;
-    private VistaTablero vistaTablero;
+    private final VistaAlgoritmo vistaAlgoritmo;
+    private final VistaTablero vistaTablero;
 
     public BotonEjecutarHandler(AlgoBlocks algoBlocks,VistaAlgoritmo vistaAlgoritmo, VistaTablero vistaTablero){
         this.algoBlocks = algoBlocks;

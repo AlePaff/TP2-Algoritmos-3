@@ -9,7 +9,7 @@ import vista.VistaAlgoritmo;
 
 public abstract class BotonBloqueHandler implements EventHandler<ActionEvent> {
     public static EstrategiaHandle estrategia;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final VistaAlgoritmo vistaAlgoritmo;
 
     public BotonBloqueHandler(AlgoBlocks algoblocks, VistaAlgoritmo vistaAlgoritmo){
          estrategia = new EstrategiaHandleAlgoritmo(algoblocks);

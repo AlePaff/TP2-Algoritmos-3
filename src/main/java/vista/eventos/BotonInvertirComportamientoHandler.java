@@ -8,8 +8,8 @@ import modelo.bloques.InvertirComportamiento;
 import vista.VistaAlgoritmo;
 
 public class BotonInvertirComportamientoHandler extends BotonBloqueHandler {
-    private AlgoBlocks algoBlocks;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final AlgoBlocks algoBlocks;
+    private final VistaAlgoritmo vistaAlgoritmo;
 
     public BotonInvertirComportamientoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
         super(algoBlocks, vistaAlgoritmo);

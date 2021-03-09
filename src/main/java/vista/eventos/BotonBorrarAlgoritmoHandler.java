@@ -7,7 +7,7 @@ import vista.VistaAlgoritmo;
 
 public class BotonBorrarAlgoritmoHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;
-    private VistaAlgoritmo vistaAlgoritmo;
+    private final VistaAlgoritmo vistaAlgoritmo;
 
     public BotonBorrarAlgoritmoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo) {
         this.algoBlocks = algoBlocks;

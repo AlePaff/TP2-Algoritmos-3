@@ -12,7 +12,6 @@ import java.awt.*;
 public class BotonEntrarHandler implements EventHandler<ActionEvent> {
     Stage stage;
     Scene escena;
-    //Button boton = new Button();
 
     public BotonEntrarHandler(Stage stage, Scene escena){
         this.stage = stage;
