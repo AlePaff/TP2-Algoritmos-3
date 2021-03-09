@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import modelo.AlgoBlocks;
 import vista.eventos.*;
 
-public class Botonera{
+public class BotoneraBloques {
     public final Image IMAGEN_SUBIR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
     public Image IMAGEN_BAJAR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizAbajo.png",20,20,false,false);
     public Image IMAGEN_DERECHA = new Image("file:src/main/java/vista/imagenes/derecha.png",20,20,false,false);
@@ -22,17 +22,20 @@ public class Botonera{
     public Image IMAGEN_REPETIR = new Image("file:src/main/java/vista/imagenes/repetir.png",20,20,false,false);
     public Image IMAGEN_INVERTIR = new Image("file:src/main/java/vista/imagenes/invertir.png",20,20,false,false);
     public String FONDO_CONTENEDOR = "-fx-background-color: white;";
+    private final String TIPOGRAFIA = "Italic";
+    private final double TAMAÑO_TITULO = 20;
+    private final double TAMAÑO_COMENTARIO = 15;
 
 
-    public Botonera(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VBox contenedorBotonera){
+    public BotoneraBloques(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VBox contenedorBotonera){
 
-        Label etiquetaBloques = new Label("BLOQUES");
-        etiquetaBloques.setFont(Font.font("Italic", FontWeight.BLACK, 20));
+        Label etiquetaBloques = new Label("BOTONES");
+        etiquetaBloques.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMAÑO_TITULO));
 
-        Label etiquetaLapiz = new Label("El juego inicia con el Lapiz arriba, para poder dibujar debe bajarlo");
-        etiquetaLapiz.setFont(Font.font("Italic",FontWeight.EXTRA_LIGHT, FontPosture.ITALIC,15));
+        Label etiquetaLapiz = new Label("El juego inicia con el Lapiz arriba," + "\n" + "para poder dibujar debe bajarlo");
+        etiquetaLapiz.setFont(Font.font(TIPOGRAFIA,FontWeight.EXTRA_LIGHT, FontPosture.ITALIC,TAMAÑO_COMENTARIO));
         etiquetaLapiz.setLineSpacing(15);
-        Label etiquetaPunteada = new Label("~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~");
+        Label etiquetaPunteada = new Label("~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ . ~ ");
 
 
         BotonSubirLapizHandler subirLapizHandler = new BotonSubirLapizHandler(algoBlocks, vistaAlgoritmo);
@@ -91,7 +94,7 @@ public class Botonera{
 
         contenedorBotonera.getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz);
         contenedorBotonera.setSpacing(10);
-        contenedorBotonera.setPadding(new Insets(15));
+        contenedorBotonera.setPadding(new Insets(5));
         contenedorBotonera.setAlignment(Pos.TOP_CENTER);
         contenedorBotonera.setStyle(FONDO_CONTENEDOR);
 
