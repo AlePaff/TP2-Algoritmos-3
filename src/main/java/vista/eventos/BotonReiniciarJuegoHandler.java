@@ -1,8 +1,10 @@
-package vista;
+package vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoBlocks;
+import vista.VistaAlgoritmo;
+import vista.VistaTablero;
 
 public class BotonReiniciarJuegoHandler implements EventHandler<ActionEvent> {
     private final AlgoBlocks algoBlocks;

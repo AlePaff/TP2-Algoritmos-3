@@ -16,6 +16,7 @@ import modelo.AlgoBlocks;
 import vista.eventos.BotonBorrarAlgoritmoHandler;
 import vista.eventos.BotonEjecutarHandler;
 import vista.eventos.BotonGuardarAlgoritmoHandler;
+import vista.eventos.BotonReiniciarJuegoHandler;
 
 public class BotoneraAlgoritmo extends VBox{
 
