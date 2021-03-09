@@ -17,7 +17,7 @@ import vista.eventos.BotonBorrarAlgoritmoHandler;
 import vista.eventos.BotonEjecutarHandler;
 import vista.eventos.BotonGuardarAlgoritmoHandler;
 
-public class BotoneraAlgoritmo {
+public class BotoneraAlgoritmo extends VBox{
 
     private static final String FONDO_CONTENEDOR_ALGORITMO = "-fx-background-color: grey;";
     private static final String FONDO_CONTENEDOR_A_EJECUTAR = "-fx-background-color: white;";
@@ -30,7 +30,7 @@ public class BotoneraAlgoritmo {
 
 
 
-    public BotoneraAlgoritmo(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VistaTablero vistaTablero, VBox contenedorBotonera, VBox contenedorAlgoritmo) {
+    public BotoneraAlgoritmo(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VistaTablero vistaTablero, VBox contenedorAlgoritmo) {
 
         Label etiquetaBotonera = new Label("A EJECUTAR");
         etiquetaBotonera.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMAÑO_ETIQUETA));
@@ -94,10 +94,10 @@ public class BotoneraAlgoritmo {
         scrollContenedorBotones.setPannable(true);
 
 
-        contenedorBotonera.getChildren().addAll(etiquetaBotonera, contenedorAlgoritmo, contenedorBotones,scrollContenedorAlgoritmo,scrollContenedorBotones);
-        contenedorBotonera.setSpacing(10);
-        contenedorBotonera.setPadding(new Insets(5));
-        contenedorBotonera.setAlignment(Pos.TOP_CENTER);
-        contenedorBotonera.setStyle(FONDO_CONTENEDOR_A_EJECUTAR);
+        getChildren().addAll(etiquetaBotonera, contenedorAlgoritmo, contenedorBotones,scrollContenedorAlgoritmo,scrollContenedorBotones);
+        setSpacing(10);
+        setPadding(new Insets(5));
+        setAlignment(Pos.TOP_CENTER);
+        setStyle(FONDO_CONTENEDOR_A_EJECUTAR);
     }
 }

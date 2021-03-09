@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import modelo.AlgoBlocks;
 import vista.eventos.*;
 
-public class BotoneraBloques {
+public class BotoneraBloques extends VBox{
     public final Image IMAGEN_SUBIR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
     public Image IMAGEN_BAJAR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizAbajo.png",20,20,false,false);
     public Image IMAGEN_DERECHA = new Image("file:src/main/java/vista/imagenes/derecha.png",20,20,false,false);
@@ -27,7 +27,7 @@ public class BotoneraBloques {
     private final double TAMAÑO_COMENTARIO = 15;
 
 
-    public BotoneraBloques(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VBox contenedorBotonera){
+    public BotoneraBloques(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
 
         Label etiquetaBloques = new Label("BOTONES");
         etiquetaBloques.setFont(Font.font(TIPOGRAFIA, FontWeight.BLACK, TAMAÑO_TITULO));
@@ -92,11 +92,11 @@ public class BotoneraBloques {
         Boton botonInvertirComportamiento = new Boton("Invertir Comportamiento", IMAGEN_INVERTIR, invertirComportamientoHandler);
 
 
-        contenedorBotonera.getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz);
-        contenedorBotonera.setSpacing(10);
-        contenedorBotonera.setPadding(new Insets(5));
-        contenedorBotonera.setAlignment(Pos.TOP_CENTER);
-        contenedorBotonera.setStyle(FONDO_CONTENEDOR);
+        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz);
+        setSpacing(10);
+        setPadding(new Insets(5));
+        setAlignment(Pos.TOP_CENTER);
+        setStyle(FONDO_CONTENEDOR);
 
     }
 
