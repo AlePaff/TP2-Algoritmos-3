@@ -20,7 +20,9 @@ public class BotoneraBloques extends VBox{
     public Image IMAGEN_IZQUIERDA = new Image("file:src/main/java/vista/imagenes/izquierda.png",20,20,false,false);
     public Image IMAGEN_ABAJO = new Image("file:src/main/java/vista/imagenes/abajo.png",20,20,false,false);
     public Image IMAGEN_ARRIBA = new Image("file:src/main/java/vista/imagenes/arriba.png",20,20,false,false);
-    public Image IMAGEN_REPETIR = new Image("file:src/main/java/vista/imagenes/repetir.png",20,20,false,false);
+    public Image IMAGEN_REPETIR_DOS = new Image("file:src/main/java/vista/imagenes/repetir2.png",20,20,false,false);
+    public Image IMAGEN_REPETIR_TRES = new Image("file:src/main/java/vista/imagenes/repetir3.png",20,20,false,false);
+
     public Image IMAGEN_INVERTIR = new Image("file:src/main/java/vista/imagenes/invertir.png",20,20,false,false);
     public String FONDO_CONTENEDOR = "-fx-background-color: white;";
     private final String TIPOGRAFIA = "Italic";
@@ -79,10 +81,10 @@ public class BotoneraBloques extends VBox{
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
         BotonRepetirMovimientoHandler repetirMovimientoDosVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 2, vistaAlgoritmo);
-        Boton botonRepetirMovimientoDosVeces = new Boton("Repetir Dos Veces", IMAGEN_REPETIR, repetirMovimientoDosVecesHandler);
+        Boton botonRepetirMovimientoDosVeces = new Boton("Repetir Dos Veces", IMAGEN_REPETIR_DOS, repetirMovimientoDosVecesHandler);
 
         BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3, vistaAlgoritmo);
-        Boton botonRepetirMovimientoTresVeces = new Boton("Repetir Tres Veces", IMAGEN_REPETIR, repetirMovimientoTresVecesHandler);
+        Boton botonRepetirMovimientoTresVeces = new Boton("Repetir Tres Veces", IMAGEN_REPETIR_TRES, repetirMovimientoTresVecesHandler);
 
         HBox contenedorRepeticiones = new HBox(botonRepetirMovimientoDosVeces, botonRepetirMovimientoTresVeces);
         contenedorRepeticiones.setSpacing(20);

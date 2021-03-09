@@ -7,10 +7,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modelo.AlgoBlocks;
 import modelo.bloques.Bloque;
+import modelo.bloques.Conjunto;
+
+import java.io.InputStream;
 
 
 public class VistaAlgoritmo {
 
+    private static final String IMAGEN_TERMINAR = "file:src/main/java/vista/imagenes/terminar.png";
     private final AlgoBlocks algoBlocks;
     private final VBox contenedor;
 
@@ -29,17 +33,17 @@ public class VistaAlgoritmo {
     }
 
     public void mostrarFinDeCiclo(){
-        Label etiquetaFin = new Label("Fin de la eleccion de bloques" + "\n" + "para invertir su comportamiento");
-        this.contenedor.getChildren().add(etiquetaFin);
-        //Image image = new Image("")
+        //Label etiquetaFin = new Label("Fin de la eleccion de bloques" + "\n" + "para invertir su comportamiento");
+        Image image = new Image(IMAGEN_TERMINAR, 40,40, false, false);
+        this.contenedor.getChildren().add(new ImageView(image));
     }
 
-//    public void mostrarImagen(Conjunto conjunto){
-  //      for(int i = 0; i == conjunto.tamanio(); i++){
-    //        Image image = new Image("file:src/main/java/vista/imagenes/" + conjunto.getBloques().get(i).getNombre() + ".png", 40, 40, false, false);
-      //      this.contenedor.getChildren().add(new ImageView(image));
-        //}
-    //}
+    public void mostrarImagen(Conjunto conjunto){
+        for(int i = 0; i < conjunto.tamanio(); i++){
+            Image image = new Image("file:src/main/java/vista/imagenes/" + conjunto.getBloques().get(i).getNombre() + ".png", 40, 40, false, false);
+            this.contenedor.getChildren().add(new ImageView(image));
+        }
+    }
 
     public void clean(){
         this.contenedor.getChildren().clear();
