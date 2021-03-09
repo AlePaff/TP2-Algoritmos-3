@@ -58,14 +58,6 @@ public class BotoneraAlgoritmo extends VBox{
         BotonBorrarAlgoritmoHandler borrarAlgoritmoHandler = new BotonBorrarAlgoritmoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonBorrarAlgoritmo = new Boton("Borrar", IMAGEN_BORRAR, borrarAlgoritmoHandler);
 
-        BotonReiniciarJuegoHandler reiniciarJuegoHandler = new BotonReiniciarJuegoHandler(algoBlocks, vistaAlgoritmo, vistaTablero);
-        Boton botonReiniciarJuego = new Boton("Reiniciar Juego", IMAGEN_REINICIAR,reiniciarJuegoHandler);
-
-        HBox contenedorBotonesAuxiliar = new HBox(botonEjecutar, botonBorrarAlgoritmo, botonReiniciarJuego);
-        contenedorBotonesAuxiliar.setSpacing(10);
-        contenedorBotonesAuxiliar.setPadding(new Insets(15));
-        contenedorBotonesAuxiliar.setAlignment(Pos.CENTER);
-
         // set vista Bloque Personalizado
         TextField campoNombreAlgoritmo = new TextField("Ingresar nombre del Algoritmo");
         campoNombreAlgoritmo.setPrefWidth(180);
@@ -77,14 +69,22 @@ public class BotoneraAlgoritmo extends VBox{
         contenedorGuardarAlgoritmoAuxiliar.setSpacing(10);
         contenedorGuardarAlgoritmoAuxiliar.setPadding(new Insets(15));
 
-        VBox contenedorGuardarAlgoritmo = new VBox(contenedorGuardarAlgoritmoAuxiliar);
+        VBox contenedorGuardarAlgoritmo = new VBox();
         contenedorGuardarAlgoritmoAuxiliar.setSpacing(10);
         contenedorGuardarAlgoritmoAuxiliar.setPadding(new Insets(15));
 
         BotonGuardarAlgoritmoHandler guardarAlgoritmoHandler = new BotonGuardarAlgoritmoHandler(algoBlocks, vistaAlgoritmo, campoNombreAlgoritmo, contenedorGuardarAlgoritmo);
         botonGuardarAlgoritmo.setOnAction(guardarAlgoritmoHandler);
 
-        VBox contenedorBotones = new VBox(contenedorBotonesAuxiliar, contenedorGuardarAlgoritmo);
+        BotonReiniciarJuegoHandler reiniciarJuegoHandler = new BotonReiniciarJuegoHandler(algoBlocks, vistaAlgoritmo, vistaTablero, contenedorGuardarAlgoritmo);
+        Boton botonReiniciarJuego = new Boton("Reiniciar Juego", IMAGEN_REINICIAR,reiniciarJuegoHandler);
+
+        HBox contenedorBotonesAuxiliar = new HBox(botonEjecutar, botonBorrarAlgoritmo, botonReiniciarJuego);
+        contenedorBotonesAuxiliar.setSpacing(10);
+        contenedorBotonesAuxiliar.setPadding(new Insets(15));
+        contenedorBotonesAuxiliar.setAlignment(Pos.CENTER);
+
+        VBox contenedorBotones = new VBox(contenedorBotonesAuxiliar, contenedorGuardarAlgoritmoAuxiliar, contenedorGuardarAlgoritmo);
         contenedorBotones.setSpacing(10);
         contenedorBotones.setPadding(new Insets(15));
         contenedorBotones.setAlignment(Pos.CENTER);

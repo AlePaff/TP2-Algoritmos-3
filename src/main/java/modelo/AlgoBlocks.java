@@ -15,6 +15,7 @@ public class AlgoBlocks {
     private final Tablero tablero;
     private Personaje personaje;
     private final ArrayList<Bloque> algoritmo = new ArrayList<>();
+    private final ArrayList<BloquePersonalizado> algoritmosGuardados = new ArrayList<>();
     private static Posicion posicionInicial;
     private static final int BASE_MAPA = 100;
     private static final int ALTURA_MAPA = 100;
@@ -76,12 +77,23 @@ public class AlgoBlocks {
     public void reiniciarJuego(){
         reiniciarTablero();
         reiniciarAlgoritmo();
+        algoritmosGuardados.clear();
     }
 
     public BloquePersonalizado guardarAlgoritmo(String nombre) {
         BloquePersonalizado bloque = new BloquePersonalizado();
         bloque.setNombre(nombre);
         bloque.agregarAlgoritmo(this.algoritmo);
+        algoritmosGuardados.add(bloque);
         return bloque;
+    }
+
+    public BloquePersonalizado getAlgoritmoGuardado(String nombre){
+        BloquePersonalizado algoritmo = null;
+        for (BloquePersonalizado bloque : algoritmosGuardados){
+            if (bloque.getNombre().equals(nombre));
+                algoritmo = bloque;
+        }
+        return algoritmo;
     }
 }

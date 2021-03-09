@@ -6,15 +6,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modelo.AlgoBlocks;
-import modelo.bloques.Bloque;
-import modelo.bloques.Conjunto;
+import modelo.bloques.*;
 
 import java.io.InputStream;
 
 
 public class VistaAlgoritmo {
 
-    private static final String IMAGEN_TERMINAR = "file:src/main/java/vista/imagenes/terminar.png";
+    private static final String RUTA_IMAGENES = "file:src/main/java/vista/imagenes/";
+    private static final String EXTENSION = ".png";
     private final AlgoBlocks algoBlocks;
     private final VBox contenedor;
 
@@ -27,7 +27,7 @@ public class VistaAlgoritmo {
     public void mostrarBloques() {
         this.clean();
         for (Bloque bloque: this.algoBlocks.getAlgoritmo()) {
-            if (bloque.getNombre().equals("repetir2")  || bloque.getNombre().equals("repetir3") || bloque.getNombre().equals("invertir") || bloque.getNombre().equals("guardar"))
+            if (bloque.getNombre().equals(new Repeticion(2).getNombre())  || bloque.getNombre().equals(new Repeticion(3).getNombre()) || bloque.getNombre().equals(new InvertirComportamiento().getNombre()) || bloque.getNombre().equals(new BloquePersonalizado().getNombre()))
                 mostrarImagenConjunto((Conjunto) bloque);
             else
                 mostrarImagen(bloque);
@@ -35,15 +35,14 @@ public class VistaAlgoritmo {
     }
 
     public void mostrarImagen(Bloque bloque){
-        Image image = new Image("file:src/main/java/vista/imagenes/" + bloque.getNombre() + ".png", 40, 40, false, false);
+        Image image = new Image(RUTA_IMAGENES + bloque.getNombre() + EXTENSION, 40, 40, false, false);
         this.contenedor.getChildren().add(new ImageView(image));
     }
 
     public void mostrarImagenConjunto(Conjunto conjunto){
         mostrarImagen(conjunto);
-        for(int i = 0; i < conjunto.tamanio(); i++){
-            Image image = new Image("file:src/main/java/vista/imagenes/" + conjunto.getBloques().get(i).getNombre() + ".png", 40, 40, false, false);
-            this.contenedor.getChildren().add(new ImageView(image));
+        for (int i = 0; i < conjunto.tamanio(); i++){
+            mostrarImagen(conjunto.getBloques().get(i));
         }
     }
 

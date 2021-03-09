@@ -25,10 +25,10 @@ public class BotonGuardarAlgoritmoHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         String nombre = this.campoNombreAlgoritmo.getText();
-        BloquePersonalizado bloquePersonalizado = this.algoBlocks.guardarAlgoritmo(nombre);
+        this.algoBlocks.guardarAlgoritmo(nombre);
 
         Button botonBloquePersonalizado = new Button(nombre);
-        BotonBloquePersonalizadoHandler algoritmoPersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo, bloquePersonalizado);
+        BotonBloquePersonalizadoHandler algoritmoPersonalizadoHandler = new BotonBloquePersonalizadoHandler(algoBlocks, vistaAlgoritmo, nombre);
         botonBloquePersonalizado.setOnAction(algoritmoPersonalizadoHandler);
 
         contenedor.getChildren().add(botonBloquePersonalizado);
