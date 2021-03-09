@@ -3,6 +3,8 @@ package vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
+import modelo.bloques.BloquePersonalizado;
 import vista.VistaAlgoritmo;
 import vista.VistaTablero;
 
@@ -12,12 +14,11 @@ public class BotonReiniciarJuegoHandler extends BotonBloqueHandler {
     private final VistaTablero vistaTablero;
 
     public BotonReiniciarJuegoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, VistaTablero vistaTablero) {
-        super(algoBlocks);
+        super(algoBlocks, vistaAlgoritmo);
         this.algoBlocks = algoBlocks;
         this.vistaAlgoritmo = vistaAlgoritmo;
         this.vistaTablero = vistaTablero;
     }
-
 
     @Override
     public void handle(ActionEvent actionEvent) {
@@ -26,4 +27,10 @@ public class BotonReiniciarJuegoHandler extends BotonBloqueHandler {
         this.vistaTablero.update();
         this.vistaAlgoritmo.update();
     }
+
+    @Override
+    public Bloque crearBloque(){
+        return new BloquePersonalizado();
+    }
+
 }

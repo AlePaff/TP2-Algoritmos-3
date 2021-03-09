@@ -3,22 +3,19 @@ package vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
 import modelo.bloques.MoverDerecha;
+import modelo.bloques.SubirLapiz;
 import vista.VistaAlgoritmo;
 
 public class BotonMoverDerechaHandler extends BotonBloqueHandler {
-    private VistaAlgoritmo vistaAlgoritmo;
 
-
-    public BotonMoverDerechaHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        super(algoBlocks);
-        this.vistaAlgoritmo = vistaAlgoritmo;
+    public BotonMoverDerechaHandler(AlgoBlocks algoblocks, VistaAlgoritmo vistaAlgoritmo) {
+        super(algoblocks, vistaAlgoritmo);
     }
 
     @Override
-    public void handle(ActionEvent actionEvent){
-        MoverDerecha bloque = new MoverDerecha();
-        estrategia.agregarADestino(bloque);
-        this.vistaAlgoritmo.update();
+    public Bloque crearBloque(){
+        return new MoverDerecha();
     }
 }

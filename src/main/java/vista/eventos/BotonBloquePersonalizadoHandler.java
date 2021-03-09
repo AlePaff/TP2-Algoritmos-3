@@ -6,20 +6,20 @@ import modelo.AlgoBlocks;
 import modelo.bloques.BloquePersonalizado;
 import vista.VistaAlgoritmo;
 
-public class BotonBloquePersonalizadoHandler extends BotonBloqueHandler {
+public class BotonBloquePersonalizadoHandler implements EventHandler<ActionEvent> {
+    private final AlgoBlocks algoBlocks;
     private final VistaAlgoritmo vistaAlgoritmo;
     private final BloquePersonalizado bloque;
 
     public BotonBloquePersonalizadoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo, BloquePersonalizado bloque){
-        super(algoBlocks);
+        this.algoBlocks = algoBlocks;
         this.vistaAlgoritmo = vistaAlgoritmo;
         this.bloque = bloque;
     }
 
     @Override
     public void handle(ActionEvent actionEvent){
-        estrategia.agregarADestino(bloque);
-        //this.algoBlocks.agregarNombreBloque(bloque);
+        this.algoBlocks.agregarBloque(bloque);
         this.vistaAlgoritmo.update();
     }
 

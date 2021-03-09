@@ -4,6 +4,9 @@ package vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
+import modelo.bloques.Conjunto;
+import modelo.bloques.InvertirComportamiento;
 import modelo.bloques.Repeticion;
 import vista.VistaAlgoritmo;
 
@@ -13,7 +16,7 @@ public class BotonRepetirMovimientoHandler extends BotonBloqueHandler {
 
 
     public BotonRepetirMovimientoHandler(AlgoBlocks algoBlocks, int cantRepeticiones, VistaAlgoritmo vistaAlgoritmo){
-        super(algoBlocks);
+        super(algoBlocks, vistaAlgoritmo);
         this.cantRepeticiones = cantRepeticiones;
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
@@ -21,11 +24,16 @@ public class BotonRepetirMovimientoHandler extends BotonBloqueHandler {
 
     @Override
     public void handle(ActionEvent actionEvent){
-        Repeticion bloque = new Repeticion(cantRepeticiones);
+        Conjunto bloque = (Conjunto) crearBloque();
         estrategia.agregarADestino(bloque);
 
         setEstrategia(new EstrategiaHandleConjunto(bloque));
 
         this.vistaAlgoritmo.update();
+    }
+
+    @Override
+    public Bloque crearBloque(){
+        return new Repeticion(cantRepeticiones);
     }
 }

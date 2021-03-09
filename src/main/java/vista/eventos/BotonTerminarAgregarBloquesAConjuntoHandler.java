@@ -2,6 +2,9 @@ package vista.eventos;
 
 import javafx.event.ActionEvent;
 import modelo.AlgoBlocks;
+import modelo.bloques.Bloque;
+import modelo.bloques.BloquePersonalizado;
+import modelo.bloques.SubirLapiz;
 import vista.VistaAlgoritmo;
 
 public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHandler {
@@ -9,7 +12,7 @@ public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHand
     private VistaAlgoritmo vistaAlgoritmo;
 
     public BotonTerminarAgregarBloquesAConjuntoHandler(AlgoBlocks algoBlocks, VistaAlgoritmo vistaAlgoritmo){
-        super(algoBlocks);
+        super(algoBlocks, vistaAlgoritmo);
         this.algoBlocks = algoBlocks;
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
@@ -17,5 +20,10 @@ public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHand
     public void handle(ActionEvent actionEvent) {
         setEstrategia( new EstrategiaHandleAlgoritmo(algoBlocks));
         this.vistaAlgoritmo.update();
+    }
+
+    @Override
+    public Bloque crearBloque(){
+        return new BloquePersonalizado();
     }
 }
