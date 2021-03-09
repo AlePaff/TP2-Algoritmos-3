@@ -21,5 +21,6 @@ public class BotonSubirLapizHandler implements EventHandler<ActionEvent> {
         SubirLapiz bloque = new SubirLapiz();
         bloque.setNombre("lapizArriba");
         this.algoBlocks.agregarBloque(bloque);
+        this.vistaAlgoritmo.update();
     }
 }
