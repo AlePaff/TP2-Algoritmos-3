@@ -14,7 +14,7 @@ import vista.eventos.*;
 
 public class BotoneraBloques extends VBox{
     public final Image IMAGEN_SUBIR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
-    public Image IMAGEN_TERMINAR = new Image("file:src/main/java/vista/imagenes/lapizArriba.png",20,20,false,false);
+    public Image IMAGEN_TERMINAR = new Image("file:src/main/java/vista/imagenes/terminar.png",20,20,false,false);
     public Image IMAGEN_BAJAR_LAPIZ = new Image("file:src/main/java/vista/imagenes/lapizAbajo.png",20,20,false,false);
     public Image IMAGEN_DERECHA = new Image("file:src/main/java/vista/imagenes/derecha.png",20,20,false,false);
     public Image IMAGEN_IZQUIERDA = new Image("file:src/main/java/vista/imagenes/izquierda.png",20,20,false,false);
@@ -79,10 +79,10 @@ public class BotoneraBloques extends VBox{
         Label etiquetaRepeticiones = new Label("Repetir Movimiento:");
 
         BotonRepetirMovimientoHandler repetirMovimientoDosVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 2, vistaAlgoritmo);
-        Boton botonRepetirMovimientoDosVeces = new Boton("Dos Veces", IMAGEN_REPETIR, repetirMovimientoDosVecesHandler);
+        Boton botonRepetirMovimientoDosVeces = new Boton("Repetir Dos Veces", IMAGEN_REPETIR, repetirMovimientoDosVecesHandler);
 
         BotonRepetirMovimientoHandler repetirMovimientoTresVecesHandler = new BotonRepetirMovimientoHandler(algoBlocks, 3, vistaAlgoritmo);
-        Boton botonRepetirMovimientoTresVeces = new Boton("Tres Veces", IMAGEN_REPETIR, repetirMovimientoTresVecesHandler);
+        Boton botonRepetirMovimientoTresVeces = new Boton("Repetir Tres Veces", IMAGEN_REPETIR, repetirMovimientoTresVecesHandler);
 
         HBox contenedorRepeticiones = new HBox(botonRepetirMovimientoDosVeces, botonRepetirMovimientoTresVeces);
         contenedorRepeticiones.setSpacing(20);
@@ -96,7 +96,7 @@ public class BotoneraBloques extends VBox{
         BotonTerminarAgregarBloquesAConjuntoHandler terminarAgregarBloquesAConjuntoHandler = new BotonTerminarAgregarBloquesAConjuntoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonTerminarAgregarBloquesAConjunto = new Boton("Terminar", IMAGEN_TERMINAR, terminarAgregarBloquesAConjuntoHandler);
 
-        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, etiquetaRepeticiones, contenedorRepeticiones,botonInvertirComportamiento,etiquetaPunteada,etiquetaLapiz, botonTerminarAgregarBloquesAConjunto);
+        getChildren().addAll(etiquetaBloques,contenedorPosicionLapiz, etiquetaMovimiento, contenedorMovimientos, contenedorRepeticiones,botonInvertirComportamiento, botonTerminarAgregarBloquesAConjunto,etiquetaPunteada,etiquetaLapiz);
         setSpacing(10);
         setPadding(new Insets(5));
         setAlignment(Pos.TOP_CENTER);

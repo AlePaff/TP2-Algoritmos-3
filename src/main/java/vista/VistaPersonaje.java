@@ -10,7 +10,7 @@ public class VistaPersonaje {
     Canvas canvas;
     int relacion_horizontal;
     int relacion_vertical;
-    int TAMANIO = 100;
+    int TAMANIO = 70;
     static final String RUTA_IMAGEN = "file:src/main/java/vista/imagenes/avatar";
     private static final String EXTENSION = ".png";
 
