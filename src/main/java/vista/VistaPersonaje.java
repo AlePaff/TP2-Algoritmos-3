@@ -10,7 +10,7 @@ public class VistaPersonaje {
     Canvas canvas;
     int relacion_horizontal;
     int relacion_vertical;
-    int TAMANIO = 70;
+    int TAMANIO = 50;
     static final String RUTA_IMAGEN = "file:src/main/java/vista/imagenes/avatar";
     private static final String EXTENSION = ".png";
 
@@ -24,7 +24,7 @@ public class VistaPersonaje {
     public void dibujarAvatar(){
         String nombre_imagen = RUTA_IMAGEN + algoBlocks.getNombreEstrategiaLapiz() + EXTENSION;
 
-        Image image = new Image(nombre_imagen, TAMANIO, TAMANIO,false,false);
-        canvas.getGraphicsContext2D().drawImage(image,algoBlocks.getPosicionDelPersonaje().getPosX() * relacion_horizontal,algoBlocks.getPosicionDelPersonaje().getPosY() * relacion_vertical );
+        Image image = new Image(nombre_imagen, TAMANIO, TAMANIO,true,true);
+        canvas.getGraphicsContext2D().drawImage(image,algoBlocks.getPosicionDelPersonaje().getPosX() * relacion_horizontal,algoBlocks.getPosicionDelPersonaje().getPosY() * relacion_vertical);
     }
 }
