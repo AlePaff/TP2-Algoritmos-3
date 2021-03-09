@@ -40,11 +40,13 @@ public class VistaAlgoritmo {
     }
 
     public void mostrarImagenConjunto(Conjunto conjunto){
+        mostrarImagen(conjunto);
         for(int i = 0; i < conjunto.tamanio(); i++){
             Image image = new Image("file:src/main/java/vista/imagenes/" + conjunto.getBloques().get(i).getNombre() + ".png", 40, 40, false, false);
             this.contenedor.getChildren().add(new ImageView(image));
         }
     }
+
 
     public void clean(){
         this.contenedor.getChildren().clear();
