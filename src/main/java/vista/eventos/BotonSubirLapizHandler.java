@@ -20,6 +20,7 @@ public class BotonSubirLapizHandler extends BotonBloqueHandler {
         SubirLapiz bloque = new SubirLapiz();
         bloque.setNombre("lapizArriba");
         estrategia.agregarADestino(bloque);
+        this.vistaAlgoritmo.update();
     }
 }
 

@@ -19,4 +19,7 @@ public class Lapiz {
         this.estrategia.dibujar(tablero, posicion);
     }
 
+    public String getNombreEstrategia() {
+        return estrategia.getNombre();
+    }
 }

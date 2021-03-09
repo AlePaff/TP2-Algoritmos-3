@@ -42,7 +42,7 @@ public class AlgoBlocks {
     }
 
     public String getNombreEstrategiaLapiz(){
-
+        return personaje.getNombreEstrategiaLapiz();
     }
 
     public ArrayList<Posicion> getPosicionesDibujadas(){

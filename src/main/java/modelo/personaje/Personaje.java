@@ -62,4 +62,7 @@ public class Personaje{
         return this.posicion.esIgualA(posicion);
     }
 
+    public String getNombreEstrategiaLapiz() {
+        return lapiz.getNombreEstrategia();
+    }
 }
