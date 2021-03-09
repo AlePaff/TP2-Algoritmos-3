@@ -17,6 +17,11 @@ public class BotonInvertirComportamientoHandler extends BotonBloqueHandler {
         this.vistaAlgoritmo = vistaAlgoritmo;
     }
 
+  //  public void mostrarBloques(){
+    //    Conjunto bloque = (Conjunto) crearBloque();
+      //  vistaAlgoritmo.mostrarImagen(bloque);
+    //}
+
     @Override
     public void handle(ActionEvent actionEvent) {
         Conjunto bloque = (Conjunto) crearBloque();

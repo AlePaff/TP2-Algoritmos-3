@@ -16,6 +16,6 @@ public class BotonBajarLapizHandler extends BotonBloqueHandler {
 
     @Override
     public Bloque crearBloque(){
-        return new SubirLapiz();
+        return new BajarLapiz();
     }
 }

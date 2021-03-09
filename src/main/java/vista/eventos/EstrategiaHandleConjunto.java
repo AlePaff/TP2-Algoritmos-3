@@ -4,7 +4,7 @@ import modelo.bloques.Bloque;
 import modelo.bloques.Conjunto;
 
 public class EstrategiaHandleConjunto implements EstrategiaHandle {
-    private Conjunto bloqueConjunto;
+    private final Conjunto bloqueConjunto;
 
     public EstrategiaHandleConjunto(Conjunto bloque){
         bloqueConjunto = bloque;
@@ -14,4 +14,5 @@ public class EstrategiaHandleConjunto implements EstrategiaHandle {
     public void agregarADestino(Bloque bloque) {
         bloqueConjunto.agregarBloque(bloque);
     }
+
 }

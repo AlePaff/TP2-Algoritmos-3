@@ -91,6 +91,7 @@ public class BotoneraBloques extends VBox{
 
         BotonInvertirComportamientoHandler invertirComportamientoHandler = new BotonInvertirComportamientoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonInvertirComportamiento = new Boton("Invertir Comportamiento", IMAGEN_INVERTIR, invertirComportamientoHandler);
+        //invertirComportamientoHandler.mostrarBloques();
 
         BotonTerminarAgregarBloquesAConjuntoHandler terminarAgregarBloquesAConjuntoHandler = new BotonTerminarAgregarBloquesAConjuntoHandler(algoBlocks, vistaAlgoritmo);
         Boton botonTerminarAgregarBloquesAConjunto = new Boton("Terminar", IMAGEN_TERMINAR, terminarAgregarBloquesAConjuntoHandler);
