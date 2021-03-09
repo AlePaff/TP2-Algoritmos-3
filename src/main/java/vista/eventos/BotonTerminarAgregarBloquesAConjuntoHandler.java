@@ -19,7 +19,6 @@ public class BotonTerminarAgregarBloquesAConjuntoHandler extends BotonBloqueHand
     public void handle(ActionEvent actionEvent) {
         setEstrategia( new EstrategiaHandleAlgoritmo(algoBlocks));
         this.vistaAlgoritmo.update();
-        this.vistaAlgoritmo.mostrarFinDeCiclo();
     }
 
     @Override

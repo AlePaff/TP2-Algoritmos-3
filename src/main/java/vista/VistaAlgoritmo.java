@@ -27,18 +27,19 @@ public class VistaAlgoritmo {
     public void mostrarBloques() {
         this.clean();
         for (Bloque bloque: this.algoBlocks.getAlgoritmo()) {
-            Image image = new Image("file:src/main/java/vista/imagenes/" + bloque.getNombre() + ".png", 40, 40, false, false);
-            this.contenedor.getChildren().add(new ImageView(image));
+            if (bloque.getNombre() == "repetir" || bloque.getNombre() == "invertir")
+                mostrarImagenConjunto((Conjunto) bloque);
+            else
+                mostrarImagen(bloque);
         }
     }
 
-    public void mostrarFinDeCiclo(){
-        //Label etiquetaFin = new Label("Fin de la eleccion de bloques" + "\n" + "para invertir su comportamiento");
-        Image image = new Image(IMAGEN_TERMINAR, 40,40, false, false);
+    public void mostrarImagen(Bloque bloque){
+        Image image = new Image("file:src/main/java/vista/imagenes/" + bloque.getNombre() + ".png", 40, 40, false, false);
         this.contenedor.getChildren().add(new ImageView(image));
     }
 
-    public void mostrarImagen(Conjunto conjunto){
+    public void mostrarImagenConjunto(Conjunto conjunto){
         for(int i = 0; i < conjunto.tamanio(); i++){
             Image image = new Image("file:src/main/java/vista/imagenes/" + conjunto.getBloques().get(i).getNombre() + ".png", 40, 40, false, false);
             this.contenedor.getChildren().add(new ImageView(image));

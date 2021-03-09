@@ -20,8 +20,4 @@ public abstract class Conjunto implements Bloque {
         return bloques.size();
     }
 
-    public abstract void ejecutar(Personaje personaje, Tablero tablero);
-
-    public abstract void ejecutarInvertido(Personaje personaje, Tablero tablero);
-
 }
