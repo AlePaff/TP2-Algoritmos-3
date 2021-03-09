@@ -27,7 +27,7 @@ public class VistaAlgoritmo {
     public void mostrarBloques() {
         this.clean();
         for (Bloque bloque: this.algoBlocks.getAlgoritmo()) {
-            if (bloque.getNombre() == "repetir" || bloque.getNombre() == "invertir")
+            if (bloque.getNombre().equals("repetir2")  || bloque.getNombre().equals("repetir3") || bloque.getNombre().equals("invertir") || bloque.getNombre().equals("guardar"))
                 mostrarImagenConjunto((Conjunto) bloque);
             else
                 mostrarImagen(bloque);

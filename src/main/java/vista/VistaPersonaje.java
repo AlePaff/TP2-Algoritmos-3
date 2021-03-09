@@ -25,6 +25,6 @@ public class VistaPersonaje {
         String nombre_imagen = RUTA_IMAGEN + algoBlocks.getNombreEstrategiaLapiz() + EXTENSION;
 
         Image image = new Image(nombre_imagen, TAMANIO, TAMANIO,true,true);
-        canvas.getGraphicsContext2D().drawImage(image,algoBlocks.getPosicionDelPersonaje().getPosX() * relacion_horizontal,algoBlocks.getPosicionDelPersonaje().getPosY() * relacion_vertical);
+        canvas.getGraphicsContext2D().drawImage(image,algoBlocks.getPosicionDelPersonaje().getPosX() * relacion_horizontal - 18,algoBlocks.getPosicionDelPersonaje().getPosY() * relacion_vertical - 18);
     }
 }
